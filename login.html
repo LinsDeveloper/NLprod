@@ -30,7 +30,7 @@
 
                 
                 
-                <form action="" class="formulario">
+                <form action="/login" method="POST" class="formulario">
                     <div class="logologin">
                         <img src="/imagensnever/logoneverloss.png" alt="">
                     </div>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="userlogin">
                         <div class="subuser">
-                            <input id="username" type="text" title="Digite seu e-mail" placeholder="Digite seu e-mail">
+                            <input id="username" type="text" title="Digite seu e-mail" placeholder="Digite seu e-mail" name="login">
                         </div>
                     </div>
                     <div class="labelpassword">
@@ -50,7 +50,7 @@
                     </div>
                     <div class="userpassword">
                         
-                        <input id="inputpassword" type="password" title="Digite sua senha" placeholder="Digite sua senha">
+                        <input id="inputpassword" type="password" title="Digite sua senha" placeholder="Digite sua senha" name="password">
                         <span><ion-icon id="iconpassword" name="eye-outline" onclick="mostrar()"></ion-icon></span>
                     </div>
                     <div class="btnlogin">
