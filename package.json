@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node RestAPI/api.js",
-    "dev": "nodemon RestAPI/api.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
