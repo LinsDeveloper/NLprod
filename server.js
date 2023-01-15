@@ -7,6 +7,7 @@ var express = require('express');
 const session = require('express-session');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+
 var port = process.env.PORT;
 
 //inicia o server
@@ -20,6 +21,7 @@ app.use(express.static('public'));   //define os arquivos estáticos para ler ht
 
 app.use(bodyParser.urlencoded({extended: true}));  //Ao chamar método post, permite pegar elementos do body
 
+app.use(express.json());
 
 
 app.get("/", function(req, res){
@@ -27,25 +29,33 @@ app.get("/", function(req, res){
 })
 
 
-
-
-//Inicio das routes
-
-
-
-
-app.post('/login',(req, res)=>{
-    let usuario = req.body.usuario;
-    let password = req.body.password;
-    console.log(usuario+''+password);
+app.get("/Home", function(req, res){
+    res.sendFile(__dirname + "/public/inicial.html")  //Define a rota inicial começando pelo login
 })
 
-
+//Inicio das routes
 
 
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/api', router); //Rota Principal
+
+
+
+app.post('/login',(req, res) =>{
+
+    
+   WS.ConsultaLogin(req.body.username, req.body.password).then(response => {
+    dados = res.send(JSON.parse(response));
+    console.log(dados);
+   }).catch(console.error())
+   
+   
+
+
+});
+
+
 
 
 router.route('/Usuarios').get((request, response) => {

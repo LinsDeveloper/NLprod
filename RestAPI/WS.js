@@ -1,4 +1,6 @@
 var config = require('./dbconfig');
+const server = require('../server');
+
 
 
 
@@ -9,9 +11,9 @@ async function BuscaUsuarios(){
     {
     replacements:
     {
-        id: 104,
-        Nome: 'Leandro',
-        NomeDaMae: 'Claudia'
+        id: 106,
+        Nome: 'layer',
+        NomeDaMae: 'lipo'
         },
         type: config.QueryTypes.EXEC
     }).then(function(result){
@@ -19,7 +21,7 @@ async function BuscaUsuarios(){
     {
         var dados = result[0];
         var result = dados[0];
-        return console.log(result.usuarios);
+        console.log(result.usuarios);
         
     }}).catch(function(err){console.log(err)});
 
@@ -33,7 +35,42 @@ async function BuscaUsuarios(){
 
 
 
+async function ConsultaLogin(username, password){
+
+    try{
+        const records = await config.query('EXEC ProcLogin @metodo=:Metodo, @email=:Email, @password=:Password',
+    {
+    replacements:
+    {
+        Metodo: 'ConsultaLogin',
+        Email: `${username}`,
+        Password: `${password}`
+        },
+        type: config.QueryTypes.EXEC
+    })
+
+
+    dado = JSON.stringify(records[0])
+    return dado;
+
+    
+    } catch(error){
+        console.log(error);
+    }
+
+   
+    
+
+
+}
+
+
+
+
+
+
 
 module.exports = {
-    BuscaUsuarios : BuscaUsuarios
+    BuscaUsuarios : BuscaUsuarios,
+    ConsultaLogin : ConsultaLogin
 }
