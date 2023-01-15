@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEVER LOSS</title>
+    <link rel="stylesheet" href="neverloss.css">
+    <script src="neverloss.js" defer> </script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+     
+  </head>
+
+  <body>
+
+    
+    <button id=open-modal>ABRIR MODAL</button>
+    <div id="fade" class="hide"></div>
+    <div id="modal" class="hide">
+      <div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle">
+            
+            <span id="resumo" class="ui-dialog-title">Resumo</span>
+            <button id="save" class="icon-save"><a href="#"><img id="saveicon" src="imagensnever/saveicon.svg"></a></button>
+            <button id="closed" type="button" ><a href="#"><img id="imagclose" src="imagensnever/closedmodal.svg" alt="fechar"></a></button>
+        </div>
+        <div class="content">
+
+          <div class="content-row">
+            <div class="summary-toolbox">
+              <button onclick="esconderplay()" title="Run the bot" id="summaryRunButton" class="toolbox-button icon-run"><a href="#"><img onclick="esconderplay()" id="iconplay" src="imagensnever/playicon.svg"></a></button>
+              <button onclick="showplay()" hidden title="Parar o robô" id="summaryStopButton" class="toolbox-button icon-stop"><a href="#"><img onclick="showplay()" id="iconstop" src="imagensnever/stopicon.svg"></a></button>
+              <button title="Clear summary log" id="summaryClearButton" class="toolbox-button icon-clear"><a href="#"><img id="icontrash" src="imagensnever/icontrash.svg"></a></button>
+            </div>
+          </div>
+
+          <div class="content-row">
+            <div>
+              <div id="current-trade-status">
+                <span class="stage">
+                  <div class="stage-label">Tentando Comprar</div>
+                  <span class="circle-wrapper">
+                    <span class="static-circle"></span>
+                    <span class="dynamic-circle"></span>
+                    <div class="line">
+                      <div class="progress-bar"></div>
+                    </div>
+                </span>
+                <div class="stage-tooltip bottom">
+                  <div class="triangle"></div>
+                  <p></p> <!--Esse <p> é onde aparece os valores-->
+                </div>
+              </span>
+              <span class="stage">
+                <div class="stage-tooltip top active">
+                  <p>O robô parou</p>
+                </div>
+                <div class="stage-label">Compra bem-sucedida</div>
+                <span class="circle-wrapper">
+                  <span class="static-circle"></span>
+                  <span class="dynamic-circle"></span>
+                </span>
+                <div class="stage-tooltip bottom"></div>
+                  <div class="triangle">
+                  <p></p> <!--Aqui aparece o ID-->
+                  </div>
+              </span>
+              <span class="stage">
+                <div class="stage-label">Contrato Fechado</div>
+                <span class="circle-wrapper">
+                  <span class="static-circle"></span>
+                  <span class="dynamic-circle"></span>
+                </span>
+                <div class="stage-tooltip bottom">
+                  <div class="triangle"></div>
+                  <p></p> <!--Aqui aparece o ID novamente-->
+                </div>
+              </span> 
+              </div>
+            </div>
+          </div>
+
+          <div class="content-row">
+            <div>
+              <div class="react-grid-Container" style="width: 752px;">
+                <div class="react-grid-Main">
+                  <div class="react-grid-Grid">
+                    <div class="react-grid-Grid" style="overflow: hidden; outline: 0px; position: relative; min-height: 290px;">
+                      <div height="25" class="react-grid-Header" style="position: relative; height: 25px;">
+                        <div width="766" height="25" class="react-grid-HeaderRow" style="position: absolute; top: 0px; left: 0px; width: 735px; overflow-x: hidden; min-height: auto;">
+                          <div style="width: 783px; height: 25px; white-space: nowrap; overflow: hidden;">
+                            <div class="react-grid-HeaderCell" style="width: 182px; left: 0px; display: inline-block; position: absolute; height: 25px; margin: 0px; text-overflow: ellipsis; white-space: nowrap; transform: none;">
+                              <div class="widget-HeaderCell__value">Carimbo de data/hora</div>
+                              <div class="react-grid-HeaderCell__draggable" style="position: absolute; top: 0px; right: 0px; width: 6px; height: 100%;"></div>
+                            </div>
+                            <div class="react-grid-HeaderCell" style="width: 100px; left: 150px; display: inline-block; position: absolute; height: 25px; margin: 0px; text-overflow: ellipsis; white-space: nowrap; transform: none;">
+                              <div class="widget-HeaderCell__value">Referência</div>
+                              <div class="react-grid-HeaderCell__draggable" style="position: absolute; top: 0px; right: 0px; width: 6px; height: 100%;"></div>
+                            </div>
+                            <div class="react-grid-HeaderCell" style="width: 70px; left: 282px; display: inline-block; position: absolute; height: 25px; margin: 0px; text-overflow: ellipsis; white-space: nowrap; transform: none;">
+                              <div class="widget-HeaderCell__value">Tipo de negociação</div>
+                              <div class="react-grid-HeaderCell__draggable" style="position: absolute; top: 0px; right: 0px; width: 6px; height: 100%;"></div>
+                            </div>
+                            <div class="react-grid-HeaderCell" style="width: 82px; left: 352px; display: inline-block; position: absolute; height: 25px; margin: 0px; text-overflow: ellipsis; white-space: nowrap; transform: none;">
+                              <div class="widget-HeaderCell__value">Preço de entrada</div>
+                              <div class="react-grid-HeaderCell__draggable" style="position: absolute; top: 0px; right: 0px; width: 6px; height: 100%;"></div>
+                            </div>
+                            <div class="react-grid-HeaderCell" style="width: 82px; left: 434px; display: inline-block; position: absolute; height: 25px; margin: 0px; text-overflow: ellipsis; white-space: nowrap; transform: none;">
+                              <div class="widget-HeaderCell__value">Preço de saída</div>
+                              <div class="react-grid-HeaderCell__draggable" style="position: absolute; top: 0px; right: 0px; width: 6px; height: 100%;"></div>
+                            </div>
+                            <div class="react-grid-HeaderCell" style="width: 80px; left: 516px; display: inline-block; position: absolute; height: 25px; margin: 0px; text-overflow: ellipsis; white-space: nowrap; transform: none;">
+                              <div class="widget-HeaderCell__value">Preço de compra</div>
+                              <div class="react-grid-HeaderCell__draggable" style="position: absolute; top: 0px; right: 0px; width: 6px; height: 100%;"></div>
+                            </div>
+                            <div class="react-grid-HeaderCell" style="width: 80px; left: 596px; display: inline-block; position: absolute; height: 25px; margin: 0px; text-overflow: ellipsis; white-space: nowrap; transform: none;">
+                              <div class="widget-HeaderCell__value">Lucro/Perda</div>
+                              <div class="react-grid-HeaderCell__draggable" style="position: absolute; top: 0px; right: 0px; width: 6px; height: 100%;"></div>
+                            </div>
+                            <div class="react-grid-HeaderCell" style="width: 90px; left: 676px; display: inline-block; position: absolute; height: 25px; margin: 0px; text-overflow: ellipsis; white-space: nowrap; transform: none;">
+                              <div class="widget-HeaderCell__value">Status</div>
+                              <div class="react-grid-HeaderCell__draggable" style="position: absolute; top: 0px; right: 0px; width: 6px; height: 100%;"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div tabindex="-1">
+                        <div class="react-grid-Viewport" style="padding: 0px; inset: 25px 0px 0px; overflow: hidden; position: absolute;">
+                          <div class="react-grid-Canvas" style="position: absolute; top: 0px; left: 0px; overflow: auto scroll; width: 752px; height: 263px;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content-row"></div>
+
+
+        </div>
+
+           
+              
+              
+        </div>
+
+
+        
+
+
+    </div>
+
+   
+
+
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
+
+  </body> 
+
+
+
+<script>
+
+  function esconderplay(){
+
+    $('#summaryRunButton').hide()
+    $('#summaryStopButton').show()
+
+  }
+
+  function showplay(){
+    $('#summaryStopButton').hide()
+    $('#summaryRunButton').show()
+
+    
+  }
+
+  function escondermodal(){
+    $('#closed').hide()
+  }
+
+
+</script>
+  
+
+</html>

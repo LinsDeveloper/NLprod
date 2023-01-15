@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+  
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bots | Plataforma de Operações</title>
+    <link rel="shortcut icon" href="imagensnever/logoneverloss.png">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="/node_modules/bootstrap/scss/bootstrap.scss">
+    
+
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="bots.css">
+
+    
+    
+</head>
+<body class="bg">
+
+
+    <main class="main-g">
+
+    <!----======== MENU ======== -->
+
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="imagensnever/logoneverloss.png" alt="Logo">
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">NEVER LOSS</span>
+                    <span class="profession">Operações<br>Automatizadas</span>
+                </div>
+            </div>
+            <i class="toggle"></i>
+        </header>
+
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="./inicial.html">
+                            <ion-icon name="home-outline" class="icon"></ion-icon>
+                            <span class="text nav-text">Home</span>
+                        </a>
+                        
+                    </li>
+                            
+
+                    <li class="nav-link">
+                        <a href="./bots.html">
+                            <ion-icon name="rocket-outline" class="icon"></ion-icon>
+                            <span class="text nav-text">Bots</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="./treinamentos.html">
+                            <ion-icon name="pie-chart-outline" class="icon"></ion-icon>
+                            <span class="text nav-text">Treinamentos</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="./gerenciamento.html">
+                            <ion-icon name="bar-chart-outline" class="icon"></ion-icon>
+                            <span class="text nav-text">Gerenciamento</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <ion-icon name="information-circle-outline" class="icon"></ion-icon>
+                            <span class="text nav-text">Informações</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <ion-icon name="mail-open-outline" class="icon"></ion-icon>
+                            <span class="text nav-text">Avisos</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="#">
+                        <ion-icon name="log-out" class="icon"></ion-icon>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+                
+            </div>
+        </div>
+
+    </nav>
+
+
+    
+    
+
+
+
+    <div class="divmain">
+
+
+        <nav class="menuperfil">
+
+
+            <div class="titlenav"><h2>Bots</h2></div>
+             
+             
+             
+             <div class="sub-menu-wrap" id="subMenu">
+                 <div class="sub-menu">
+                     <div class="user-info">
+                         <img src="/imagensnever/blazeimag.jpg">
+                         <h2>Victor Ribeiro</h2>
+                     </div>
+                     <hr>
+     
+                     <a href="#" class="sub-menu-link">
+                         <img src="/imagensnever/blazeimag.jpg">
+                         <p>Editar Perfil</p>
+                         <span>></span>
+                     </a>
+     
+                     <a href="#" class="sub-menu-link">
+                         <img src="/imagensnever/blazeimag.jpg">
+                         <p>Config.</p>
+                         <span>></span>
+                     </a>
+     
+                     <a href="#" class="sub-menu-link">
+                         <img src="/imagensnever/blazeimag.jpg">
+                         <p>Suporte</p>
+                         <span>></span>
+                     </a>
+     
+                     <a href="#" class="sub-menu-link">
+                         <img src="/imagensnever/blazeimag.jpg">
+                         <p>Logout</p>
+                         <span>></span>
+                     </a>
+                 </div>
+             </div>
+     
+             
+             <img src="/imagensnever/blazeimag.jpg" class="user-pic" onclick="abrirMenuPerfil()">
+     
+        
+         </nav>
+        
+
+
+         <hr style="position: relative; top: 10px;">
+
+         <div class="div-centerbody">
+            
+      
+            <div class="wrapper">
+            <figure class="card">
+                <img src="./imagensnever/teste.jpg" alt="house">
+            
+    
+    
+            <figcaption>
+                <br>
+                <h2 id="titlecard">ROBÔ - CORAL</h2>
+                
+            </figcaption>
+            <button class="det-btn" onclick="viewDetalhe()">Acessar</button>
+        </figure>
+    
+        <div id="cardDetalhes" class="card-details">
+            <h2 class="card__type">Plano Blaze</h2>
+            <p class="card__price"><sup>R$</sup>599,97<sub>/Ano</sub></p>
+            <div class="card__feactures">
+                <p class="freacture">Robô</p>
+                <p class="freacture">Sinais Telegram</p>
+                <p class="freacture">Gerenciamento</p>
+                <p class="freacture">Suporte</p>
+            </div>
+            <button class="buy-btn">Comprar</button>
+        </div>
+    
+        </div>
+
+
+
+        <div class="wrapper">
+            <figure class="card">
+                <img src="./imagensnever/teste.jpg" alt="house">
+            
+    
+    
+            <figcaption>
+                <br>
+                <h2 id="titlecard">ROBÔ - DIAMANTE</h2>
+                
+            </figcaption>
+            <button class="det-btn" onclick="viewDetalhe()">Acessar</button>
+        </figure>
+    
+        <div id="cardDetalhes" class="card-details">
+            <h2 class="card__type">Plano Blaze</h2>
+            <p class="card__price"><sup>R$</sup>599,97<sub>/Ano</sub></p>
+            <div class="card__feactures">
+                <p class="freacture">Robô</p>
+                <p class="freacture">Sinais Telegram</p>
+                <p class="freacture">Gerenciamento</p>
+                <p class="freacture">Suporte</p>
+            </div>
+            <button class="buy-btn">Comprar</button>
+        </div>
+    
+        </div>
+
+
+
+
+        <div class="wrapper">
+            <figure class="card">
+                <img src="./imagensnever/teste.jpg" alt="house">
+            
+    
+    
+            <figcaption>
+                <br>
+                <h2 id="titlecard">ROBÔ - SAFIRA</h2>
+                
+            </figcaption>
+            <button class="det-btn" onclick="viewDetalhe()">Acessar</button>
+        </figure>
+    
+        <div id="cardDetalhes" class="card-details">
+            <h2 class="card__type">Plano Blaze</h2>
+            <p class="card__price"><sup>R$</sup>599,97<sub>/Ano</sub></p>
+            <div class="card__feactures">
+                <p class="freacture">Robô</p>
+                <p class="freacture">Sinais Telegram</p>
+                <p class="freacture">Gerenciamento</p>
+                <p class="freacture">Suporte</p>
+            </div>
+            <button class="buy-btn">Comprar</button>
+        </div>
+    
+        </div>
+
+
+
+        
+
+            <div class="wrapper">
+                <figure class="card">
+                        <img src="./imagensnever/teste.jpg" alt="house">
+
+
+
+                        <figcaption>
+                            <br>
+                            <h2 id="titlecard">ROBÔ - ESMERALDA</h2>
+                        
+                        </figcaption>
+                        <button class="det-btn" onclick="viewDetalhe()">Acessar</button>
+                </figure>
+
+                <div id="cardDetalhes" class="card-details">
+                    <h2 class="card__type">Plano Blaze</h2>
+                    <p class="card__price"><sup>R$</sup>599,97<sub>/Ano</sub></p>
+                    <div class="card__feactures">
+                        <p class="freacture">Robô</p>
+                        <p class="freacture">Sinais Telegram</p>
+                        <p class="freacture">Gerenciamento</p>
+                        <p class="freacture">Suporte</p>
+                    </div>
+                    <button class="buy-btn">Comprar</button>
+                </div>
+
+            </div>
+
+
+            <div class="wrapper">
+                <figure class="card">
+                        <img src="./imagensnever/teste.jpg" alt="house">
+
+
+
+                        <figcaption>
+                            <br>
+                            <h2 id="titlecard">ROBÔ - OURO</h2>
+                        
+                        </figcaption>
+                        <button class="det-btn" onclick="viewDetalhe()">Acessar</button>
+                </figure>
+
+                <div id="cardDetalhes" class="card-details">
+                    <h2 class="card__type">Plano Blaze</h2>
+                    <p class="card__price"><sup>R$</sup>599,97<sub>/Ano</sub></p>
+                    <div class="card__feactures">
+                        <p class="freacture">Robô</p>
+                        <p class="freacture">Sinais Telegram</p>
+                        <p class="freacture">Gerenciamento</p>
+                        <p class="freacture">Suporte</p>
+                    </div>
+                    <button class="buy-btn">Comprar</button>
+                </div>
+
+            </div>
+
+
+            <div class="wrapper">
+                <figure class="card">
+                        <img src="./imagensnever/teste.jpg" alt="house">
+
+
+
+                        <figcaption>
+                            <br>
+                            <h2 id="titlecard">ROBÔ - PRATA</h2>
+                        
+                        </figcaption>
+                        <button class="det-btn" onclick="viewDetalhe()">Acessar</button>
+                </figure>
+
+                <div id="cardDetalhes" class="card-details">
+                    <h2 class="card__type">Plano Blaze</h2>
+                    <p class="card__price"><sup>R$</sup>599,97<sub>/Ano</sub></p>
+                    <div class="card__feactures">
+                        <p class="freacture">Robô</p>
+                        <p class="freacture">Sinais Telegram</p>
+                        <p class="freacture">Gerenciamento</p>
+                        <p class="freacture">Suporte</p>
+                    </div>
+                    <button class="buy-btn">Comprar</button>
+                </div>
+
+            </div>
+
+
+            <div class="wrapper">
+                <figure class="card">
+                        <img src="./imagensnever/blazeimag.jpg" alt="house">
+
+
+
+                        <figcaption>
+                            <br>
+                            <h2 id="titlecard">BLAZE</h2>
+                        
+                        </figcaption>
+                        <button class="det-btn" onclick="viewDetalhe()">Em Breve</button>
+                </figure>
+
+                <div id="cardDetalhes" class="card-details">
+                    <h2 class="card__type">Plano Blaze</h2>
+                    <p class="card__price"><sup>R$</sup>599,97<sub>/Ano</sub></p>
+                    <div class="card__feactures">
+                        <p class="freacture">Robô</p>
+                        <p class="freacture">Sinais Telegram</p>
+                        <p class="freacture">Gerenciamento</p>
+                        <p class="freacture">Suporte</p>
+                    </div>
+                    <button class="buy-btn">Comprar</button>
+                </div>
+
+            </div>
+
+
+            <div class="wrapper">
+                <figure class="card">
+                        <img src="./imagensnever/Bet365.png" alt="house">
+
+
+
+                        <figcaption>
+                            <br>
+                            <h2 id="titlecard">BET365</h2>
+                        
+                        </figcaption>
+                        <button class="det-btn" onclick="viewDetalhe()">Em Breve</button>
+                </figure>
+
+                <div id="cardDetalhes" class="card-details">
+                    <h2 class="card__type">Plano Blaze</h2>
+                    <p class="card__price"><sup>R$</sup>599,97<sub>/Ano</sub></p>
+                    <div class="card__feactures">
+                        <p class="freacture">Robô</p>
+                        <p class="freacture">Sinais Telegram</p>
+                        <p class="freacture">Gerenciamento</p>
+                        <p class="freacture">Suporte</p>
+                    </div>
+                    <button class="buy-btn">Comprar</button>
+                </div>
+
+            </div>
+
+
+    </div>
+
+
+
+    </div>
+    
+   
+    
+</main>
+        
+             
+        
+    
+
+  
+     
+  
+    
+
+
+
+
+
+    
+    
+
+
+
+
+    
+
+
+
+    <script>
+        const body = document.querySelector('body'),
+        sidebar = body.querySelector('.sidebar'),
+        toggle = body.querySelector(".toggle"),
+        searchBtn = body.querySelector(".search-box"),
+        modeSwitch = body.querySelector(".toggle-switch"),
+        modeText = body.querySelector(".mode-text");
+
+
+                toggle.addEventListener("click" , () =>{
+                    sidebar.classList.toggle("close");
+                    
+                })
+
+                
+
+                modeSwitch.addEventListener("click" , () =>{
+                    body.classList.toggle("dark");
+                    
+                    if(body.classList.contains("dark")){
+                        modeText.innerText = "Light mode";
+                    }else{
+                        modeText.innerText = "Dark mode";
+                        
+                    }
+                });
+
+
+
+                function viewDetalhe(){
+                    $('#cardDetalhes').addClass('open');
+                }
+
+
+               
+
+                function abrirMenuPerfil(){
+
+                    $('#subMenu').addClass('open-menu');
+
+                }
+
+                
+               
+
+        
+                
+
+    </script>
+
+
+       
+
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="/node_modules/bootstrap/js/src"></script>
+
+</body>
+</html>

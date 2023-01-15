@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+  
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treinamentos | Never Loss</title>
+    <link rel="shortcut icon" href="imagensnever/logoneverloss.png">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="/node_modules/bootstrap/scss/bootstrap.scss">
+    
+
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="gerenciamento.css">
+
+    
+    
+</head>
+<body class="bg">
+
+
+    
+
+
+
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="imagensnever/logoneverloss.png" alt="Logo">
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">NEVER LOSS</span>
+                    <span class="profession">Operações<br>Automatizadas</span>
+
+                </div>
+            </div>
+
+            <i class="toggle"></i>
+        </header>
+
+
+
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="./inicial.html">
+                            <ion-icon name="home-outline" class="icon"></ion-icon>
+                            <span class="text nav-text">Home</span>
+                        </a>
+                        
+                    </li>
+                            
+
+                    <li class="nav-link">
+                        <a href="./bots.html">
+                            <ion-icon name="rocket-outline" class="icon"></ion-icon>
+                            <span class="text nav-text">Bots</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="./treinamentos.html">
+                            <ion-icon name="pie-chart-outline" class="icon"></ion-icon>
+                            <span class="text nav-text">Treinamentos</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="./gerenciamento.html">
+                            <ion-icon name="bar-chart-outline" class="icon"></ion-icon>
+                            <span class="text nav-text">Gerenciamento</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <ion-icon name="information-circle-outline" class="icon"></ion-icon>
+                            <span class="text nav-text">Informações</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <ion-icon name="mail-open-outline" class="icon"></ion-icon>
+                            <span class="text nav-text">Avisos</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="#">
+                        <ion-icon name="log-out" class="icon"></ion-icon>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+                
+            </div>
+        </div>
+
+    </nav>
+
+
+    
+    
+    
+        
+    <nav class="menuperfil">
+
+
+       <div class="titlenav"><h2>Gerenciamento</h2></div>
+        
+        
+        
+        <div class="sub-menu-wrap" id="subMenu">
+            <div class="sub-menu">
+                <div class="user-info">
+                    <img src="/imagensnever/blazeimag.jpg">
+                    <h2>Victor Ribeiro</h2>
+                </div>
+                <hr>
+
+                <a href="#" class="sub-menu-link">
+                    <img src="/imagensnever/blazeimag.jpg">
+                    <p>Editar Perfil</p>
+                    <span>></span>
+                </a>
+
+                <a href="#" class="sub-menu-link">
+                    <img src="/imagensnever/blazeimag.jpg">
+                    <p>Config.</p>
+                    <span>></span>
+                </a>
+
+                <a href="#" class="sub-menu-link">
+                    <img src="/imagensnever/blazeimag.jpg">
+                    <p>Suporte</p>
+                    <span>></span>
+                </a>
+
+                <a href="#" class="sub-menu-link">
+                    <img src="/imagensnever/blazeimag.jpg">
+                    <p>Logout</p>
+                    <span>></span>
+                </a>
+            </div>
+        </div>
+
+        
+        <img src="/imagensnever/blazeimag.jpg" class="user-pic" onclick="abrirMenuPerfil()">
+
+        
+
+        
+        </nav>
+
+
+        
+        <hr style="position: relative; top: 10px;">
+
+
+        <main>
+        
+
+        <!--CONTEÚDO-->
+
+        <div class="fluidcards">
+
+
+        <div class="rowcolumn1-cards">
+            
+            
+      
+            <div class="card-first">
+            
+                <div class="titlecd">
+                    <span class="titlecard">
+                        <h1>Saldo da Conta<ion-icon name="cash-outline"></ion-icon></h1>
+                    </span>
+                 </div>
+                 <div class="searchCard">
+                    <input id="btn-value" type="number" title="Saldo inicial" placeholder="Saldo">
+                 </div>
+                
+        
+    
+            </div>
+
+           
+        
+
+            <div class="card-first" style="position: relative; left: 25px;">
+
+                
+                <div class="titlecd">
+                    <span class="titlecard">
+                        <h1>Meta de Lucro %</h1>
+                    </span>
+                 </div>
+                 <div class="searchCard">
+                    <input id="btn-value" type="number" title="Meta de Lucro" placeholder="Meta">
+                 </div>
+                
+    
+        
+    
+            </div>
+
+            
+
+            
+
+
+        </div>
+
+
+        <div class="rowcolumn2-cards">
+
+
+            <div class="cardconfig">
+
+                
+                <div class="titlecd">
+                    <span class="titlecard">
+                        <h1>Configurações<ion-icon name="construct-outline"></ion-icon></h1>
+                    </span>
+                 </div>
+                 <div class="bodycardbtn">
+                    <button class="btn-cal"><span></span>Calcular<ion-icon name="calculator-outline"></ion-icon></button>
+                    <button class="btn-save"><span></ion-icon></span>Salvar<ion-icon name="save-outline"></ion-icon></button>
+                    <button class="btn-clean"><span></ion-icon></span>Limpar<ion-icon name="close-outline"></ion-icon></button>
+                 </div>
+
+
+        </div>
+
+
+        
+
+
+
+    </div>
+
+    
+
+
+    </main>
+
+
+    <div class="row">
+
+        <div class="table">
+            <table class="table-main">
+                <thead>
+                    <div class="text-center">
+                        <div>Simulador de Entradas</div>
+                    </div>
+                    <tr>
+                        <th style="position: relative; left: 1.5%;">Dia</th>
+                        <th style="position: relative; left: 5%;">Ganho Esperado</th>
+                        <th style="position: relative; left: 4%;">Lucro Esperado</th>
+                        <th style="position: relative; right: 1%;">Recomendado</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="table">
+            <table  class="table-value">
+                <tbody>
+                    <tr>
+                        <th>1</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>3</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>4</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>5</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>6</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>7</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>8</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>9</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>10</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>11</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>12</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>13</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>14</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>15</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>16</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>17</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>18</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>19</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>20</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>21</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>21</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>22</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>23</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>24</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>25</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>26</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>27</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>28</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>29</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+                    <tr>
+                        <th>30</th>
+                        <th>$53.50</th>
+                        <th>$3.50</th>
+                        <th>$0.11</th>
+                    </tr>
+
+                    
+                <tbody>
+            </table>
+        </div>
+
+    </div>
+
+    
+
+
+    
+    
+
+    
+
+    <script>
+        const body = document.querySelector('body'),
+        sidebar = body.querySelector('.sidebar'),
+        toggle = body.querySelector(".toggle"),
+        searchBtn = body.querySelector(".search-box"),
+        modeSwitch = body.querySelector(".toggle-switch"),
+        modeText = body.querySelector(".mode-text");
+
+
+                toggle.addEventListener("click" , () =>{
+                    sidebar.classList.toggle("close");
+                })
+
+                
+
+                modeSwitch.addEventListener("click" , () =>{
+                    body.classList.toggle("dark");
+                    
+                    if(body.classList.contains("dark")){
+                        modeText.innerText = "Light mode";
+                    }else{
+                        modeText.innerText = "Dark mode";
+                        
+                    }
+                });
+
+
+
+                function viewDetalhe(){
+                    $('#cardDetalhes').addClass('open');
+                }
+
+
+               
+
+                function abrirMenuPerfil(){
+
+                    $('#subMenu').addClass('open-menu');
+
+                }
+               
+
+        
+                
+
+    </script>
+
+
+       
+
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="/node_modules/bootstrap/js/src"></script>
+
+</body>
+</html>
