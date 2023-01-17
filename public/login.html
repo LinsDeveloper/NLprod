@@ -30,7 +30,7 @@
 
                 
                 
-                <form action="Cadastro" method="POST" class="formulario">
+                <form action="login" method="POST" class="formulario">
                     <div class="logologin">
                         <img src="/imagensnever/logoneverloss.png" alt="">
                     </div>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="userlogin">
                         <div class="subuser">
-                            <input id="username" type="text" title="Digite seu e-mail" placeholder="Digite seu e-mail" name="username">
+                            <input id="username" type="text" title="Digite seu e-mail" placeholder="Digite seu e-mail" name="username"  required oninvalid="this.setCustomValidity('Campo requerido')" onchange="try{setCustomValidity('')}catch(e){}">
                         </div>
                     </div>
                     <div class="labelpassword">

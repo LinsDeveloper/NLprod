@@ -50,8 +50,8 @@ async function ConsultaLogin(username, password){
     })
 
 
-    dado = JSON.stringify(records[0])
-    return dado;
+    retornoJson = JSON.stringify(records[0])
+    return retornoJson;
 
     
     } catch(error){
