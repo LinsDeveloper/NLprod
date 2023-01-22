@@ -30,7 +30,7 @@ module.exports = {
 
        try{
 
-            const decode = await promosify(jwt.verify)(token, 'H6J83HOPENVJ59NF87SKSAI8KSGLH');
+            const decode = await promosify(jwt.verify)(token, `${process.env.CODIGO_VALIDADOR}`);
             req.userId = decode.id;
             return next();
 

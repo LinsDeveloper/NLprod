@@ -219,6 +219,8 @@ body::-webkit-scrollbar {
     color: #FFF;
     padding: 0px 0px 30px 0px;
     font-size: 15px;
+    position: relative;
+    top: 50px;
 }
 
 
@@ -226,6 +228,8 @@ body::-webkit-scrollbar {
     width: 100px;
     border-radius: 20px;
     margin-bottom: 15px;
+    position: relative;
+    top: 50px;
 }
 
 
@@ -290,22 +294,13 @@ body::-webkit-scrollbar {
     display: flex;
     align-content: center;
     bottom: 20px;
-    transition: 5s;
     visibility: hidden;
 }
 
 
 
-
-.messageinvalid:hover{
-    position: relative;
-    
-}
-
-
-
 .messageinvalid span{
-    background-color: #911433;
+    background-color: #8b1230;
     border-radius: 10px;
 }
 

@@ -69,9 +69,9 @@ app.post('/login', (req, res) =>{
    WS.ConsultaLogin(req.body.username, req.body.password).then(data => {
     dados = JSON.parse(data);
     if(dados[0] == undefined){
-        res.status(400).json({
+        res.json({
             erro: true,
-            mensagem: "Erro: Credenciais inválidas!"
+            mensagem: "Erro: Credenciais inválidas!",
         })
 
 
@@ -80,14 +80,16 @@ app.post('/login', (req, res) =>{
         
         var token = jwt.sign({id: `${dados[0].idUsuario}`}, `${process.env.CODIGO_VALIDADOR}`, {
 
-            expiresIn: 600 // 10 dia
+            expiresIn: 60 // 1 min
         })
+    
 
+        
 
         res.json({
             erro: false,
             mensagem: "Usuário logado com sucesso!",
-            token
+            token,
         })
 
         

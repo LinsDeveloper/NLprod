@@ -39,14 +39,14 @@
 
                 
                 
-                <form role="form" action="http://localhost:8090/login" method="POST" funcao="retorno" class="formulario" funcao="retorno" id="login-form">
-                    <div class="logologin">
-                        <img src="/imagensnever/logoneverloss.png" alt="">
+                <form onsubmit="loginRequest()" class="formulario"  id="login-form">
+                    <div id="logologin" class="logologin">
+                        <img id="imagemLogo" src="/imagensnever/logoneverloss.png" alt="">
                     </div>
                     <div class="titlelogin">
                         <h1>Acesse sua conta</h6>
                     </div>
-                    <div class="messageinvalid hidden" id="messageid">
+                    <div class="messageinvalid" id="messageid">
                         <span><h4>E-mail ou senha inválida.</h4></span>
                     </div>
                     <div class="labeluser">
@@ -66,7 +66,7 @@
                         <span><ion-icon id="iconpassword" name="eye-outline" onclick="mostrar()"></ion-icon></span>
                     </div>
                     <div class="btnlogin">
-                        <button id="Executar" type="submit" class="btn-entrar">Entrar</button>
+                        <button type="submit" class="btn-entrar">Entrar</button>
                         <span><h5>Esqueci minha senha</h5></span>
                     </div>
                     
