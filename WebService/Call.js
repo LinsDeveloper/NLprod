@@ -1,42 +1,40 @@
-const express = require('express');
-const controllerProduto = require('./controllers/ws');
+function loginRequest(){
+
+    
 
 
+    var obj={};
+    var toUrl = "http://localhost:8090/login";
+    var method="POST";
 
-$(document).ready(function(){
-
-
-    var Executar = document.querySelector("#Executar");
-
-    Executar.addEventListener("click", function(){
-
-        
-        
-
-        const routes = express.Router();
-
-
-
-        routes.get('./ws.js/BuscaUsuarios', controllerProduto.BuscaUsuarios);
-
-
-
-
-
-
-            module.exports = routes;
-     
-});
-
-});
-
-
+    
+    WebService.Init(obj, toUrl, CallBack, method);
 
 
 
 
 var CallBack = function(resposta){
-    var Resultado = document.querySelector("#Resultado");
 
-    Resultado.innerHTML = JSON.stringify(resposta);
+    dados = JSON.stringify(resposta);
+    console.log(dados);
+}
+
+}
+
+
+
+
+
+function respostalogin(resposta) {
+
+    if (resposta.d.erro !== "ok") {
+        $('#dretorno').css("visibility", "visible")
+        $('#retorno').html(resposta.d.erro)
+        return true
+    }
+    else {
+        $('.modal').modal('hide');
+
+    }
+
 }

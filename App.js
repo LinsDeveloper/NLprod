@@ -1,6 +1,5 @@
-const WS = require('./RestAPI/WS');
+const WS = require('./RestAPI/CallProcs');
 require("dotenv").config();
-
 
 
 //imports
@@ -8,6 +7,9 @@ var express = require('express');
 const session = require('express-session');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+const jwt = require('jsonwebtoken');
+
+const { eAdmin } = require('./middlewares/auth');
 
 
 var port = process.env.PORT;
@@ -21,13 +23,24 @@ var router = express.Router(); //inicia a rota do server.
 
 
 
+
 app.use(express.static('public'));   //define os arquivos estáticos para ler html + css das páginas.
+
+
+
+
+
+
+app.use(express.json());
+
 
 //bodyParser
 app.use(bodyParser.urlencoded({extended: true}));  //Ao chamar método post, permite pegar elementos do body
 
-app.use(express.json());
 
+
+
+/*
 
 app.get("/", function(req, res){
     res.sendFile(__dirname + "/public/login.html")  //Define a rota inicial começando pelo login
@@ -37,6 +50,7 @@ app.get("/Home", function(req, res){
     res.sendFile(__dirname + "/public/inicial.html")  //Define a rota inicial começando pelo login
 })
 
+*/
 //Inicio das routes
 
 
@@ -46,19 +60,40 @@ app.use('/api', router); //Rota Principal
 
 
 
+
+
 app.post('/login', (req, res) =>{
 
-   WS.ConsultaLogin(req.body.username, req.body.password).then(response => {
-   dados = JSON.parse(response);
-   if(!(dados[0].idUsuario)){
-        return res.status(400).json({
-            error: true,
-            menssage: "Erro: Usuario ou senha incorreta!"
+   //const passwordhash = await bcrypt.hash(`${req.body.password}`, 8);
+   //console.log(passwordhash);
+   WS.ConsultaLogin(req.body.username, req.body.password).then(data => {
+    dados = JSON.parse(data);
+    if(dados[0] == undefined){
+        res.status(400).json({
+            erro: true,
+            mensagem: "Erro: Credenciais inválidas!"
         })
-   }
 
 
-   res.redirect('inicial.html')
+    }else{
+
+        
+        var token = jwt.sign({id: `${dados[0].idUsuario}`}, `${process.env.CODIGO_VALIDADOR}`, {
+
+            expiresIn: 600 // 10 dia
+        })
+
+
+        res.json({
+            erro: false,
+            mensagem: "Usuário logado com sucesso!",
+            token
+        })
+
+        
+    
+    
+    }
 
 
    }).catch(console.error())
@@ -69,7 +104,7 @@ app.post('/login', (req, res) =>{
 
 
 
-router.route('/Usuarios').get((request, response) => {
+router.route('/Usuarios').get(eAdmin, async (req, res) => {
     WS.BuscaUsuarios().then(result => {
         return result;
 

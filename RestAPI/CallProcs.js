@@ -1,5 +1,5 @@
 var config = require('./dbconfig');
-const server = require('../server');
+const server = require('../App');
 
 
 
@@ -59,9 +59,6 @@ async function ConsultaLogin(username, password){
     }
 
    
-    
-
-
 }
 
 

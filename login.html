@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+  
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Never Loss | Acesso</title>
+    <link rel="shortcut icon" href="./imagensnever/logoneverloss.png">
+    <script src="https://unpkg.com/axios/dist/axios.min.js" ></script>
+    <script
+    src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+     crossorigin="anonymous"></script>
+
+   
+    
+    
+    
+
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="login.css">
+
+    <!----======== Forms ======== -->
+
+
+    
+    
+</head>
+<body class="bg">
+
+
+    
+
+        <div class="container">
+            
+            <div class="formlogin">
+
+                
+                
+                <form role="form" action="http://localhost:8090/login" method="POST" funcao="retorno" class="formulario" funcao="retorno" id="login-form">
+                    <div class="logologin">
+                        <img src="/imagensnever/logoneverloss.png" alt="">
+                    </div>
+                    <div class="titlelogin">
+                        <h1>Acesse sua conta</h6>
+                    </div>
+                    <div class="messageinvalid hidden" id="messageid">
+                        <span><h4>E-mail ou senha inválida.</h4></span>
+                    </div>
+                    <div class="labeluser">
+                        <label for="user">E-mail</label>
+                    </div>
+                    <div class="userlogin">
+                        <div class="subuser">
+                            <input id="username" type="text" title="Digite seu e-mail" placeholder="Digite seu e-mail" name="username"  required oninvalid="this.setCustomValidity('Preencha seu e-mail')" onchange="try{setCustomValidity('')}catch(e){}">
+                        </div>
+                    </div>
+                    <div class="labelpassword">
+                        <label for="user">Senha</label>
+                    </div>
+                    <div class="userpassword">
+                        
+                        <input id="inputpassword" type="password" title="Digite sua senha" placeholder="Digite sua senha" name="password"  required oninvalid="this.setCustomValidity('Preencha sua senha')" onchange="try{setCustomValidity('')}catch(e){}">
+                        <span><ion-icon id="iconpassword" name="eye-outline" onclick="mostrar()"></ion-icon></span>
+                    </div>
+                    <div class="btnlogin">
+                        <button id="Executar" type="submit" class="btn-entrar">Entrar</button>
+                        <span><h5>Esqueci minha senha</h5></span>
+                    </div>
+                    
+                </form>
+
+                
+            </div>
+            <div class="imglogin">
+                <img src="/imagensnever/empresa2.png" alt="">
+            </div>
+        </div>
+
+
+
+
+
+
+        <script>
+
+            function retorno(resposta) {
+                        if (resposta.d.erro !== "ok") {
+                            $('#dretorno').css("visibility", "visible")
+                            $('#retorno').html(resposta.d.erro)             
+                        }
+                        else {
+                            sessionStorage.setItem('id', resposta.d.id)
+                            if (window.location.search.substring(1).split('&')[0].replace('url=', '') == '') {
+                                location.reload();
+                            }
+                            else {
+                                window.location.assign(window.location.search.substring(1).split('&')[0].replace('url=', ''));
+                            }
+                            
+                        }
+
+                    }
+    
+
+        </script>
+
+
+
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="./WebService/WS.js"></script>
+<script type="text/javascript" src="./WebService/Call.js"></script>
+
+
+
+
+</body>
+</html>
