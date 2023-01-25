@@ -78,20 +78,21 @@ app.post('/login', (req, res) =>{
     }else{
 
         
-        var token = jwt.sign({id: `${dados[0].idUsuario}`}, `${process.env.CODIGO_VALIDADOR}`, {
+        var token = jwt.sign({id: `${dados[0].idUsuario}`, 
+                              nameUsuario: `${dados[0].DsUsuario}`}, `${process.env.CODIGO_VALIDADOR}`, {
 
             expiresIn: 60 // 1 min
         })
     
 
-        
-
+      
         res.json({
             erro: false,
             mensagem: "Usuário logado com sucesso!",
             token,
         })
 
+        
         
     
     
@@ -102,6 +103,26 @@ app.post('/login', (req, res) =>{
    
 
 });
+
+
+
+
+app.post('/Menu', eAdmin, (req, res) =>{
+
+    //const passwordhash = await bcrypt.hash(`${req.body.password}`, 8);
+    //console.log(passwordhash);
+    WS.ConsultaLogin().then(data => {
+     
+ 
+ 
+    }).catch(console.error())
+    
+ 
+ });
+
+
+
+
 
 
 

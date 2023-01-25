@@ -14,6 +14,7 @@ module.exports = {
             erro: true,
             mensagem: "Erro: Necessario autenticacao do Token!"
         })
+
        }
 
        const [, token] = authHeader.split(' ');
