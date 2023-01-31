@@ -42,7 +42,9 @@ async function ConsultaLogin(username, password){
     {
     replacements:
     {
-        Metodo: 'CarregaMenu'
+        Metodo: 'ConsultaLogin',
+        Email: username,
+        Password: password
         
         },
         type: config.QueryTypes.EXEC

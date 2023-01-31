@@ -123,7 +123,6 @@
     height: 620px;
     background: #1c1c1c;
     border-radius: 10px;
-    right: 10%;
     overflow: hidden;
     opacity: 1;
     
@@ -267,4 +266,214 @@
     
 
     
+}
+
+
+
+.cardbot1{
+
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: #1c1c1c;
+    border-radius: 10px;
+    overflow: hidden;
+    bottom: 220px;
+    cursor: pointer;
+    opacity: 0.2;
+    transition: 1s;
+    
+    
+}
+
+
+.cardbot1:hover{
+
+    opacity: 1;
+    background: #1c1c1c;
+    
+    
+    
+}
+
+
+
+.cardbot2{
+    
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: #1c1c1c;
+    border-radius: 10px;
+    overflow: hidden;
+    bottom: 35px;
+    right: 55px;
+    cursor: pointer;
+    opacity: 0.2;
+    transition: 1s;
+    
+    
+}
+
+
+.cardbot2:hover{
+
+    opacity: 1;
+    background: #1c1c1c;
+    
+    
+    
+}
+
+
+.cardbot3{
+    
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: #1c1c1c;
+    border-radius: 10px;
+    overflow: hidden;
+    bottom: 120px;
+    left: 30px;
+    cursor: pointer;
+    opacity: 0.2;
+    transition: 1s;
+    
+    
+}
+
+
+.cardbot3:hover{
+
+    opacity: 1;
+    background: #1c1c1c;
+    
+    
+    
+}
+
+
+.cardbot4{
+    
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: #1c1c1c;
+    border-radius: 10px;
+    overflow: hidden;
+    top: 100px;
+    right: 80px;
+    cursor: pointer;
+    opacity: 0.2;
+    transition: 1s;
+    
+    
+}
+
+
+
+.cardbot4:hover{
+
+    opacity: 1;
+    background: #1c1c1c;
+    
+    
+    
+}
+
+
+.cardbot5{
+    
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: #1c1c1c;
+    border-radius: 10px;
+    overflow: hidden;
+    bottom: 230px;
+    left: 20px;
+    cursor: pointer;
+    opacity: 0.2;
+    transition: 1s;
+    
+    
+}
+
+
+
+.cardbot5:hover{
+
+    opacity: 1;
+    background: #1c1c1c;
+    
+    
+    
+}
+
+
+.cardbot6{
+    
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: #1c1c1c;
+    border-radius: 10px;
+    overflow: hidden;
+    right: 80px;
+    cursor: pointer;
+    opacity: 0.2;
+    transition: 1s;
+    
+    
+}
+
+
+
+.cardbot6:hover{
+
+    opacity: 1;
+    background: #1c1c1c;
+    
+    
+    
+}
+
+
+
+.cardbot7{
+    
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: #1c1c1c;
+    border-radius: 10px;
+    overflow: hidden;
+    top: 200px;
+    right: 140px;
+    cursor: pointer;
+    opacity: 0.2;
+    transition: 1s;
+    
+    
+}
+
+
+
+.cardbot7:hover{
+
+    opacity: 1;
+    background: #1c1c1c;
+    
+    
+    
+}
+
+
+
+.row{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 100px);
+    justify-content: center;
+    justify-items: center;
 }
