@@ -27,6 +27,25 @@
   }
 
 
+ 
+
+
+  .bodyTable::-webkit-scrollbar {
+    width: 10px; 
+    height: 9px;   
+    border-radius: 10px;           
+  }
+  
+  .bodyTable::-webkit-scrollbar-track {
+    background: rgb(251, 252, 253); 
+    border-radius: 10px;         
+  }
+  
+  .bodyTable::-webkit-scrollbar-thumb {
+    background-color: #0c4eb1;   
+    border-radius: 20px;       
+    border: 3px solid rgb(250, 250, 252);  
+  }
 
 
 .main{
@@ -561,14 +580,21 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 20px;
+    padding: 10px 20px;
+
     
 }
 
 .summary-toolbox{
     display: flex;
     width: 100%;
-    justify-content: flex-end;
+    justify-content: center;
+    align-content: center;
+}
+
+.spacediv{
+    display: flex;
+    width: 100%;
 }
 
 
@@ -587,11 +613,9 @@
     align-content: center;
     height: 40px;
     width: 130px;
-    right: 48px;
     cursor: pointer;
     transition: 0.5s;
     border-color: #45f3ff;
-    transition: 0.5s;
     box-shadow: 0px 0px 5px 1px #3cd4df;
    
     
@@ -674,7 +698,7 @@
 
 
 .clean{
-    width: 70%;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
 }
@@ -705,34 +729,99 @@
     height: 40px;
 }
 
-#imgBotName{
-    width: 30px;
-    height: 30px;
+
+.tableProfit{
+    width: 100%;
+    padding: 0px 30px;
 }
 
-
-.nameBot{
+.bodyTitle{
     position: relative;
+    top: 15px;
+    width: 100%;
+    display: grid;
+    padding: 8px 0px 8px 40px;
+    border-radius: 5px;
+    grid-template-columns: repeat(6, 1fr);;
     background-color: #161616ad;
-    border-radius: 10px;
-    color: #FFF;
-    height: 40px;
-    width: 290px;
-    display: flex;
-    align-items: center;
-    align-content: start;
     
 }
 
-.nameBot span{
-   
+.bodyTitle h6{
+   color: #45f3ff;
+    
+}
+
+
+.bodyTable{
     position: relative;
-    display: flex;
-    left: 4px;
-    top: 3px;
-    color: #45f3ff;
-    align-items: center;
-
+    top: 22px;
+    width: 100%;
+    display: grid;
+    padding: 8px 0px 8px 40px;
+    border-radius: 5px;
+    grid-template-columns: repeat(6, 1fr);;
+    background-color: #161616ad;
+    height: 27vh;
+    overflow: auto;
+    
     
 }
+
+.bodyTable h6{
+   color: #45f3ff;
+    
+}
+
+
+.dataHoraTable{
+    position: relative;
+    right: 10%;
+}
+
+.ReferTable{
+    position: relative;
+    right: 8px;
+}
+
+.ProhibitedTable{
+    position: relative;
+    right: 2%;
+}
+
+.exitTable{
+    position: relative;
+    right: 4%;
+}
+
+.precoTable{
+    position: relative;
+    left: 5%;
+}
+
+.resultadoTable{
+    position: relative;
+    left: 15%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
