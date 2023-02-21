@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot | Never Loss</title>
+    <link rel="shortcut icon" href="imagensnever/logoneverloss.png">
     <link rel="stylesheet" href="botStart.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <title>Document</title>
+    
 </head>
 <body>
 
     
-
+    
+   
+    
     <div class="main">
 
-       
+
+        
 
     
         <div class="content">
@@ -154,9 +159,9 @@
 
                         <div class="rowContent">
                             <span class="connect">
-                                <Button class="btn-connect">
-                                    Conectar na Corretora
-                                </Button>
+                                <a href="https://oauth.binary.com/oauth2/authorize?app_id=32595"> <Button class="btn-connect">
+                                    Conectar-se na Corretora
+                                </Button></a>
                             </span>
                             <div class="areaBtnTop">
                                 <span class="Saldo">
@@ -227,8 +232,8 @@
 
                             <div class="spacediv"></div>                     
                             <div class="summary-toolbox">
-                              <button onclick="esconderplay()" title="Run the bot" id="summaryRunButton" class="toolbox-button icon-run"><a href="#"><img onclick="esconderplay()" id="iconplay" src="imagensnever/playBotPlay.svg"></a></button>
-                              <button onclick="showplay()" hidden title="Parar o robô" id="summaryStopButton" class="toolbox-button icon-stop"><a href="#"><img onclick="showplay()" id="iconstop" src="imagensnever/stopBotSvg.svg"></a></button>
+                              <button onclick="esconderplay()" title="Iniciar o robô" id="summaryRunButton" class="toolbox-button icon-run"><img onclick="esconderplay()" id="iconplay" src="imagensnever/playBotPlay.svg"></button>
+                              <button onclick="showplay()" hidden title="Parar o robô" id="summaryStopButton" class="toolbox-button icon-stop"><img onclick="showplay()" id="iconstop" src="imagensnever/stopBotSvg.svg"></button>
                             </div>
                         
                             <div class="clean">
@@ -341,14 +346,16 @@
 
 
     </div>
+
+</embed>
     
 
     <script>
 
         function stars(){
-            let count = 50;
+            var count = 50;
             let scene = document.querySelector('.scene');
-            let i = 0;
+            var i = 0;
             while(i < count){
                 let star = document.createElement('i');
                 let x = Math.floor(Math.random() * window.innerWidth);
@@ -368,8 +375,22 @@
         }
 
 
+        $( document ).ready(function() {
+            $('#summaryStopButton').hide()
+        });
 
-        stars();
+
+     
+
+
+
+        
+
+
+        
+
+        
+        
 
 
 
@@ -379,14 +400,23 @@
             $('#summaryRunButton').hide();
             $('#summaryStopButton').show();
             $('.box::before').addClass('ativar');
+            $(".rocket").addClass('animar');
+            stars();
+            $(".tableBot").addClass('sombrafixa');
+            $(".box").css("opacity", 1);
+            
+
 
             }
 
             function showplay(){
             $('#summaryStopButton').hide()
             $('#summaryRunButton').show()
-            
+            $(".rocket").removeClass('animar');
             $('.box::before').removeClass('ativar');
+            $(".scene i").remove();
+            $(".tableBot").removeClass('sombrafixa');
+            $(".box").css("opacity", 0.7);
 
 
             }

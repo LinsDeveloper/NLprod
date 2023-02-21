@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    
+    
+
+
+
+    <script>
+
+
+                var ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?app_id=32595');
+
+                ws.onopen = function(evt) {
+                    ws.send(JSON.stringify({authorize:'KfTbenzeQIYE6uB'}));
+                };
+
+                setTimeout(() => {
+
+                    
+                        ws.send(JSON.stringify({set_settings: 1, allow_copiers: 1}));
+                    
+
+                }, 2000)
+
+                setTimeout(() => {
+
+                            
+                    ws.send(JSON.stringify({copy_start: 'KfTbenzeQIYE6uB', max_trade_stake: 10}));
+
+
+                }, 5000)
+
+
+                ws.onmessage = function(msg) {
+                var data = JSON.parse(msg.data);
+                console.log('ticks update: %o', data);
+                };
+
+
+    </script>
+
+
+
+
+
+    
+</body>
+</html>
