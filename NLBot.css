@@ -449,7 +449,7 @@ iframe{
     border-radius: 10px;
     color: #FFF;
     height: 70px;
-    width: 150px;
+    width: 160px;
     padding: 12px;
     right: 10px;
 }
@@ -534,7 +534,7 @@ iframe{
 
 .rowtwoContent{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     
@@ -542,6 +542,7 @@ iframe{
 }
 
 .operacoes{
+    
     position: relative;
     background-color: #161616ad;
     border-radius: 10px;
@@ -550,6 +551,34 @@ iframe{
     width: 130px;
     padding: 12px;
     
+}
+
+
+#botSelecione{
+    position: relative;
+    background-color: #161616ad;
+    border-radius: 10px;
+    color: #45f3ff;
+    height: 30px;
+    width: 170px;
+    cursor: pointer;
+    border: none;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+
+
+
+#botSelecione:hover{
+    
+    background-color: #3cd4df;   
+    color: #FFF;
+   
 }
 
 .CountOperacoes{
@@ -563,7 +592,7 @@ iframe{
     justify-content: start;
     align-items: center;
     align-content: center;
-    padding: 10px 20px;
+    padding: 0px 20px;
 }
 
 .baseprogressBot{

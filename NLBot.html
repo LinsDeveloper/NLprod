@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bot | Never Loss</title>
     <link rel="shortcut icon" href="imagensnever/logoneverloss.png">
-    <link rel="stylesheet" href="botStart.css">
+    <link rel="stylesheet" href="NLBot.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    
+    <script type="text/javascript" src="NLBot.js"></script>
 </head>
 <body>
 
@@ -144,7 +144,7 @@
 
         
 
-                
+            
             <!--
             
             <div id="logo" class="logo">
@@ -169,7 +169,7 @@
                                          <h4>Saldo</h4>
                                     </div>
                                     <div class="CountValues">
-                                         <h4>1.214,87 USD</h4>
+                                         <h4>$ 0.00</h4>
                                      </div>
                                  </span>
                                 <span class="l-p">
@@ -177,13 +177,19 @@
                                         <h4>Lucro/Perda</h4>
                                    </div>
                                    <div class="CountUp">
-                                        <h4>82.16 USD</h4>
+                                        <h4>$ 0.00</h4>
                                     </div>
                                 </span>
                             </div>
                         </div>
 
                         <div class="rowtwoContent">
+                            <span class="selectBot">
+                                <div class="CountOperacoes">
+                                    <select name="bot" id="botSelecione">
+                                    </select>
+                                </div>
+                            </span>
                             <span class="operacoes">
                                 <div class="CountOperacoes">
                                     <h6>Operações:</h6><h5 style="position: relative; left: 10px; bottom: 3px;">10/15</h5>
@@ -232,7 +238,7 @@
 
                             <div class="spacediv"></div>                     
                             <div class="summary-toolbox">
-                              <button onclick="esconderplay()" title="Iniciar o robô" id="summaryRunButton" class="toolbox-button icon-run"><img onclick="esconderplay()" id="iconplay" src="imagensnever/playBotPlay.svg"></button>
+                              <button onclick="esconderplay()" title="Iniciar o robô" id="summaryRunButton" class="toolbox-button icon-run"><img onclick="esconderplay(), ExecBuy()" id="iconplay" src="imagensnever/playBotPlay.svg"></button>
                               <button onclick="showplay()" hidden title="Parar o robô" id="summaryStopButton" class="toolbox-button icon-stop"><img onclick="showplay()" id="iconstop" src="imagensnever/stopBotSvg.svg"></button>
                             </div>
                         
@@ -424,6 +430,18 @@
 
 
     </script>
+
+
+
+
+
+
+
+
+
+
+
+       
     
 </body>
 </html>
