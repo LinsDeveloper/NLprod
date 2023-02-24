@@ -4,7 +4,7 @@
 function ExecBot(){
 
 
-        alert("⚠️ATENÇÃO⚠️  O ROBÔ NÃO POSSUI  ✅STOP GAIN |❌STOP LOSS  - TODA A OPERAÇÃO SERÁ GERENCIADA MANUALMENTE. (ASSISTA O VÍDEO NO MENU PRINCIPAL) ⚜️NEVER LOSS⚜️");
+        alert("⚠️ATENÇÃO⚠️  Este robô não tem stop loss ❌ e nem stop gain ✅. 🔹 Opere com sua estratégia, não com a sua emoção. 💎 NEVER LOSS 💎");
       
     
 
