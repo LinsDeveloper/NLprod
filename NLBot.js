@@ -87,6 +87,9 @@ function ExecBot(){
                             $(".CountValues").append(`<h4>$ `+ buyContract.buy.balance_after +` `+ balanceAccount.balance.currency + `</h4>`);
 
                             
+
+                            setTimeout(() => {
+
                             ws.send(JSON.stringify({proposal_open_contract: 1,
                                                     contract_id: idContractOpen}));
                         
@@ -94,21 +97,29 @@ function ExecBot(){
                         
                             ws.onmessage = function(msg) {
                                 var open = JSON.parse(msg.data);
-                                $(".titleProhibited").prepend(`<h6>`+ open.proposal_open_contract.tick_stream[0].tick_display_value +`</h6>`);
-                                 $(".titleExit").prepend(`<h6>`+ open.proposal_open_contract.tick_stream[0].tick_display_value +`</h6>`);
-                                $(".titleRefer").prepend(`<h6>`+ open.proposal_open_contract.transaction_ids.buy +`</h6>`);
-                            
                                 
-                                $(".titleResultado").prepend(`<h6> `+ open.proposal_open_contract.profit +`</h6>`);
-                                if(open.proposal_open_contract.profit >= 0){
+                                setTimeout(() => {
+                                
+                                if(open.proposal_open_contract.bid_price != 0){
+                                    $(".titleRefer").prepend(`<h6>`+ open.proposal_open_contract.transaction_ids.buy +`</h6>`);
+                                    $(".titleResultado").prepend(`<h6>`+ open.proposal_open_contract.profit +`</h6>`);
+                                    $(".titleProhibited").prepend(`<h6>`+ open.proposal_open_contract.current_spot +`</h6>`);
+                                    $(".titleExit").prepend(`<h6>`+ open.proposal_open_contract.current_spot +`</h6>`);
                                     $(".titleResultado h6").css('color', '#20b813')
                                 }
                                 else{
+                                    $(".titleRefer").prepend(`<h6>`+ open.proposal_open_contract.transaction_ids.buy +`</h6>`);
+                                    $(".titleResultado").prepend(`<h6>-`+ open.proposal_open_contract.buy_price +`</h6>`);
+                                    $(".titleProhibited").prepend(`<h6>`+ open.proposal_open_contract.current_spot +`</h6>`);
+                                    $(".titleExit").prepend(`<h6>`+ open.proposal_open_contract.current_spot +`</h6>`);
                                     $(".titleResultado h6").css('color', '#ff0000')
                                 }
 
 
                                 
+
+
+                                }, 400)
 
 
                                 setTimeout(() => {
@@ -123,7 +134,11 @@ function ExecBot(){
                                         
                                         };
     
-                                  }, "500")
+                                  }, 1000)
+
+                                  
+                            
+                               
 
                                
 
@@ -132,6 +147,7 @@ function ExecBot(){
                                 
                             };
 
+                        }, 2000)
 
                             
                         
@@ -150,6 +166,9 @@ function ExecBot(){
 
 
                 };
+
+
+                
                     
 
 
