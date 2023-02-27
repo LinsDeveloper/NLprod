@@ -5,29 +5,59 @@ require("dotenv").config();
 //imports
 var express = require('express');
 const session = require('express-session');
+const flash = require("connect-flash")
 var bodyParser = require('body-parser');
 var cors = require('cors');
 const jwt = require('jsonwebtoken');
-
-const { eAdmin } = require('./middlewares/auth');
-
-
+const favicon = require('serve-favicon');
+const path = require('path')
+const { eAdmin } = require('./middlewares/eAdmin');
+const passport = require('passport');
+require('./middlewares/auth')(passport);
 var port = process.env.PORT;
 
 //inicia o server
 var app = express();
 var router = express.Router(); //inicia a rota do server.
 
+
+
+
+function authenticationMiddleware(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }else{
+        res.redirect('/login')
+    }
+}
+
+
 //Sessao
 
 
+app.use(session({
+    secret: "p1g4-oi8h39-gyedg2",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {maxAge: 1 * 60 * 1000}
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+app.use(flash());
+
+
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash("success_msg")
+    res.locals.error_msg = req.flash("error_msg")
+    res.locals.user = req.user || null;
+    next()
+})
 
 
 
 app.use(express.static('public'));   //define os arquivos estáticos para ler html + css das páginas.
-
-
-
 
 
 
@@ -40,69 +70,50 @@ app.use(bodyParser.urlencoded({extended: true}));  //Ao chamar método post, per
 
 
 
-/*
+
+
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
 
 app.get("/", function(req, res){
+    if (req.query.fail){
+        res.json({
+            erro: true,
+            mensagem: "Erro: Credenciais inválidas!",
+        })
+    }else{
+
+        res.redirect('/login')
+
+    }
+    
+    
+})
+
+app.get("/login", function(req, res){
     res.sendFile(__dirname + "/public/login.html")  //Define a rota inicial começando pelo login
 })
 
-app.get("/Home", function(req, res){
+app.get("/Home", authenticationMiddleware, function(req, res){
     res.sendFile(__dirname + "/public/inicial.html")  //Define a rota inicial começando pelo login
 })
 
-*/
+
 //Inicio das routes
 
 
 app.use(bodyParser.json());
 app.use(cors());  
-app.use('/api', router); //Rota Principal
+app.use('/api', authenticationMiddleware, router); //Rota Principal
 
 
 
 
 
-app.post('/login', (req, res) =>{
-
-   //const passwordhash = await bcrypt.hash(`${req.body.password}`, 8);
-   //console.log(passwordhash);
-   WS.ConsultaLogin(req.body.username, req.body.password).then(data => {
-    dados = JSON.parse(data);
-    if(dados[0] == undefined){
-        res.json({
-            erro: true,
-            mensagem: "Erro: Credenciais inválidas!",
-        })
-
-
-    }else{
-
-        
-        var token = jwt.sign({id: `${dados[0].idUsuario}`, 
-                              nameUsuario: `${dados[0].DsUsuario}`}, `${process.env.CODIGO_VALIDADOR}`, {
-
-            expiresIn: 60 // 1 min
-        })
-    
-
-      
-        res.json({
-            erro: false,
-            mensagem: "Usuário logado com sucesso!",
-            token,
-        })
-
-        
-        
-    
-    
-    }
-
-
-   }).catch(console.error())
-   
-
-});
+app.post('/login', passport.authenticate('local', {
+    successRedirect: '/Home',
+    failureRedirect: '/login?fait=true'
+}))
 
 
 
@@ -119,9 +130,6 @@ app.post('/Menu', eAdmin, (req, res) =>{
     
  
  });
-
-
-
 
 
 

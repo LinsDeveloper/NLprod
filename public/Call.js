@@ -8,7 +8,7 @@ function loginRequest(){
 
 
     var obj={"username": username, "password" : password};
-    var toUrl = "http://localhost:8090/login";
+    var toUrl = "/login";
     var method="POST";
 
     
@@ -30,7 +30,7 @@ function loginRequest(){
             return true
         }
         else {
-            window.location.href = "http://127.0.0.1:5502/inicial.html";
+            window.location.href = "http://localhost:8090/inicial.html";
     
         }
     }

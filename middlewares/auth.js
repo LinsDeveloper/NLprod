@@ -1,51 +1,47 @@
-const jwt = require('jsonwebtoken');
-const {promosify} = require('util');
+const localStrategy = require("passport-local").Strategy;
+const WS = require('../RestAPI/CallProcs');
 
 
 
+module.exports = function(passport){
+
+  
+
+    passport.serializeUser(function(user, done) {
+        done(null, user);
+      });
+      
+      passport.deserializeUser(function(user, done) {
+        done(null, user);
+      });
+
+   
+    
+
+    passport.use(new localStrategy({
+        usernameField: 'username',
+        passwordField: 'password'
+    }, 
+    (username, password, done) => {
+        try{
+            const user = (WS.ConsultaLogin(username, password).then(data => {
+
+                                var dados = JSON.parse(data);
+                                console.log(dados);
+                                return dados[0];
+                                
+                    
+                            }).catch(console.error()));
+            
+            
+            if(!user) return done(null, false);
+            return done(null, user);
+        }
+        catch(err){
+            console.log(err);
+            return done(err, false);
+        }
+    }));
 
 
-module.exports = {
-
-    eAdmin: async function (req, res, next){
-       const authHeader = req.headers.authorization;
-       if(!authHeader){
-        return res.status(400).json({
-            erro: true,
-            mensagem: "Erro: Necessario autenticacao do Token!"
-        })
-
-       }
-
-       const [, token] = authHeader.split(' ');
-
-       if(!token){
-        return res.status(400).json({
-
-            erro: true,
-            mensagem: "Erro: Necessario autenticacao do Token!"
-
-        });
-        
-       }
-
-       try{
-
-            const decode = await promosify(jwt.verify)(token, `${process.env.CODIGO_VALIDADOR}`);
-            req.userId = decode.id;
-            return next();
-
-       }catch(err){
-
-        return res.status(400).json({
-
-            erro: true,
-            mensagem: "Erro: Token inválido!"
-
-        });
-
-       }
-
-
-    }
 }
