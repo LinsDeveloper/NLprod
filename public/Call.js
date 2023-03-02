@@ -18,6 +18,7 @@ function loginRequest(){
 
 
     function CallBack(response){
+        console.log(response);
         if (response.erro !== false) {
             $('#messageid').css("visibility", "visible")
             $('#imagemLogo').css("top", "0px")

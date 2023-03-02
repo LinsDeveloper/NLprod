@@ -5,15 +5,18 @@ const WS = require('../RestAPI/CallProcs');
 
 module.exports = function(passport){
 
+
+
   
 
     passport.serializeUser(function(user, done) {
         done(null, user);
-      });
+    });
       
-      passport.deserializeUser(function(user, done) {
-        done(null, user);
-      });
+      
+    passport.deserializeUser(function(user, done) {
+    done(null, user);
+    });
 
    
     
@@ -24,18 +27,24 @@ module.exports = function(passport){
     }, 
     (username, password, done) => {
         try{
-            const user = (WS.ConsultaLogin(username, password).then(data => {
+            var user =  (WS.ConsultaLogin(username, password).then( async data => {
 
                                 var dados = JSON.parse(data);
                                 console.log(dados);
-                                return dados[0];
+                                return await dados[0];
                                 
                     
                             }).catch(console.error()));
+
             
             
-            if(!user) return done(null, false);
-            return done(null, user);
+            user.then(total => {
+                
+                if(!total) return done(null, false);
+                return done(null, user);
+
+            })
+            
         }
         catch(err){
             console.log(err);

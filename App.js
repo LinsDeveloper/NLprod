@@ -75,7 +75,7 @@ app.use(bodyParser.urlencoded({extended: true}));  //Ao chamar método post, per
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 
-app.get("/", function(req, res){
+app.get("/login?fait=true", function(req, res){
     if (req.query.fail){
         res.json({
             erro: true,
@@ -90,13 +90,22 @@ app.get("/", function(req, res){
     
 })
 
+app.get("/", function(req, res){
+    
+   res.redirect()
+})
+
+
+
 app.get("/login", function(req, res){
     res.sendFile(__dirname + "/public/login.html")  //Define a rota inicial começando pelo login
 })
 
-app.get("/Home", authenticationMiddleware, function(req, res){
-    res.sendFile(__dirname + "/public/inicial.html")  //Define a rota inicial começando pelo login
+app.get("/validate", authenticationMiddleware, function(req, res){
+    res.redirect('/Home')
+     
 })
+
 
 
 //Inicio das routes
@@ -111,9 +120,10 @@ app.use('/api', authenticationMiddleware, router); //Rota Principal
 
 
 app.post('/login', passport.authenticate('local', {
-    successRedirect: '/Home',
+    successRedirect: '/validate',
     failureRedirect: '/login?fait=true'
-}))
+}));
+
 
 
 
