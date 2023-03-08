@@ -1,14 +1,11 @@
 function loginRequest(){
 
     
-    event.preventDefault()
+   
 
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("inputpassword").value;
-
-
-    var obj={"username": username, "password" : password};
-    var toUrl = "/login";
+   
+    var obj={};
+    var toUrl = "/statusAuhenticate";
     var method="POST";
 
     
@@ -30,14 +27,25 @@ function loginRequest(){
               }, "4000")
             return true
         }
-        else {
-            window.location.href = "http://localhost:8090/inicial.html";
-    
-        }
+        
     }
 
 
 }
+
+
+
+
+
+$("#btnRequest").click(function() {
+    loginRequest()
+  });
+
+
+
+
+
+
 
 
 

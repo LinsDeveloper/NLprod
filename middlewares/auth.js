@@ -8,15 +8,13 @@ module.exports = function(passport){
 
 
   
-
-    passport.serializeUser(function(user, done) {
-        done(null, user);
-    });
-      
-      
-    passport.deserializeUser(function(user, done) {
+// serialize o usuário
+passport.serializeUser(function(user, done) {
     done(null, user);
-    });
+  });
+  passport.deserializeUser(function(user, done) {
+    done(null, user);
+  });
 
    
     
@@ -30,7 +28,7 @@ module.exports = function(passport){
             var user =  (WS.ConsultaLogin(username, password).then( async data => {
 
                                 var dados = JSON.parse(data);
-                                console.log(dados);
+                                
                                 return await dados[0];
                                 
                     
@@ -38,10 +36,9 @@ module.exports = function(passport){
 
             
             
-            user.then(total => {
-                
-                if(!total) return done(null, false);
-                return done(null, user);
+            user.then(result => {
+                if(!result) return done(null, false);
+                return done(null, result.idUsuario);
 
             })
             

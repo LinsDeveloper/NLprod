@@ -41,29 +41,8 @@ body, html{
     
 }
 
-
-
-
-body::-webkit-scrollbar {
-    width: 17px;               
-  }
-  
-  body::-webkit-scrollbar-track {
-    background: rgb(251, 252, 253);        
-  }
-  
-  body::-webkit-scrollbar-thumb {
-    background-color: #707070;   
-    border-radius: 20px;       
-    border: 3px solid rgb(250, 250, 252);  
-  }
-
-
-
-
 .bg{
-    
-    background-color: rgb(219, 219, 219);
+    background: url(/styles/imagensnever/nevermain.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -73,7 +52,12 @@ body::-webkit-scrollbar {
 
 
 
-
+.hero{
+    width: 100%;
+    min-height: 100vh;
+    background: #aceaff;
+    color: 525252;
+}
 
 .menuperfil{
     width: 100%;
@@ -82,32 +66,62 @@ body::-webkit-scrollbar {
     align-items: center;
     justify-content:space-between;
     
+
+}
+
+.div-center{
+    position: relative;
+    background-color: rgb(216, 216, 216);
+    left: 2%;
+    width: 350px;
+    border-radius: 0px 0px 50px 50px;
+}
+
+
+
+
+
+.img-center{
+    display: inline-block;
+    position: relative;
+    bottom: 0vh;
+    border-radius: 0px 0px 50px 50px;
+    width: 180px;
+    left: 80px;
+    
+ 
+}
+
+
+.fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.fade.aberto{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 6;
     
 
 }
 
 
-.titlenav{
-    display: flex;
-    position: relative;
-    left: 90px;
-    top: 10px;
-    color: #041666;
-}
-
-
-
-
-
-
 .user-pic{
-    position: relative;
-    top: 4px;
-    width: 60px;
+    width: 50px;
     border-radius: 50%;
     cursor: pointer;
     transition: all .3s;
     border: 0px solid transparent;
+    z-index: 1000;
     
 }
 
@@ -140,7 +154,7 @@ body::-webkit-scrollbar {
 
 .sub-menu-wrap{
     position:absolute;
-    top: 70px;
+    top: 60px;
     z-index:1000;
     right: 1%;
     width: 230px;
@@ -554,320 +568,263 @@ body.dark .home .text{
 
 
 
-.fluidcards{
+.navegation-main{
+    position: flex;
     display: flex;
-}
-
-
-
-
-
-.rowcolumn1-cards {
-        
-    width: 50%;
-    position: relative;
-    top: 30px;
-    padding: 12px 0px 12px 105px;
-    display: flex;
-    align-items: center;
-    justify-content:flex-start;
-        
-
-    
-}
-
-
-.rowcolumn2-cards {
-        
-    width: 50%;
-    position: relative;
-    top: 30px;
-    padding: 12px 0px 12px 140px;
-    display: flex;
-    align-items: center;
-    justify-content:flex-start;
-        
-
-    
-    }
-  
-
- 
-
- .card-first {
-
-    
-    width: 40%;
-    height: 110px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px 7px rgb(45, 71, 216);
-    position: relative;
-    overflow: hidden;
-    background-color: #ffffff;
-    
-    
-
-}
-
-
-.titlecd{
-    display: flex;
-}
-
-.titlecd span{
-
-    width: 100%;
-    display: flex;
-    font-size: 8px;
-    padding: 10px;
     justify-content: center;
-    align-items: flex-end;
-    border: solid 0.2px;
-    border-color: #b1b1b1;
-}
-
-.titlecd ion-icon{
-    position: relative;
-    top: 2px;
-    left: 8px;
-}
-
-
-
-.searchCard{
-
-    padding: 10px;
-    display: flex;
-    width: 100%;
     align-items: center;
-    align-content: center;
-}
-
-
-#btn-value{
-    border: none;
-    background-color: #75757549;
-    padding: 8px 16px 8px;
-    font-weight: bold;  
-    width: 100%;
-    border-radius: 10px;
-    color: #041666;
-    text-align: center;
-}
-
-#btn-value::placeholder {
-    font-size: 13px;
-    color: #041666;
-    
-}
-
-
-
-
-
-
-
-
-
-
-.cardconfig {
-
-    width: 80%;
-    height: 110px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px 7px rgb(45, 71, 216);
-    position: relative;
-    overflow: hidden;
-    background-color: #ffffff;
-    padding-right: 0px;
-    
     
 
-}
-
-
-
-
-
-
-.btn-cal{
-    border-radius: 10px;
-    border-color: #112a9b;
-    cursor: pointer;
-    transition: 0.5s;
-    font-size: 16px;
-    font-weight: bold;
-    position: relative;
-    height: 10%;
-    width: 100%;
-    color: #041666;
-}
-
-
-
-
-.btn-cal:hover{
-    background-color: #0c1022;
-    color: #FFF;
-    border-color: #090a0f;
-}
-
-
-.btn-cal ion-icon{
-    font-size: 20px;
-    position: relative;
-    top: 3px;
-    left: 3px;
-}
-
-
-
-.btn-save{
-    border-radius: 10px;
-    border-color: #112a9b;
-    cursor: pointer;
-    transition: 0.5s;
-    font-size: 16px;
-    font-weight: bold;
-    position: relative;
-    height: 10%;
-    width: 100%;
-    margin-left: 10px;
-    color: #041666;
-}
-
-
-
-
-.btn-save:hover{
-    background-color: #041666;
-    color: #FFF;
-}
-
-
-.btn-save ion-icon{
-    font-size: 20px;
-    position: relative;
-    top: 3px;
-    left: 3px;
-}
-
-
-
-.btn-clean{
-    border-radius: 10px;
-    border-color: #112a9b;
-    cursor: pointer;
-    transition: 0.5s;
-    font-size: 16px;
-    font-weight: bold;
-    position: relative;
-    height: 10%;
-    width: 100%;
-    margin-left: 10px;
-    color: #041666;
-}
-
-
-
-
-.btn-clean:hover{
-    background-color: #57575e;
-    color: #FFF;
-    border-color: #57575e;
 
 }
 
 
-.btn-clean ion-icon{
-    font-size: 20px;
-    position: relative;
-    top: 4px;
-    left: 2px;
-}
-
-
-.bodycardbtn{
+.navegation{
+    width: 27%;
+    height: 9%;
+    background-color: #fff;
+    position:fixed;
     display: flex;
-    width: 100%;
-    padding: 15px;
-}
-
-
-
-.row{
-    position: relative;
-    top: 60px;
-    padding: 0px 30px 10px 105px;
-    
-}
-
-.table{
-    padding: 0px 0px 0px 0px;
-    background-color: #FFF;
+    justify-content: center;
+    align-items: center;
     border-radius: 15px;
-    box-shadow: 0px 0px 8px 0px rgb(45, 71, 216);
+    top: 89%;
     
+   
+    
+    
+
 }
 
-
-.text-center{
-    
-    width: 100%;
+.navegation ul{
     display: flex;
-    font-size: 35px;
-    border: solid 1px;
-    border-color: #b1b1b1;
-    border-radius: 10px;
-    padding: 0px 0px 0px 0px;
+    width: 100%;
+    height: auto;
+}
+
+.navegation ul li
+{
+    position: relative;
+    list-style: none;
+    width: 73%;
+    height: 50%;
+    z-index: 1;
+}
+
+.navegation ul li a
+{
+    position: relative;
+    display: flex;
     justify-content: center;
-    margin-bottom: 15px;
-    
-    
-
-    
-}
-
-
-.table-main{
-
+    align-items: center;
+    flex-direction: column;
     width: 100%;
+    text-align: center;
+    
 }
 
-.table-main tr{
-
+.navegation ul li a .icon
+{
     position: relative;
-    left: 30px;
+    display: grid;
+    line-height: 10%;
+    font-size: 30px;
+    text-align: center;
+    transition: 0.9s;
+    color: var(--clr);
+    grid-template-columns: repeat(auto-fit);
+
+}
+
+
+
+.navegation ul li a .text
+{
+    position: absolute;
+    color: var(--clr);
+    font-weight: 400;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 
 
-.table-value{
 
-    width: 100%;
-    padding: 10px;
 
+.navegation ul li a .iconrede:hover
+{
+    transform: scale(1.6) rotate(25deg);
+    
 }
 
-.table-value th{
 
-    border-bottom: solid 0.5px;
-    border-color: #c5c4c4;
+
+
+.wrapper {
+
+    width: 200px;
+    height: 350px;
     border-radius: 10px;
-    
-}
-
-
-
-
-.table-value tr{
-
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
     position: relative;
-    border: solid 0.5px;
+    overflow: hidden;
+    background-color: #ffffff;
+
+}
+
+
+
+.card img{
+    width: 100%;
+    height: 40%;
+    border-radius: 10px 10px 0 0;
+}
+
+
+#titlecard{
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 25%;
     
+}
+
+
+.details {
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    
+    
+}
+
+.details p {
+    text-align: center;
+
+}
+
+
+
+
+
+
+.det-btn{
+    display: block;
+    padding: 10px 30px;
+    width: 80%;
+    margin: -30px auto;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background-color: #2c47be;
+    border-radius: 5px;
+    color: #FFF;
     
 
 }
+
+
+.card-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(115deg, rgb(98, 3, 250), rgb(2, 0, 148));
+    border-radius: 10px;
+    padding: 20px;
+    transform: translate(-100%);
+    transition: transform .6s ease-out;
+
+
+}
+
+
+.card-details.open{
+    transform: translate(0);
+}
+
+
+.card__type {
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    font-weight: normal;
+    padding: 5px;
+    border-bottom: 1px solid #eeeeee67;
+
+}
+
+
+.card__price {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+
+.card__price sup {
+    font-size: 16px;
+    margin-right: 5px;
+    font-weight: normal;
+}
+
+
+.card__price sub{
+    transform: translateX(-15px);
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.card__feactures{
+    margin-top: 10px;
+}
+
+
+.freacture{
+    color: white;
+    font-size: 16px;
+    padding: 6px 0;
+    font-weight: normal;
+    border-bottom: 1px solid #eeeeee67;
+}
+
+.freacture:last-child{
+    border: none;
+}
+
+.buy-btn{
+    display: block;
+    padding: 10px 30px;
+    width: 100%;
+    margin: 5px auto;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background-color: #fcfcfc;
+    border-radius: 5px;
+    color: rgb(11, 48, 216);
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

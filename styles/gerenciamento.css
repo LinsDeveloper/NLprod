@@ -41,20 +41,8 @@ body, html{
     
 }
 
-.bg{
-    background-color: rgb(219, 219, 219);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    
-}
 
 
-
-
-
-/*Barra de Rolagem*/
 
 body::-webkit-scrollbar {
     width: 17px;               
@@ -71,14 +59,41 @@ body::-webkit-scrollbar {
   }
 
 
-/*Nav superior perfil*/
 
-.hero{
-    width: 100%;
-    min-height: 100vh;
-    background: #aceaff;
-    color: 525252;
+
+.bg{
+    
+    background-color: rgb(219, 219, 219);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
+
+
+
+
+.fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.fade.aberto{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 6;
+    
+
+}
+
 
 .menuperfil{
     width: 100%;
@@ -87,8 +102,22 @@ body::-webkit-scrollbar {
     align-items: center;
     justify-content:space-between;
     
+    
 
 }
+
+
+.titlenav{
+    display: flex;
+    position: relative;
+    left: 90px;
+    top: 10px;
+    color: #041666;
+}
+
+
+
+
 
 
 .user-pic{
@@ -129,12 +158,9 @@ body::-webkit-scrollbar {
 }
 
 
-/*Nav superior perfil - sub menu*/
-
-
 .sub-menu-wrap{
     position:absolute;
-    top: 10%;
+    top: 70px;
     z-index:1000;
     right: 1%;
     width: 230px;
@@ -232,11 +258,7 @@ body::-webkit-scrollbar {
 
 
 
-/*Body*/
 
-
-
-/*Menu Lateral*/
 
 
 ::selection{
@@ -253,7 +275,7 @@ body.dark{
     --text-color: #ccc;
 }
 
-
+/* ===== Sidebar ===== */
  .sidebar{
     position: fixed;
     top: 0;
@@ -263,17 +285,13 @@ body.dark{
     padding: 10px 14px;
     background: var(--sidebar-color);
     transition: var(--tran-05);
-    z-index: 100;
-    
-    
+    z-index: 100;  
 }
 .sidebar.close{
     width: 88px;
 }
 
-
-
-
+/* ===== Reusable code - Here ===== */
 .sidebar li{
     height: 50px;
     list-style: none;
@@ -555,193 +573,324 @@ body.dark .home .text{
 }
 
 
-.titlenav{
+
+.fluidcards{
     display: flex;
+}
+
+
+
+
+
+.rowcolumn1-cards {
+        
+    width: 50%;
     position: relative;
-    left: 90px;
-    top: 10px;
-    color: #041666;
-}
+    top: 30px;
+    padding: 12px 0px 12px 105px;
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+        
 
-
-
-/*Cards*/
-
-
-
-.div-centerbody{
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, 250px);
-    justify-content: center;
-    justify-items: center;
-    padding: 45px;
     
-
 }
 
 
+.rowcolumn2-cards {
+        
+    width: 50%;
+    position: relative;
+    top: 30px;
+    padding: 12px 0px 12px 140px;
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+        
 
+    
+    }
+  
 
-.wrapper {
+ 
 
-    width: 240px;
-    height: 350px;
+ .card-first {
+
+    
+    width: 40%;
+    height: 110px;
     border-radius: 10px;
     box-shadow: 0px 0px 15px 7px rgb(45, 71, 216);
     position: relative;
     overflow: hidden;
     background-color: #ffffff;
-    left: 10%;
-    bottom: 5%;
+    
+    
 
 }
 
 
+.titlecd{
+    display: flex;
+}
 
-.card img{
+.titlecd span{
+
     width: 100%;
-    height: 200px;
-    border-radius: 10px 10px 0 0;
+    display: flex;
+    font-size: 8px;
+    padding: 10px;
+    justify-content: center;
+    align-items: flex-end;
+    border: solid 0.2px;
+    border-color: #b1b1b1;
 }
 
-
-#titlecard{
-    text-align: center;
-    font-size: 20px;
+.titlecd ion-icon{
     position: relative;
-    bottom: 15px;
-    
-    
-}
-
-
-.details {
-    
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-    
-    
-}
-
-.details p {
-    text-align: center;
-
+    top: 2px;
+    left: 8px;
 }
 
 
 
+.searchCard{
+
+    padding: 10px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    align-content: center;
+}
 
 
-
-.det-btn{
-    
-    position: relative;
-    padding: 10px 30px;
-    width: 80%;
-    left: 25px;
-    top: 10px;
+#btn-value{
     border: none;
-    outline: none;
-    font-size: 16px;
-    background-color: #2c47be;
-    border-radius: 5px;
-    color: #FFF;
-    
-
-}
-
-
-.card-details {
-    position: absolute;
-    top: 0;
-    left: 0;
+    background-color: #75757549;
+    padding: 8px 16px 8px;
+    font-weight: bold;  
     width: 100%;
-    height: 100%;
-    background-image: linear-gradient(115deg, rgb(98, 3, 250), rgb(2, 0, 148));
     border-radius: 10px;
-    padding: 20px;
-    transform: translate(-100%);
-    transition: transform .6s ease-out;
-
-
-}
-
-
-.card-details.open{
-    transform: translate(0);
-}
-
-
-.card__type {
+    color: #041666;
     text-align: center;
-    font-size: 20px;
-    color: white;
-    font-weight: normal;
-    padding: 5px;
-    border-bottom: 1px solid #eeeeee67;
-
 }
 
-
-.card__price {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
-}
-
-
-.card__price sup {
-    font-size: 16px;
-    margin-right: 5px;
-    font-weight: normal;
-}
-
-
-.card__price sub{   
-    transform: translateX(-15px);
-    font-weight: normal;
-    font-size: 16px;
-}
-
-.card__feactures{
-    margin-top: 10px;
-}
-
-
-.freacture{
-    color: white;
-    font-size: 16px;
-    padding: 6px 0;
-    font-weight: normal;
-    border-bottom: 1px solid #eeeeee67;
-}
-
-.freacture:last-child{
-    border: none;
-}
-
-.buy-btn{
-    display: block;
-    padding: 10px 30px;
-    width: 100%;
-    margin: 5px auto;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    background-color: #fcfcfc;
-    border-radius: 5px;
-    color: rgb(11, 48, 216);
+#btn-value::placeholder {
+    font-size: 13px;
+    color: #041666;
     
 }
 
 
 
 
- 
+
+
+
+
+
+
+.cardconfig {
+
+    width: 80%;
+    height: 110px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 7px rgb(45, 71, 216);
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+    padding-right: 0px;
+    
+    
+
+}
+
+
+
+
+
+
+.btn-cal{
+    border-radius: 10px;
+    border-color: #112a9b;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    height: 10%;
+    width: 100%;
+    color: #041666;
+}
+
+
+
+
+.btn-cal:hover{
+    background-color: #0c1022;
+    color: #FFF;
+    border-color: #090a0f;
+}
+
+
+.btn-cal ion-icon{
+    font-size: 20px;
+    position: relative;
+    top: 3px;
+    left: 3px;
+}
+
+
+
+.btn-save{
+    border-radius: 10px;
+    border-color: #112a9b;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    height: 10%;
+    width: 100%;
+    margin-left: 10px;
+    color: #041666;
+}
+
+
+
+
+.btn-save:hover{
+    background-color: #041666;
+    color: #FFF;
+}
+
+
+.btn-save ion-icon{
+    font-size: 20px;
+    position: relative;
+    top: 3px;
+    left: 3px;
+}
+
+
+
+.btn-clean{
+    border-radius: 10px;
+    border-color: #112a9b;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    height: 10%;
+    width: 100%;
+    margin-left: 10px;
+    color: #041666;
+}
+
+
+
+
+.btn-clean:hover{
+    background-color: #57575e;
+    color: #FFF;
+    border-color: #57575e;
+
+}
+
+
+.btn-clean ion-icon{
+    font-size: 20px;
+    position: relative;
+    top: 4px;
+    left: 2px;
+}
+
+
+.bodycardbtn{
+    display: flex;
+    width: 100%;
+    padding: 15px;
+}
+
+
+
+.row{
+    position: relative;
+    top: 60px;
+    padding: 0px 30px 10px 105px;
+    
+}
+
+.table{
+    padding: 0px 0px 0px 0px;
+    background-color: #FFF;
+    border-radius: 15px;
+    box-shadow: 0px 0px 8px 0px rgb(45, 71, 216);
+    
+}
+
+
+.text-center{
+    
+    width: 100%;
+    display: flex;
+    font-size: 35px;
+    border: solid 1px;
+    border-color: #b1b1b1;
+    border-radius: 10px;
+    padding: 0px 0px 0px 0px;
+    justify-content: center;
+    margin-bottom: 15px;
+    
+    
+
+    
+}
+
+
+.table-main{
+
+    width: 100%;
+}
+
+.table-main tr{
+
+    position: relative;
+    left: 30px;
+}
+
+
+
+.table-value{
+
+    width: 100%;
+    padding: 10px;
+
+}
+
+.table-value th{
+
+    border-bottom: solid 0.5px;
+    border-color: #c5c4c4;
+    border-radius: 10px;
+    
+}
+
+
+
+
+.table-value tr{
+
+    position: relative;
+    border: solid 0.5px;
+    
+    
+
+}
+
+
+
 
 
 

@@ -19,7 +19,7 @@
 
     
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="/styles/login.css">
 
     <!----======== Forms ======== -->
 
@@ -38,22 +38,34 @@
 
                 
                 
-                <form onsubmit="loginRequest()" class="formulario"  id="login-form">
+                <form action="/login" method="POST" class="formulario"  id="login-form">
                     <div id="logologin" class="logologin">
-                        <img id="imagemLogo" src="../imagensnever/logoneverloss.png" alt="">
+                        <img id="imagemLogo" src="/styles/imagensnever/logoneverloss.png" alt="">
                     </div>
                     <div class="titlelogin">
                         <h1>Acesse sua conta</h6>
                     </div>
+                    <% if(message) { %>
+                    <script>
+                        $('#messageid').css("visibility", "visible")
+                        $('#imagemLogo').css("top", "0px")
+                        $('.titlelogin').css("top", "0px")
+                        setTimeout(() => {
+                            $('#messageid').css("visibility", "hidden")
+                            $('#imagemLogo').css("top", "50px")
+                            $('.titlelogin').css("top", "50px")
+                        }, "4000")
+                    </script>
                     <div class="messageinvalid" id="messageid">
-                        <span><h4>E-mail ou senha inválida.</h4></span>
+                        <span><h4>E-mail ou senha inválida!</h4></span>
                     </div>
+                    <%}%>
                     <div class="labeluser">
                         <label for="user">E-mail</label>
                     </div>
                     <div class="userlogin">
                         <div class="subuser">
-                            <input id="username" type="text" title="Digite seu e-mail" placeholder="Digite seu e-mail" name="username"  required oninvalid="this.setCustomValidity('Preencha seu e-mail')" onchange="try{setCustomValidity('')}catch(e){}">
+                            <input id="username" type="text" title="Digite seu e-mail" placeholder="Digite seu E-mail" name="username"  required oninvalid="this.setCustomValidity('Preencha seu e-mail')" onchange="try{setCustomValidity('')}catch(e){}">
                         </div>
                     </div>
                     <div class="labelpassword">
@@ -65,7 +77,7 @@
                         <span><ion-icon id="iconpassword" name="eye-outline" onclick="mostrar()"></ion-icon></span>
                     </div>
                     <div class="btnlogin">
-                        <button type="submit" class="btn-entrar">Entrar</button>
+                        <button type="submit" id="btnRequest" class="btn-entrar">Entrar</button>
                         <span><h5>Esqueci minha senha</h5></span>
                     </div>
                     
@@ -74,7 +86,7 @@
                 
             </div>
             <div class="imglogin">
-                <img src="/imagensnever/empresa2.png" alt="">
+                <img src="/styles/imagensnever/empresa2.png" alt="">
             </div>
         </div>
 
@@ -83,31 +95,7 @@
 
 
 
-        <script>
-
-            function retorno(resposta) {
-                        if (resposta.d.erro !== "ok") {
-                            $('#dretorno').css("visibility", "visible")
-                            $('#retorno').html(resposta.d.erro)             
-                        }
-                        else {
-                            sessionStorage.setItem('id', resposta.d.id)
-                            if (window.location.search.substring(1).split('&')[0].replace('url=', '') == '') {
-                                location.reload();
-                            }
-                            else {
-                                window.location.assign(window.location.search.substring(1).split('&')[0].replace('url=', ''));
-                            }
-                            
-                        }
-
-                    }
-    
-
-        </script>
-
-
-
+        
 
 
 
