@@ -41,29 +41,8 @@ body, html{
     
 }
 
-
-
-
-body::-webkit-scrollbar {
-    width: 17px;               
-  }
-  
-  body::-webkit-scrollbar-track {
-    background: rgb(251, 252, 253);        
-  }
-  
-  body::-webkit-scrollbar-thumb {
-    background-color: #707070;   
-    border-radius: 20px;       
-    border: 3px solid rgb(250, 250, 252);  
-  }
-
-
-
-
 .bg{
-    
-    background-color: rgb(219, 219, 219);
+    background: url(/styles/imagensnever/nevermain.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -71,6 +50,48 @@ body::-webkit-scrollbar {
 }
 
 
+
+
+.hero{
+    width: 100%;
+    min-height: 100vh;
+    background: #aceaff;
+    color: 525252;
+}
+
+.menuperfil{
+    width: 100%;
+    padding: 0px 2%;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    
+
+}
+
+.div-center{ 
+    position: relative;
+    background-color: rgb(216, 216, 216);
+    width: 350px;
+    bottom: 2px;
+    left: 25px;
+    border-radius: 0px 0px 50px 50px;
+}
+
+
+
+
+
+.img-center{
+    display: inline-block;
+    position: relative;
+    bottom: 0vh;
+    border-radius: 0px 0px 50px 50px;
+    width: 180px;
+    left: 80px;
+    
+ 
+}
 
 
 .fade {
@@ -95,42 +116,13 @@ body::-webkit-scrollbar {
 }
 
 
-
-
-
-.menuperfil{
-    width: 100%;
-    padding: 0px 2%;
-    display: flex;
-    align-items: center;
-    justify-content:space-between;
-    
-    
-
-}
-
-
-.titlenav{
-    display: flex;
-    position: relative;
-    left: 90px;
-    top: 10px;
-    color: #041666;
-}
-
-
-
-
-
-
 .user-pic{
-    position: relative;
-    top: 4px;
-    width: 60px;
+    width: 50px;
     border-radius: 50%;
     cursor: pointer;
     transition: all .3s;
     border: 0px solid transparent;
+    z-index: 1000;
     
 }
 
@@ -163,7 +155,7 @@ body::-webkit-scrollbar {
 
 .sub-menu-wrap{
     position:absolute;
-    top: 70px;
+    top: 60px;
     z-index:1000;
     right: 1%;
     width: 230px;
@@ -578,313 +570,8 @@ body.dark .home .text{
 
 
 
-/*Card Conteudo*/
 
 
-
-
-
-
-  
-.div-centerbody {
-    
-    display: grid;
-    grid-gap: 120px;
-    grid-template-columns: 1fr 0.2fr;
-    justify-content: center;
-    justify-items: center;
-    padding: 30px;
-    position: relative;
-    
-    
-    
-
-}
-
-
-.cardplay{
-    width: 100%;
-    height: 70vh;
-    position: relative;
-    margin-left: 170px;
-    border-radius: 10px;
-}
-  
-
-
-
-.card-progress {
-
-    width: 100%;
-    height: 160px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px 7px rgb(45, 71, 216);
-    position: relative;
-    overflow: hidden;
-    background-color: #ffffff;
-    
-    
-    
-
-}
-
-
-.cardlist-aula{
-    width: 355px;
-    height: 430px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 18px 7px rgb(45, 71, 216);
-    position: relative;
-    overflow: hidden;
-    background-color: #ffffff;
-    top: 20px;
-    
-}
-
-
-
-
-iframe{
-    width: 100%;
-    height: 100%;
-    position: relative;
-    border-radius: 20px;
-    
-}   
-
-
-
-.row-percent{
-    display: flex;
-    padding: 13px 13px;
-    justify-content: space-between;
-}
-
-
-.row-percent h1{
-    font-size: 15px;
-    color: #041666;
-}
-
-.row-percent span{
-    font-size: 15px;
-    color: #041666;
-}
-
-
-.barra{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-
-
-
-.row-progressbar{
-    
-    width: 320px;
-    padding: 0px;
-    background-color: #767fa8ce;
-    border-radius: 10px;
-}
-
-
-.row-progressbar div{
-    height: 100%;
-    width: 69%;
-    padding: 4px;
-    background-color: #051b81;
-    border-radius: 10px;
-}
-
-.btn-progress{
-    display: flex;
-    width: 100%;
-    padding: 10px 10px;
-    justify-content: center;
-    
-    
-}
-
-.btn-progress button{
-    padding: 3px;
-    border-radius: 10px;
-    width: 100%;
-    border-color: #112a9b;
-    cursor: pointer;
-    transition: 0.5s;
-    font-size: 15px;
-    font-weight: bold; 
-    color: #041666;
-
-}
-
-
-.btn-progress button:hover{
-    opacity: 0.6;
-   
-
-}
-
-
-.search{
-    display: flex;
-    padding: 0px 10px;
-    
-}
-
-.search input{
-    border-radius: 5px;
-    width: 88%;
-    height: 40px;
-    
-}
-
-
-.search input:focus{
-    outline: 0;
-}
-
-
-.search button{
-    border: none;
-    border-radius: 0px 10px 10px 0px;
-    width: 100%;
-    height: 40px;
-    cursor: pointer;
-    background-color: #051b81;
-    transition: 0.5s;
-
-}
-
-.search button:hover{
-    opacity: 0.8;
-}
-
-
-.search button ion-icon{
-    width: 50px;
-    height: 20px;
-    display: flex;
-    color: #FFF;
-}
-
-
-#pesquisa-aula{
-    border: none;
-    background-color: #75757549;
-    padding: 12px 16px 14px;
-    font-weight: bold;  
-    font-size: 15px;
-    border-radius: 10px 0px 0px 10px;
-    color: #041666;
-}
-
-
-#pesquisa-aula::placeholder {
-    font-size: 13px;
-    color: #041666;
-}
-
-
-.item-aula{
-    display: flex;
-    
-}
-
-
-.item-aula-btn{
-    width: 100%;
-    display: flex;
-    font-size: 10px;
-    padding: 10px;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    border: solid 0.2px;
-    border-color: #b1b1b1;
-}
-
-
-
-.item-aula-btn ion-icon{
-    width: 15px;
-    height: 15px;
-    color: #041666;
-    
-}
-
-.item-aula-btn span{
-    display: flex;
-    align-items: center;
-
-    
-}
-
-.item-aula-btn h1{
-    padding: 5px;
-    color: #041666;
-    
-}
-
-
-.concluir{
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    
-}
-
-
-
-.btn-finish{
-    border-radius: 15px;
-    border-color: #112a9b;
-    cursor: pointer;
-    transition: 0.5s;
-    font-size: 15px;
-    font-weight: bold;
-    position: relative;
-    color: #041666;
-    width: 30%;
-    height: 100%;
-    
-}
-
-
-.btn-finish:hover{
-    background-color: #041666;
-    color: #FFF;
-}
-
-
-.btn-finish ion-icon{
-    font-size: 20px;
-    padding-right: 3%;
-    position: relative;
-    top: 4px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 
 
 

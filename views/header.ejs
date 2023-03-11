@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+  
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="/styles/header.css">
+
+    
+    
+    </head>
+    <body class="bg">
+
+
+   
+    
+        
+    <nav class="menuperfil">
+
+
+       <div class="titlenav"></div>
+        
+        
+        
+        <div class="sub-menu-wrap" id="subMenu">
+            <div class="sub-menu">
+                <div class="user-info">
+                    <img src="/styles/imagensnever/usuariopadrao.png">
+                    <h2>Pedro Henrique Valverde Lins</h2>
+                </div>
+                <hr>
+
+                <a href="/Profile" class="sub-menu-link">
+                    <img src="/styles/imagensnever/usuariopadrao.png">
+                    <p>Editar Perfil</p>
+                    
+                </a>
+
+                <a href="#" class="sub-menu-link">
+                    <img src="/styles/imagensnever/usuariopadrao.png">
+                    <p>Config.</p>
+                    
+                </a>
+
+                <a href="#" class="sub-menu-link">
+                    <img src="/styles/imagensnever/usuariopadrao.png">
+                    <p>Suporte</p>
+                    
+                </a>
+
+                <a href="login.html" class="sub-menu-link">
+                    <img src="/styles/imagensnever/usuariopadrao.png">
+                    <p>Logout</p>
+                    
+                </a>
+            </div>
+        </div>
+
+        
+        <img src="/styles/imagensnever/usuariopadrao.png" class="user-pic" onclick="abrirMenuPerfil()">
+
+        
+
+        
+        </nav>
+
+
+        
+        <hr style="position: relative; top: 10px;">
+
+
+     
+
+ 
+
+    
+
+    <script>
+
+
+
+
+
+                function viewDetalhe(){
+                    $('#cardDetalhes').addClass('open');
+                }
+
+
+               
+
+                function abrirMenuPerfil(){
+                    $('#subMenu').addClass('open-menu');
+                    $('.fade').addClass('aberto')
+                    
+                };
+
+
+                function fechaMenuPerfil(){
+                    $('#subMenu').removeClass('open-menu');
+                    $('.fade').removeClass('aberto')
+                    
+                };
+               
+
+
+                let url = window.location.pathname;
+                let parts = url.split('/');
+                let lastPart = parts.pop() || parts.pop();
+                $('.titlenav').append(`<h2>` + lastPart + `<h2>`);
+               
+        
+                
+
+    </script>
+
+
+       
+
+
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+  
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuário | Never Loss</title>
+
+
+
+    
+    <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
+
+    
+
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="/styles/user.css">
+
+    
+    
+</head>
+<body class="bg">
+
+    
+    <%- include('./menu.ejs') %>
+    
+    <%- include('./header.ejs') %>
+
+
+
+   
+
+        <form action="/usuario" method="POST" id="form">
+            <div class="cardUser">
+                <div class="card">
+                    <div class="card-body-first">
+
+                       
+                            <div class="row">
+                                <div class="imgUser">
+                                    <input name="fileUser" type="file" class="dropify" data-height="250" data-default-file="/styles/imagensnever/usuariopadrao.png" data-allowed-file-extensions="png jpeg jpg gif"/>
+                                    <h2>Foto</h2>
+                                </div>
+                                
+                                <div class="rowContent">
+                                    <div class="namesUser">
+                                        <label class="formUser" for="nameUser">Nome</label>
+                                        <input type="text" placeholder="Digite seu nome completo">
+                                    </div>
+
+                                    <div class="rowPhone">
+                                        <div class="namesUser">
+                                            <label class="formUser" for="nameUser">Telefone</label>
+                                            <input type="text" placeholder="Digite o número">
+                                        </div>
+                                        <div class="namesUser">
+                                            <label class="formUser" for="nameUser">Celular</label>
+                                            <input type="text" placeholder="Digite o número">
+                                        </div>
+                                    </div>
+
+                                    <div class="rowPhone">
+                                        <div class="namesUser">
+                                            <label class="formUser" for="nameUser">CPF</label>
+                                            <input type="text" placeholder="Digite seu CPF">
+                                        </div>
+                                        <div class="namesUser">
+                                            <label class="formUser" for="nameUser">Data de Nascimento</label>
+                                            <input type="date" >
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                             </div>
+
+
+                   </div>
+
+
+                   <div class="card-body-last">
+                    <div class="rowPhone">
+                        <div class="namesUser">
+                            <label class="formUser" for="nameUser">E-mail</label>
+                            <input type="text" placeholder="Digite seu E-mail">
+                        </div>
+                        <div class="namesUser">
+                            <label class="formUser" for="nameUser">Validade da Conta</label>
+                            <input type="text" placeholder="17-11-2023" style="cursor: not-allowed;" disabled>
+                        </div>
+                        <div class="namesUser">
+                            <label class="formUser" for="nameUser">Validade da Conta</label>
+                            <input type="text" placeholder="17-11-2023" style="cursor: not-allowed;" disabled>
+                        </div>
+                    </div>
+                 </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        
+
+    
+
+
+    </main>
+
+
+
+    
+
+
+    
+
+
+    
+    
+
+    
+
+    <script>
+        
+               
+
+        $('.dropify').dropify();
+        
+                
+
+    </script>
+
+
+       
+
+
+
+    
+
+
+
+</body>
+</html>

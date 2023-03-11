@@ -1,25 +1,22 @@
-const WS = require('./RestAPI/CallProcs');
+//const WS = require('./RestAPI/CallProcs');
 require("dotenv").config();
 
 
 //imports
-var express = require('express');
-const session = require('express-session');
-const flash = require("connect-flash")
-var bodyParser = require('body-parser');
-var cors = require('cors');
-const jwt = require('jsonwebtoken');
-const favicon = require('serve-favicon');
-const path = require('path')
-const { eAdmin } = require('./middlewares/eAdmin');
-const passport = require('passport');
-const { authenticate } = require('passport');
-require('./middlewares/auth')(passport);
-var port = process.env.PORT;
+var express = require('express');                       //Inicia Servidor e faz controle de rotas.
+const session = require('express-session');             //Controla sessão.
+const flash = require("connect-flash")                  //Faz envio de mensa
+var bodyParser = require('body-parser');                //Middleware que converte body da requisição para vários formatos, ex. json 
+var cors = require('cors');                             //ross-origin HTTP. adicionar cabeçalhos HTTP.
+const favicon = require('serve-favicon');               //Adiciona pelo servidor favicon no navegador.
+const path = require('path');                           //Informa caminhos ao servidor para busca de arquivos.  
+const passport = require('passport');                   //Controla autenticação do usuário.
+require('./middlewares/auth')(passport);                //Busca usuário para autenticação.
+var port = process.env.PORT;                            //Porta do servidor escondida.
 
 //inicia o server
-var app = express();
-var router = express.Router(); //inicia a rota do server.
+var app = express();                                    //Inicia o APP.
+var router = express.Router();                          //Inicia a rota do servidor.
 
 
 
@@ -35,23 +32,18 @@ function authenticationMiddleware(req, res, next){
 }
 
 
-//Sessao
-
-
+//Inicia sessão
 app.use(session({
     secret: "p1g4-oi8h39-gyedg2",
     resave: false,
     saveUninitialized: false,
-    cookie: {maxAge: 20 * 60 * 1000}
+    cookie: {maxAge: 40 * 60 * 1000}
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 
 
 app.use(flash());
-
-
-
 
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash("success_msg")
@@ -62,27 +54,25 @@ app.use((req, res, next) => {
 
 
 
-
-
-
-
+//Busca Engine para rederizar
 app.set("view engine", "ejs")
 app.use('/styles',express.static('styles'));
-//app.use(express.static(path.join(__dirname, 'public')));   //define os arquivos estáticos para ler html + css das páginas.
+
+
+
+
+//Inicia o middleware BodyParser
 app.use(bodyParser.urlencoded({extended: true})); 
-
 app.use(express.json());
+app.use(cors());  
 
-
-//bodyParser
-
-
-
+//Outras rotas serão a partir desta.
 app.use('/', router);
 
 
-
+//Renderiza o logo no navegador.
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
 
 
 router.get("/", (req, res) => {
@@ -95,36 +85,34 @@ router.get("/login", (req, res) => {
     res.render('login', {message: 'E-mail ou senha inválidos!'});
     else
         res.render('login', {message: null})
+    
 })
 
-router.get("/home", authenticationMiddleware, (req, res) => {
+router.get("/Home", authenticationMiddleware, (req, res) => {
     res.render('inicial');
 })
 
-router.get("/bots", authenticationMiddleware, (req, res) => {
+router.get("/Bots", authenticationMiddleware, (req, res) => {
     res.render('bots');
 })
 
-router.get("/treinamentos", authenticationMiddleware, (req, res) => {
+router.get("/Treinamentos", authenticationMiddleware, (req, res) => {
     res.render('treinamentos');
 })
 
-router.get("/gerenciamento", authenticationMiddleware, (req, res) => {
+router.get("/Gerenciamento", authenticationMiddleware, (req, res) => {
     res.render('gerenciamento');
+})
+
+router.get("/Profile", authenticationMiddleware, (req, res) => {
+    res.render('user');
 })
 
 
 
 
+//Rotas do App.
 
-
-//Inicio das routes
-
-
-app.use(bodyParser.json());
-app.use(cors());  
-
- 
 
 
 
@@ -132,7 +120,6 @@ router.post('/login', passport.authenticate('local', {
     successRedirect: '/home',
     failureRedirect: '/login?fail=true'
 }))
-
 
 
 router.get('/logout', function(req, res, next){
@@ -147,7 +134,6 @@ router.get('/logout', function(req, res, next){
 
 
 
-    
 
 
 
@@ -156,35 +142,7 @@ router.get('/logout', function(req, res, next){
 
 
 
-
-
-
-
-app.post('/Menu', eAdmin, (req, res) =>{
-
-    //const passwordhash = await bcrypt.hash(`${req.body.password}`, 8);
-    //console.log(passwordhash);
-    WS.ConsultaLogin().then(data => {
-     
- 
- 
-    }).catch(console.error())
-    
- 
- });
-
-
-
-
-
-router.route('/Usuarios').get(eAdmin, async (req, res) => {
-    WS.BuscaUsuarios().then(result => {
-        return result;
-
-    })
-})
-
-
+  
 
 app.listen(port);
 console.log('WS iniciado na porta : ' + port)
