@@ -172,6 +172,19 @@
                         'error':   'Ops, verifique o formato do arquivo.'
                     }
         });
+
+
+
+
+        $( document ).ready(function() {
+            sisajaxjsondados('/AtualizaUsuario', '{id: '+ id + '}', '', 'retorno')
+        });
+
+
+
+        function retorno(data){
+
+        }
         
                 
 

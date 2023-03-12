@@ -113,7 +113,7 @@ router.get("/Gerenciamento", authenticationMiddleware, (req, res) => {
 })
 
 router.get("/Profile", authenticationMiddleware, (req, res) => {
-    var userId = req.user;  
+    var userId = req.user; 
     res.render('user', {NameUsuario: userId});
 })
 
