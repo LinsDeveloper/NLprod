@@ -25,6 +25,7 @@ var router = express.Router();                          //Inicia a rota do servi
 
 function authenticationMiddleware(req, res, next){
     if(req.isAuthenticated()){
+        
         return next();
     }else{
         res.redirect('/login')
@@ -48,7 +49,8 @@ app.use(flash());
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash("success_msg")
     res.locals.error_msg = req.flash("error_msg")
-    res.locals.user = req.user || null;
+    res.locals.idUser = req.idUser || null;
+    res.locals.DsUser = req.DsUser || null;
     next()
 })
 
@@ -57,7 +59,7 @@ app.use((req, res, next) => {
 //Busca Engine para rederizar
 app.set("view engine", "ejs")
 app.use('/styles',express.static('styles'));
-
+app.use('/scriptsApp',express.static('scriptsApp'));
 
 
 
@@ -76,7 +78,7 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 
 router.get("/", (req, res) => {
-    res.redirect('/login');
+    res.redirect('/Home');
 })
 
 
@@ -89,24 +91,37 @@ router.get("/login", (req, res) => {
 })
 
 router.get("/Home", authenticationMiddleware, (req, res) => {
-    res.render('inicial');
+
+    var userId = req.user;    
+    res.render('inicial', {NameUsuario: userId});
+    
 })
 
 router.get("/Bots", authenticationMiddleware, (req, res) => {
-    res.render('bots');
+    var userId = req.user;  
+    res.render('bots', {NameUsuario: userId});
 })
 
 router.get("/Treinamentos", authenticationMiddleware, (req, res) => {
-    res.render('treinamentos');
+    var userId = req.user;  
+    res.render('treinamentos', {NameUsuario: userId});
 })
 
 router.get("/Gerenciamento", authenticationMiddleware, (req, res) => {
-    res.render('gerenciamento');
+    var userId = req.user;  
+    res.render('gerenciamento', {NameUsuario: userId});
 })
 
 router.get("/Profile", authenticationMiddleware, (req, res) => {
-    res.render('user');
+    var userId = req.user;  
+    res.render('user', {NameUsuario: userId});
 })
+
+
+router.get("/NLBot", authenticationMiddleware, (req, res) => {
+    res.render('NLBot');
+})
+
 
 
 
@@ -119,6 +134,7 @@ router.get("/Profile", authenticationMiddleware, (req, res) => {
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/home',
     failureRedirect: '/login?fail=true'
+    
 }))
 
 
@@ -142,7 +158,7 @@ router.get('/logout', function(req, res, next){
 
 
 
-  
+
 
 app.listen(port);
 console.log('WS iniciado na porta : ' + port)

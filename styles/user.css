@@ -33,13 +33,13 @@
 
  .card{
     width: 100%;
-    height: 600px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 0.5px rgb(45, 71, 216);
     position: relative;
     overflow: hidden;
     background-color: #ffffff;
     padding-right: 0px;
+    margin-bottom: 30px;
 
  }
 
@@ -141,6 +141,60 @@ label{
     width: 100%;
     padding: 20px;
 }
+
+.rowCompl{
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+}
+
+
+.btnUpdate{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    height: 90px;
+}
+
+
+
+.btn-finish{
+    border-radius: 5px;
+    border-color: #112a9b;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    color: #041666;
+    width: 100%;
+    height: 100%;
+    
+}
+
+
+.btn-finish:hover{
+    
+    background-color: #041666;
+    color: #FFF;
+}
+
+
+.btn-finish ion-icon{
+    position: relative;
+    top: 3px;
+    padding: 0 10px 0 0px;
+
+}
+
+
+.update{
+    width: 200px;
+    height: 100%;
+}
+
 
 
 

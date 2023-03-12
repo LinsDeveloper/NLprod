@@ -38,7 +38,8 @@ passport.serializeUser(function(user, done) {
             
             user.then(result => {
                 if(!result) return done(null, false);
-                return done(null, result.idUsuario);
+                console.log(result);
+                return done(null, (result));
 
             })
             

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuário | Never Loss</title>
+    <title>Cadastro | Never Loss</title>
 
 
 
@@ -34,7 +34,7 @@
 
    
 
-        <form action="/usuario" method="POST" id="form">
+        <form >
             <div class="cardUser">
                 <div class="card">
                     <div class="card-body-first">
@@ -42,31 +42,31 @@
                        
                             <div class="row">
                                 <div class="imgUser">
-                                    <input name="fileUser" type="file" class="dropify" data-height="250" data-default-file="/styles/imagensnever/usuariopadrao.png" data-allowed-file-extensions="png jpeg jpg gif"/>
+                                    <input name="fileUser" type="file" class="dropify" data-height="250" data-default-file="/styles/imagensnever/usuariopadrao.png" data-allowed-file-extensions="png jpeg jpg gif enc"/>
                                     <h2>Foto</h2>
                                 </div>
                                 
                                 <div class="rowContent">
                                     <div class="namesUser">
                                         <label class="formUser" for="nameUser">Nome</label>
-                                        <input type="text" placeholder="Digite seu nome completo">
+                                        <input type="text" placeholder="Digite seu nome completo." >
                                     </div>
 
                                     <div class="rowPhone">
                                         <div class="namesUser">
                                             <label class="formUser" for="nameUser">Telefone</label>
-                                            <input type="text" placeholder="Digite o número">
+                                            <input type="text" placeholder="Digite o número.">
                                         </div>
                                         <div class="namesUser">
                                             <label class="formUser" for="nameUser">Celular</label>
-                                            <input type="text" placeholder="Digite o número">
+                                            <input type="text" placeholder="Digite o número.">
                                         </div>
                                     </div>
 
                                     <div class="rowPhone">
                                         <div class="namesUser">
                                             <label class="formUser" for="nameUser">CPF</label>
-                                            <input type="text" placeholder="Digite seu CPF">
+                                            <input type="text" placeholder="Digite seu CPF.">
                                         </div>
                                         <div class="namesUser">
                                             <label class="formUser" for="nameUser">Data de Nascimento</label>
@@ -81,22 +81,58 @@
                    </div>
 
 
-                   <div class="card-body-last">
-                    <div class="rowPhone">
-                        <div class="namesUser">
-                            <label class="formUser" for="nameUser">E-mail</label>
-                            <input type="text" placeholder="Digite seu E-mail">
+                        <div class="card-body-last">
+                            <div class="rowCompl">
+                                <div class="namesUser">
+                                    <label class="formUser" for="nameUser">E-mail</label>
+                                    <input type="text" placeholder="Digite seu E-mail.">
+                                </div>
+                                <div class="namesUser">
+                                    <label class="formUser" for="nameUser">Nova Senha</label>
+                                    <input type="text" placeholder="Deixe em branco caso não queira mudar." >
+                                </div>
+                                <div class="namesUser">
+                                    <label class="formUser" for="nameUser">Confirmar Senha</label>
+                                    <input type="text" placeholder="Deixe em branco caso não queira mudar." >
+                                </div>
+                            </div>
                         </div>
-                        <div class="namesUser">
-                            <label class="formUser" for="nameUser">Validade da Conta</label>
-                            <input type="text" placeholder="17-11-2023" style="cursor: not-allowed;" disabled>
-                        </div>
-                        <div class="namesUser">
-                            <label class="formUser" for="nameUser">Validade da Conta</label>
-                            <input type="text" placeholder="17-11-2023" style="cursor: not-allowed;" disabled>
-                        </div>
-                    </div>
-                 </div>
+
+
+                        <div class="card-body-last">
+                            <div class="rowCompl">
+                                
+                                <div class="namesUser">
+                                    <label class="formUser" for="nameUser">Nickname</label>
+                                    <input type="text" placeholder="Digite seu Nickname." value='<%= NameUsuario.DsUsuario %>'>
+                                </div>
+
+                                <div class="namesUser">
+                                    <label class="formUser" for="nameUser">Endereço</label>
+                                    <input type="text" placeholder="Digite seu Endereço.">
+                                </div>
+                                
+                                <div class="namesUser">
+                                    <label class="formUser" for="nameUser">Validade da Conta</label>
+                                    <input type="text" placeholder="17-11-2023" style="cursor: not-allowed;" disabled>
+                                </div>
+                            </div>
+                         </div>
+
+
+                         
+                            <div class="btnUpdate">
+                                
+                                <div class="update">
+                                    <button type="button" class="btn-finish" onclick="window.open(document.referrer,'_self');"><span><ion-icon name="return-up-back-outline"></ion-icon></span>Voltar</button>
+                                </div>
+
+                                <div class="update">
+                                    <button class="btn-finish"><span><ion-icon name="checkmark-outline"></ion-icon></span>Atualizar</button>
+                                </div>
+
+                            </div>
+                         
 
                     </div>
                 </div>
@@ -128,7 +164,14 @@
         
                
 
-        $('.dropify').dropify();
+        $('.dropify').dropify({
+            messages: {
+                        'default': 'Arraste e solte ou clique',
+                        'replace': 'Arraste e solte ou clique para substituir',
+                        'remove':  'Remover',
+                        'error':   'Ops, verifique o formato do arquivo.'
+                    }
+        });
         
                 
 

@@ -30,11 +30,13 @@
             <div class="sub-menu">
                 <div class="user-info">
                     <img src="/styles/imagensnever/usuariopadrao.png">
-                    <h2>Pedro Henrique Valverde Lins</h2>
+                    <% if(NameUsuario) { %>
+                        <h2><%= NameUsuario.DsUsuario %></h2>
+                    <%}%>
                 </div>
                 <hr>
 
-                <a href="/Profile" class="sub-menu-link">
+                <a href="/Profile"  class="sub-menu-link">
                     <img src="/styles/imagensnever/usuariopadrao.png">
                     <p>Editar Perfil</p>
                     
@@ -52,7 +54,7 @@
                     
                 </a>
 
-                <a href="login.html" class="sub-menu-link">
+                <a href="/logout" class="sub-menu-link">
                     <img src="/styles/imagensnever/usuariopadrao.png">
                     <p>Logout</p>
                     
