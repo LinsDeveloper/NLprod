@@ -56,7 +56,49 @@ async function BuscaDadosUsuario(idUser){
         DtNascimento: '',
         password: '',
         Nickname: '',
-        Endereco: '',
+        Endereco: ''
+        
+
+        
+        },
+        type: config.QueryTypes.EXEC
+    })
+
+
+    retornoJson = records[0]
+    return retornoJson;
+
+    
+    } catch(err){
+        console.log(err);
+    }
+
+
+}
+
+
+
+
+async function AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha, endereco, nickname){
+
+    
+
+    try{
+        const records = await config.query('EXEC ProcUsuarios @metodo=:Metodo, @IdUsuario=:IdUsuario, @Nome=:Nome, @Telefone=:Telefone, @Celular=:Celular, @DsCpf=:DsCpf, @DtNascimento=:DtNascimento, @password=:password, @Nickname=:Nickname,  @Endereco=:Endereco',
+    {
+    replacements:
+    {
+        
+        Metodo: 'AtualizaUsuario',
+        IdUsuario: idUser,
+        Nome: nome,
+        Telefone: telefone,
+        Celular: celular,
+        DsCpf: cpf,
+        DtNascimento: data,
+        password: senha,
+        Nickname: nickname,
+        Endereco: endereco,
         
 
         
@@ -85,5 +127,6 @@ async function BuscaDadosUsuario(idUser){
 module.exports = {
     
     ConsultaLogin : ConsultaLogin,
-    BuscaDadosUsuario : BuscaDadosUsuario
+    BuscaDadosUsuario : BuscaDadosUsuario,
+    AtualizaUsuario : AtualizaUsuario
 }

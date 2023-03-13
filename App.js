@@ -13,6 +13,8 @@ const path = require('path');                           //Informa caminhos ao se
 const passport = require('passport');                   //Controla autenticação do usuário.
 require('./middlewares/auth')(passport);                //Busca usuário para autenticação.
 var port = process.env.PORT;                            //Porta do servidor escondida.
+const multer = require("multer");
+const fs = require('fs');
 
 //inicia o server
 var app = express();                                    //Inicia o APP.
@@ -77,6 +79,26 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 
 
+//Upload image user.
+
+const storage = multer.diskStorage({
+    destination: function(req, file, cb){
+        fs.unlink(`uploads/${req.user.idUsuario}`);
+        cb(null, "uploads/");
+    },
+    filename: function(req, file, cb){
+        cb(null, req.user.idUsuario + path.extname(file.originalname));
+    }
+})
+
+const upload = multer({storage});
+
+
+
+
+
+
+
 router.get("/", (req, res) => {
     res.redirect('/Home');
 })
@@ -116,7 +138,7 @@ router.get("/Gerenciamento", authenticationMiddleware, (req, res) => {
 router.get("/Cadastro", authenticationMiddleware, (req, res) => {
     
     var DsName = req.user; 
-    res.render('user', {NameUsuario: DsName});
+    res.render('user', {NameUsuario: DsName, messageSucesso: req.flash('successMessage')});
 
 })
 
@@ -164,8 +186,12 @@ router.post("/DadosCadastro", authenticationMiddleware, (req, res) => {
 
 
 
-/*
-router.post("/AtualizaUsuario", authenticationMiddleware, (req, res) => {
+
+router.post("/AtualizaUsuario", authenticationMiddleware, upload.single("file"), (req, res) => {
+    var idUser = req.user.idUsuario;
+
+    
+    
 
     var nome = req.body.nome;
     var telefone = req.body.telefone;
@@ -175,13 +201,33 @@ router.post("/AtualizaUsuario", authenticationMiddleware, (req, res) => {
     var senha = req.body.senha;
     var confirmaSenha = req.body.confirmaSenha;
     var endereco = req.body.endereco;
+    var nickname = req.body.nickname;
 
 
-    WS.BuscaUsuarios
+    if(confirmaSenha == senha){
+
+
+        WS.AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha, endereco, nickname).then(dados => {
+            
+            console.log(dados[0].success);
+            req.flash('successMessage', `${dados[0].success}`);
+            res.redirect('/Cadastro');
+            return;
+        })
+
+
+    }else{
+
+        
+        req.flash('errorMessage', 'Por favor, verifique a confirmação da senha.');
+
+    }
+
+
 
 
 })
-*/
+
 
 
 

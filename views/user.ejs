@@ -35,110 +35,137 @@
 
    
 
-        <form >
+    <form action="/AtualizaUsuario"  method="post" enctype="multipart/form-data">
             <div class="cardUser">
                 <div class="card">
-                    <div class="card-body-first">
 
-                       
-                            <div class="row">
-                                <div class="imgUser">
-                                    <input name="fileUser" type="file" class="dropify" data-height="250" data-default-file="/styles/imagensnever/usuariopadrao.png" data-allowed-file-extensions="png jpeg jpg gif enc"/>
-                                    <h2>Foto</h2>
+                            <% if(messageSucesso.length > 0) { %>
+
+                                <script>
+                                    $('#messageid').css("visibility", "visible")
+                                    $('#imagemLogo').css("top", "0px")
+                                    $('.titlelogin').css("top", "0px")
+                                    setTimeout(() => {
+
+                                        $('.updateSuccess').remove()
+                                        
+                                    }, "3000")
+                                </script>
+                                <div class="updateSuccess">
+                                    <div class="messageinvalid" id="messageid">
+                                        <span><h4 >Cadastro atualizados!</h4></span>
+                                    </div>
                                 </div>
+
+                            <%}%>
+                    
+                            <div class="card-body-first">
+
                                 
-                                <div class="rowContent">
-                                    <div class="namesUser">
-                                        <label class="formUser" for="nameUser">Nome</label>
-                                        <input type="text" id="nome" placeholder="Digite seu nome completo." >
+
+                            
+                                    <div class="row">
+                                        <div class="imgUser">
+                                            <input  type="file" id="filename" name="file" class="dropify" data-height="250" data-default-file="/styles/imagensnever/usuariopadrao.png" data-allowed-file-extensions="png jpeg jpg gif enc"/>
+                                            <h2>Foto</h2>
+                                        </div>
+                                        
+                                        <div class="rowContent">
+                                            <div class="namesUser">
+                                                <label class="formUser" for="nameUser">Nome</label>
+                                                <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo." >
+                                            </div>
+
+                                            <div class="rowPhone">
+                                                <div class="namesUser">
+                                                    <label class="formUser" for="nameUser">Telefone</label>
+                                                    <input type="text" id="telefone" name="telefone" placeholder="Digite o número.">
+                                                </div>
+                                                <div class="namesUser">
+                                                    <label class="formUser" for="nameUser">Celular</label>
+                                                    <input type="text" id="celular" name="celular" placeholder="Digite o número.">
+                                                </div>
+                                            </div>
+
+                                            <div class="rowPhone">
+                                                <div class="namesUser">
+                                                    <label class="formUser" for="nameUser">CPF</label>
+                                                    <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF.">
+                                                </div>
+                                                <div class="namesUser">
+                                                    <label class="formUser"for="nameUser">Data de Nascimento</label>
+                                                    <input type="date"  id="dataNascimento" name="data" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
                                     </div>
 
-                                    <div class="rowPhone">
-                                        <div class="namesUser">
-                                            <label class="formUser" for="nameUser">Telefone</label>
-                                            <input type="text" id="telefone" placeholder="Digite o número.">
-                                        </div>
-                                        <div class="namesUser">
-                                            <label class="formUser" for="nameUser">Celular</label>
-                                            <input type="text" id="celular" placeholder="Digite o número.">
-                                        </div>
-                                    </div>
 
-                                    <div class="rowPhone">
-                                        <div class="namesUser">
-                                            <label class="formUser" for="nameUser">CPF</label>
-                                            <input type="text" id="cpf" placeholder="Digite seu CPF.">
-                                        </div>
-                                        <div class="namesUser">
-                                            <label class="formUser" id="dataNascimento" for="nameUser">Data de Nascimento</label>
-                                            <input type="date" >
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                             </div>
-
-
-                   </div>
-
-
-                        <div class="card-body-last">
-                            <div class="rowCompl">
-                                <div class="namesUser">
-                                    <label class="formUser" for="nameUser">E-mail</label>
-                                    <input type="text" id="email" placeholder="Digite seu E-mail.">
-                                </div>
-                                <div class="namesUser">
-                                    <label class="formUser" for="nameUser">Nova Senha</label>
-                                    <input type="text"  placeholder="Deixe em branco caso não queira mudar." >
-                                </div>
-                                <div class="namesUser">
-                                    <label class="formUser" for="nameUser">Confirmar Senha</label>
-                                    <input type="text" placeholder="Deixe em branco caso não queira mudar." >
-                                </div>
-                            </div>
                         </div>
 
 
-                        <div class="card-body-last">
-                            <div class="rowCompl">
-                                
-                                <div class="namesUser">
-                                    <label class="formUser" for="nameUser">Nickname</label>
-                                    <input type="text" id="nickname" placeholder="Digite seu Nickname.">
+                                <div class="card-body-last">
+                                    <div class="rowCompl">
+                                        <div class="namesUser">
+                                            <label class="formUser" for="nameUser">E-mail</label>
+                                            <input type="text" id="email" name="email" placeholder="Digite seu E-mail." style="cursor: not-allowed;" disabled>
+                                        </div>
+                                        <div class="namesUser">
+                                            <label class="formUser" for="nameUser">Nova Senha</label>
+                                            <input type="text" name="senha"  placeholder="Deixe em branco caso não queira mudar." >
+                                        </div>
+                                        <div class="namesUser">
+                                            <label class="formUser" for="nameUser">Confirmar Senha</label>
+                                            <input type="text" name="confirmaSenha" placeholder="Deixe em branco caso não queira mudar." >
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="namesUser">
-                                    <label class="formUser" for="nameUser">Endereço</label>
-                                    <input type="text" id="endereco" placeholder="Digite seu Endereço.">
+
+                                <div class="card-body-last">
+                                    <div class="rowCompl">
+                                        
+                                        <div class="namesUser">
+                                            <label class="formUser" for="nameUser">Nickname</label>
+                                            <input type="text" id="nickname" name="nickname" placeholder="Digite seu Nickname.">
+                                        </div>
+
+                                        <div class="namesUser">
+                                            <label class="formUser" for="nameUser">Endereço</label>
+                                            <input type="text" id="endereco" name="endereco" placeholder="Digite seu Endereço.">
+                                        </div>
+                                        
+                                        <div class="namesUser">
+                                            <label class="formUser" for="nameUser">Validade da Conta</label>
+                                            <input type="text" id="dataValidade" placeholder="17-11-2023" style="cursor: not-allowed;" disabled>
+                                        </div>
+                                    </div>
                                 </div>
+
+                            
                                 
-                                <div class="namesUser">
-                                    <label class="formUser" for="nameUser">Validade da Conta</label>
-                                    <input type="text" id="dataValidade" placeholder="17-11-2023" style="cursor: not-allowed;" disabled>
-                                </div>
+                                    <div class="btnUpdate">
+                                        
+                                        <div class="update">
+                                            <button type="button" class="btn-finish" onclick="window.open(document.referrer,'_self');"><span><ion-icon name="return-up-back-outline"></ion-icon></span>Voltar</button>
+                                        </div>
+
+                                        <div class="update">
+                                            <button type="submit" class="btn-finish"><span><ion-icon name="checkmark-outline"></ion-icon></span>Atualizar</button>
+                                        </div>
+
+                                    </div>
+
+
+                                   
+
+                                </form>
+
                             </div>
-                         </div>
-
-
-                         
-                            <div class="btnUpdate">
-                                
-                                <div class="update">
-                                    <button type="button" class="btn-finish" onclick="window.open(document.referrer,'_self');"><span><ion-icon name="return-up-back-outline"></ion-icon></span>Voltar</button>
-                                </div>
-
-                                <div class="update">
-                                    <button class="btn-finish"><span><ion-icon name="checkmark-outline"></ion-icon></span>Atualizar</button>
-                                </div>
-
-                            </div>
-                         
-
+                        </div>
                     </div>
-                </div>
-            </div>
-        </form>
+                
 
 
         
