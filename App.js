@@ -1,4 +1,4 @@
-//const WS = require('./RestAPI/CallProcs');
+const WS = require('./RestAPI/CallProcs');
 require("dotenv").config();
 
 
@@ -92,29 +92,32 @@ router.get("/login", (req, res) => {
 
 router.get("/Home", authenticationMiddleware, (req, res) => {
 
-    var userId = req.user;    
-    res.render('inicial', {NameUsuario: userId});
+    var DsName = req.user;    
+    res.render('inicial', {NameUsuario: DsName});
     
 })
 
 router.get("/Bots", authenticationMiddleware, (req, res) => {
-    var userId = req.user;  
-    res.render('bots', {NameUsuario: userId});
+    var DsName = req.user;  
+    res.render('bots', {NameUsuario: DsName});
 })
 
 router.get("/Treinamentos", authenticationMiddleware, (req, res) => {
-    var userId = req.user;  
-    res.render('treinamentos', {NameUsuario: userId});
+    var DsName = req.user;  
+    res.render('treinamentos', {NameUsuario: DsName});
 })
 
 router.get("/Gerenciamento", authenticationMiddleware, (req, res) => {
-    var userId = req.user;  
-    res.render('gerenciamento', {NameUsuario: userId});
+   
+    var DsName = req.user;  
+    res.render('gerenciamento', {NameUsuario: DsName});
 })
 
-router.get("/Profile", authenticationMiddleware, (req, res) => {
-    var userId = req.user; 
-    res.render('user', {NameUsuario: userId});
+router.get("/Cadastro", authenticationMiddleware, (req, res) => {
+    
+    var DsName = req.user; 
+    res.render('user', {NameUsuario: DsName});
+
 })
 
 
@@ -143,8 +146,42 @@ router.get('/logout', function(req, res, next){
       if (err) { return next(err); }
       res.redirect('/login');
     });
-  });
+});
 
+
+
+
+router.post("/DadosCadastro", authenticationMiddleware, (req, res) => {
+    var idUser = req.user.idUsuario;
+    
+    WS.BuscaDadosUsuario(idUser).then(data => {
+        
+        res.json(data);
+    })
+
+})
+
+
+
+
+/*
+router.post("/AtualizaUsuario", authenticationMiddleware, (req, res) => {
+
+    var nome = req.body.nome;
+    var telefone = req.body.telefone;
+    var celular = req.body.celular;
+    var cpf = req.body.cpf;
+    var data = req.body.data;
+    var senha = req.body.senha;
+    var confirmaSenha = req.body.confirmaSenha;
+    var endereco = req.body.endereco;
+
+
+    WS.BuscaUsuarios
+
+
+})
+*/
 
 
 

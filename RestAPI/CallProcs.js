@@ -4,34 +4,7 @@ const server = require('../App');
 
 
 
-async function BuscaUsuarios(){
 
-    try{
-        config.query('EXEC BuscarUsuario @id=:id, @Nome=:Nome, @NomeDaMae=:NomeDaMae',
-    {
-    replacements:
-    {
-        id: 106,
-        Nome: 'layer',
-        NomeDaMae: 'lipo'
-        },
-        type: config.QueryTypes.EXEC
-    }).then(function(result){
-    if (result)
-    {
-        var dados = result[0];
-        var result = dados[0];
-        console.log(result.usuarios);
-        
-    }}).catch(function(err){console.log(err)});
-
-    
-    } catch(error){
-        console.log(error);
-    }
-
-
-}
 
 
 
@@ -65,10 +38,52 @@ async function ConsultaLogin(username, password){
 
 
 
+async function BuscaDadosUsuario(idUser){
+
+    
+
+    try{
+        const records = await config.query('EXEC ProcUsuarios @metodo=:Metodo, @IdUsuario=:IdUsuario, @Nome=:Nome, @Telefone=:Telefone, @Celular=:Celular, @DsCpf=:DsCpf, @DtNascimento=:DtNascimento, @password=:password, @Nickname=:Nickname,  @Endereco=:Endereco',
+    {
+    replacements:
+    {
+        Metodo: 'BuscaDadosUsuario',
+        IdUsuario: idUser,
+        Nome: '',
+        Telefone: '',
+        Celular: '',
+        DsCpf: '',
+        DtNascimento: '',
+        password: '',
+        Nickname: '',
+        Endereco: '',
+        
+
+        
+        },
+        type: config.QueryTypes.EXEC
+    })
+
+
+    retornoJson = records[0]
+    return retornoJson;
+
+    
+    } catch(err){
+        console.log(err);
+    }
+
+
+}
+
+
+
+
 
 
 
 module.exports = {
-    BuscaUsuarios : BuscaUsuarios,
-    ConsultaLogin : ConsultaLogin
+    
+    ConsultaLogin : ConsultaLogin,
+    BuscaDadosUsuario : BuscaDadosUsuario
 }

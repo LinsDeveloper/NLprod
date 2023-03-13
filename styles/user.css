@@ -165,12 +165,12 @@ label{
     border-color: #112a9b;
     cursor: pointer;
     transition: 0.5s;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
     position: relative;
     color: #041666;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     
 }
 
@@ -193,6 +193,8 @@ label{
 .update{
     width: 200px;
     height: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 

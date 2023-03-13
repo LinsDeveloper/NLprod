@@ -1,8 +1,4 @@
-
-
-
-function sisajaxjsondados (metodo, dados, funcao){
-
+function ajaxDados (metodo, dados, elementostatus,funcao){
     
     $.ajax({
         crossOrigin: true,
@@ -31,11 +27,14 @@ function sisajaxjsondados (metodo, dados, funcao){
             console.log(errorThrown)
             if (XMLHttpRequest.status == '404') {
                
-                alert('Verificar conexão com a internet ?' + XMLHttpRequest.status);
+                bsd.alert('Verificar conexão com a internet ?' + XMLHttpRequest.status, {
+                    closeText: "Fechar"
+            });
             }
             else {
-
-                alert('Verificar conexão com a internet ?' + XMLHttpRequest.status);
+                bsd.alert('Verificar conexão com a internet ?' + XMLHttpRequest.status, {
+                    closeText: "Fechar"
+                });
             }
            
         }

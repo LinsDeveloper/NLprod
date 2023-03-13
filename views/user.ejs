@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
+    <script type="text/javascript" src="/styles/ProdJs/NLForms.js"></script>
 
     
 
@@ -49,27 +50,27 @@
                                 <div class="rowContent">
                                     <div class="namesUser">
                                         <label class="formUser" for="nameUser">Nome</label>
-                                        <input type="text" placeholder="Digite seu nome completo." >
+                                        <input type="text" id="nome" placeholder="Digite seu nome completo." >
                                     </div>
 
                                     <div class="rowPhone">
                                         <div class="namesUser">
                                             <label class="formUser" for="nameUser">Telefone</label>
-                                            <input type="text" placeholder="Digite o número.">
+                                            <input type="text" id="telefone" placeholder="Digite o número.">
                                         </div>
                                         <div class="namesUser">
                                             <label class="formUser" for="nameUser">Celular</label>
-                                            <input type="text" placeholder="Digite o número.">
+                                            <input type="text" id="celular" placeholder="Digite o número.">
                                         </div>
                                     </div>
 
                                     <div class="rowPhone">
                                         <div class="namesUser">
                                             <label class="formUser" for="nameUser">CPF</label>
-                                            <input type="text" placeholder="Digite seu CPF.">
+                                            <input type="text" id="cpf" placeholder="Digite seu CPF.">
                                         </div>
                                         <div class="namesUser">
-                                            <label class="formUser" for="nameUser">Data de Nascimento</label>
+                                            <label class="formUser" id="dataNascimento" for="nameUser">Data de Nascimento</label>
                                             <input type="date" >
                                         </div>
                                     </div>
@@ -85,11 +86,11 @@
                             <div class="rowCompl">
                                 <div class="namesUser">
                                     <label class="formUser" for="nameUser">E-mail</label>
-                                    <input type="text" placeholder="Digite seu E-mail.">
+                                    <input type="text" id="email" placeholder="Digite seu E-mail.">
                                 </div>
                                 <div class="namesUser">
                                     <label class="formUser" for="nameUser">Nova Senha</label>
-                                    <input type="text" placeholder="Deixe em branco caso não queira mudar." >
+                                    <input type="text"  placeholder="Deixe em branco caso não queira mudar." >
                                 </div>
                                 <div class="namesUser">
                                     <label class="formUser" for="nameUser">Confirmar Senha</label>
@@ -104,17 +105,17 @@
                                 
                                 <div class="namesUser">
                                     <label class="formUser" for="nameUser">Nickname</label>
-                                    <input type="text" placeholder="Digite seu Nickname." value='<%= NameUsuario.DsUsuario %>'>
+                                    <input type="text" id="nickname" placeholder="Digite seu Nickname.">
                                 </div>
 
                                 <div class="namesUser">
                                     <label class="formUser" for="nameUser">Endereço</label>
-                                    <input type="text" placeholder="Digite seu Endereço.">
+                                    <input type="text" id="endereco" placeholder="Digite seu Endereço.">
                                 </div>
                                 
                                 <div class="namesUser">
                                     <label class="formUser" for="nameUser">Validade da Conta</label>
-                                    <input type="text" placeholder="17-11-2023" style="cursor: not-allowed;" disabled>
+                                    <input type="text" id="dataValidade" placeholder="17-11-2023" style="cursor: not-allowed;" disabled>
                                 </div>
                             </div>
                          </div>
@@ -177,12 +178,27 @@
 
 
         $( document ).ready(function() {
-            sisajaxjsondados('/AtualizaUsuario', '{id: '+ id + '}', '', 'retorno')
+
+            ajaxDados('/DadosCadastro', '', '', 'preencheFomulario')
+
         });
 
 
 
-        function retorno(data){
+        function preencheFomulario(data){
+
+
+              
+              $('#nome').val(data[0].nome);
+              $('#telefone').val(data[0].telefone)
+              $('#celular').val(data[0].celular)
+              $('#cpf').val(data[0].cpf)
+              $('#dataNascimento').val(data[0].dataNascimento)
+              $('#email').val(data[0].email)
+              $('#nickname').val(data[0].nickname)
+              $('#endereco').val(data[0].endereco)
+              $('#dataValidade').val(data[0].dataValidade)
+
 
         }
         
