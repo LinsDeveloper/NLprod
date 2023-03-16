@@ -3,8 +3,12 @@ var lucro = []
 var sum = 0;
 
 
+
+
+
 function ExecBot(){
 
+    
 
     $(".line").css({"background-color":"#45f3ff", "width": "0%" })
     $("#circle1").css({"background-color":"#27282b", "border": "0.25em solid #27282b", "z-index":"1000"})
@@ -16,7 +20,19 @@ function ExecBot(){
       
 
 
+
+
+
+
+
+
+
+
+
         var entrada = prompt("✅ CONTRATO INICIAL MÍNIMO ✅");
+
+
+        
 
         
         var ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?app_id=32595');

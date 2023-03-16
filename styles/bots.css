@@ -48,8 +48,99 @@ main{
     background-color: #ffffff;
     left: 10%;
     bottom: 5%;
+    opacity: 0.65;
+    transition: 0.5s;
 
 }
+
+
+.wrapper:hover {
+
+    opacity: 1;
+    bottom: 20%;
+    
+}
+
+.wrapper1 {
+
+    width: 240px;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 7px rgb(45, 71, 216);
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+    left: 10%;
+    bottom: 5%;
+    opacity: 0.65;
+    transition: 0.5s;
+
+}
+
+
+.wrapper1:hover {
+
+    opacity: 1;
+    bottom: 20%;
+    left: -10%;
+    
+}
+
+
+.wrapper2 {
+
+    width: 240px;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 7px rgb(45, 71, 216);
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+    left: 10%;
+    bottom: 5%;
+    opacity: 0.65;
+    transition: 0.5s;
+
+}
+
+
+.wrapper2:hover {
+
+    opacity: 1;
+    bottom: 20%;
+    
+}
+
+
+
+.wrapper3 {
+
+    width: 240px;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 7px rgb(45, 71, 216);
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+    left: 10%;
+    bottom: 5%;
+    opacity: 0.65;
+    transition: 0.5s;
+
+}
+
+
+.wrapper3:hover {
+
+    opacity: 1;
+    bottom: 20%;
+    left: 30%;;
+    
+}
+
+
+
+
 
 
 
@@ -111,7 +202,8 @@ main{
 
 .det-btn:hover{
     
-    background-color: #04166691;
+    font-size: 20px;
+    box-shadow: 0px 0px 15px 7px rgb(45, 71, 216);
     
 
 }
@@ -204,6 +296,30 @@ main{
     color: rgb(11, 48, 216);
     
 }
+
+
+.banner {
+
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+  }
+  .banner video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    z-index: -2000;
+    filter: brightness(20%); 
+  }
+
+
 
 
 

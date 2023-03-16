@@ -112,8 +112,13 @@
                 let url = window.location.pathname;
                 let parts = url.split('/');
                 let lastPart = parts.pop() || parts.pop();
-                $('.titlenav').append(`<h2>` + lastPart + `<h2>`);
-               
+                if(lastPart == 'Bots' || lastPart == 'bots'){
+                    $('.titlenav').append(`<h2>` + lastPart + `<h2>`).css('color', '#FFF');
+                }else{
+                
+                    $('.titlenav').append(`<h2>` + lastPart + `<h2>`);
+                        
+                }
         
                 
 

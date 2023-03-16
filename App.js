@@ -80,18 +80,8 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 
 //Upload image user.
-
-const storage = multer.diskStorage({
-    destination: function(req, file, cb){
-        fs.unlink(`uploads/${req.user.idUsuario}`);
-        cb(null, "uploads/");
-    },
-    filename: function(req, file, cb){
-        cb(null, req.user.idUsuario + path.extname(file.originalname));
-    }
-})
-
-const upload = multer({storage});
+const storage = multer.memoryStorage()
+const upload = multer({ storage: storage })
 
 
 
@@ -192,7 +182,6 @@ router.post("/AtualizaUsuario", authenticationMiddleware, upload.single("file"),
 
     
     
-
     var nome = req.body.nome;
     var telefone = req.body.telefone;
     var celular = req.body.celular;

@@ -79,7 +79,7 @@ async function BuscaDadosUsuario(idUser){
 
 
 
-async function AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha, endereco, nickname){
+async function AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha, endereco, nickname, avatar){
 
     
 
@@ -99,7 +99,6 @@ async function AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha
         password: senha,
         Nickname: nickname,
         Endereco: endereco,
-        
 
         
         },
