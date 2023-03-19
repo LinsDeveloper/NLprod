@@ -119,6 +119,34 @@ async function AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha
 
 
 
+async function BuscaBots(id){
+
+    try{
+        const records = await config.query('EXEC ProcOperacao @metodo=:Metodo, @IdBots=:IdBots',
+    {
+    replacements:
+    {
+        Metodo: 'TrocaBots',
+        IdBots: id
+        
+        },
+        type: config.QueryTypes.EXEC
+    })
+
+
+    retornoJson = records[0]
+    return retornoJson;
+
+    
+    } catch(error){
+        console.log(error);
+    }
+
+   
+}
+
+
+
 
 
 
@@ -127,5 +155,6 @@ module.exports = {
     
     ConsultaLogin : ConsultaLogin,
     BuscaDadosUsuario : BuscaDadosUsuario,
-    AtualizaUsuario : AtualizaUsuario
+    AtualizaUsuario : AtualizaUsuario,
+    BuscaBots : BuscaBots
 }

@@ -174,6 +174,17 @@ router.post("/DadosCadastro", authenticationMiddleware, (req, res) => {
 })
 
 
+router.post("/TrocaBots", authenticationMiddleware, (req, res) => {
+    var idUser = req.user.idUsuario;
+    
+    WS.BuscaBots(req.body.id).then(data => {
+        
+        res.json(data);
+    })
+
+})
+
+
 
 
 

@@ -1,4 +1,4 @@
-function ajaxDados (metodo, dados, elementostatus,funcao){
+function ajaxDados(metodo, dados, elementostatus,funcao){
     
     $.ajax({
         crossOrigin: true,
@@ -27,12 +27,12 @@ function ajaxDados (metodo, dados, elementostatus,funcao){
             console.log(errorThrown)
             if (XMLHttpRequest.status == '404') {
                
-                bsd.alert('Verificar conexão com a internet ?' + XMLHttpRequest.status, {
+                alert('Verificar conexão com a internet ?' + XMLHttpRequest.status, {
                     closeText: "Fechar"
             });
             }
             else {
-                bsd.alert('Verificar conexão com a internet ?' + XMLHttpRequest.status, {
+                alert('Verificar conexão com a internet ?' + XMLHttpRequest.status, {
                     closeText: "Fechar"
                 });
             }

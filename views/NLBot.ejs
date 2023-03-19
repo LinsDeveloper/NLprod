@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/styles/NLBot.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="/styles/ProdJs/NLBot.js"></script>
+    <script type="text/javascript" src="/styles/ProdJs/NLForms.js"></script>
 </head>
 <body>
 
@@ -30,7 +31,7 @@
 
                     <div class="conteudo">
                     
-                    <div class="row">
+                    <div class="row" onclick="callBot(3)">
                         <div class="cardbot">
                             <div class="bodycardbot">
                                 <div class="dobble">
@@ -47,7 +48,7 @@
                     
                     <div class="row">
 
-                        <div class="cardbot" onclick="">
+                        <div class="cardbot" onclick="callBot(1)">
                             <div class="bodycardbot">
 
                                 <div class="dobble">
@@ -60,7 +61,7 @@
 
                     </div>
 
-                    <div class="row">
+                    <div class="row" onclick="callBot(7)">
 
                         <div class="cardbot">
                             <div class="bodycardbot">
@@ -74,7 +75,7 @@
                         </div>
                     </div> 
 
-                    <div class="row">
+                    <div class="row" onclick="callBot(2)">
 
                         <div class="cardbot">
                             <div class="bodycardbot">
@@ -91,7 +92,7 @@
 
                         
 
-                        <div class="row">
+                        <div class="row" onclick="callBot(5)">
 
                             <div class="cardbot">
                                 <div class="bodycardbot">
@@ -106,7 +107,7 @@
 
                         </div>
 
-                        <div class="row">
+                        <div class="row" onclick="callBot(4)">
 
                             <div class="cardbot">
                                 <div class="bodycardbot">
@@ -121,14 +122,14 @@
 
                         </div>
 
-                        <div class="row">
+                        <div class="row" onclick="callBot(6)">
 
                             <div class="cardbot">
                                 <div class="bodycardbot">
 
                                     <div class="dobble">
                                         <img src="/styles/imagensnever/icon-1.8s-209px.svg" alt="Bots">
-                                        <h4>OPALA</h4>
+                                        <h4>JADE</h4>
                                     </div>
                                     
                                 </div>
@@ -237,7 +238,7 @@
 
                             <div class="spacediv"></div>                     
                             <div class="summary-toolbox">
-                              <button onclick="esconderplay(), ExecBuy()" title="Iniciar o robô" id="summaryRunButton" class="toolbox-button icon-run"><img id="iconplay" src="/styles/imagensnever/playBotPlay.svg"></button>
+                              <button onclick="esconderplay(), entrada()" title="Iniciar o robô" id="summaryRunButton" class="toolbox-button icon-run"><img id="iconplay" src="/styles/imagensnever/playBotPlay.svg"></button>
                               <button onclick="showplay()" hidden title="Parar o robô" id="summaryStopButton" class="toolbox-button icon-stop"><img id="iconstop" src="/styles/imagensnever/stopBotSvg.svg"></button>
                             </div>
                         
@@ -381,20 +382,12 @@
 
 
         $( document ).ready(function() {
-            $('#summaryStopButton').hide()
+            $('#summaryStopButton').hide();
+            
         });
 
 
-     
 
-
-
-        
-
-
-        
-
-        
         
 
 
@@ -428,12 +421,7 @@
 
 
 
-            function callBot(id){
-
-                ajaxDados('/DadosCadastro', '', '', 'preencheFomulario')
-
-            }
-
+           
     </script>
 
 
