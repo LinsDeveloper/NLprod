@@ -68,6 +68,10 @@ function ResultBot(data){
     selected_tick.push(data[0].selected_tick);
     symbol.push(data[0].symbol);
     martingale.push(data[0].martingale);
+
+
+    $('.botEscolha h4').remove();
+    $('.botEscolha').append(`<h4>`+ data[0].robo+ `</h4>`);
     
 
 

@@ -573,6 +573,27 @@ iframe{
 }
 
 
+.BotName{
+    
+    position: relative;
+    background-color: #161616ad;
+    border-radius: 10px;
+    color: #45f3ff;
+    height: 35px;
+    width: 160px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+.BotName img{
+    
+    width: 30px;
+    height: 30px;
+    
+}
+
 #botSelecione{
     position: relative;
     background-color: #161616ad;
@@ -602,6 +623,17 @@ iframe{
 
 .CountOperacoes{
     display: flex;
+}
+
+.botEscolha{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.botEscolha h4{
+    display: flex;
+    align-items: center;
     
 }
 
