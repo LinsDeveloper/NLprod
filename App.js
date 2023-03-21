@@ -243,5 +243,5 @@ router.post("/AtualizaUsuario", authenticationMiddleware, upload.single("file"),
 
 
 
-app.listen(port);
+app.listen(port || 3000);
 console.log('WS iniciado na porta : ' + port)
