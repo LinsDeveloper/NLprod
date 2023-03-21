@@ -40,7 +40,7 @@ app.use(session({
     secret: "p1g4-oi8h39-gyedg2",
     resave: false,
     saveUninitialized: false,
-    cookie: {maxAge: 40 * 60 * 1000}
+    cookie: {maxAge: 120 * 60 * 1000}
 }));
 app.use(passport.initialize());
 app.use(passport.session());
