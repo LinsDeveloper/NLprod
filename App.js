@@ -37,10 +37,10 @@ function authenticationMiddleware(req, res, next){
 
 //Inicia sessão
 app.use(session({
-    secret: process.env.CODIGO_VALIDADOR_SESSION,
+    secret: "p1g4-oi8h39-gyedg2",
     resave: false,
     saveUninitialized: false,
-    cookie: {maxAge: 60 * 60 * 1000}
+    cookie: {maxAge: 40 * 60 * 1000}
 }));
 app.use(passport.initialize());
 app.use(passport.session());
