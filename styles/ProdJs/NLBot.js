@@ -57,6 +57,8 @@ function ResultBot(data){
     selected_tick.pop()
     symbol.pop()
     martingale.pop()
+    martingale.pop()
+    martingale.pop()
 
 
 
