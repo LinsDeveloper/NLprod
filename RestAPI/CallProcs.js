@@ -43,7 +43,7 @@ async function BuscaDadosUsuario(idUser){
     
 
     try{
-        const records = await config.query('EXEC ProcUsuarios @metodo=:Metodo, @IdUsuario=:IdUsuario, @Nome=:Nome, @Telefone=:Telefone, @Celular=:Celular, @DsCpf=:DsCpf, @DtNascimento=:DtNascimento, @password=:password, @Nickname=:Nickname,  @Endereco=:Endereco',
+        const records = await config.query('EXEC ProcUsuarios @metodo=:Metodo, @IdUsuario=:IdUsuario, @Nome=:Nome, @Telefone=:Telefone, @Celular=:Celular, @DsCpf=:DsCpf, @DtNascimento=:DtNascimento, @password=:password, @Nickname=:Nickname,  @Endereco=:Endereco, @Dstoken1:Dstoken1, @Dstoken2: Dstoken2',
     {
     replacements:
     {
@@ -56,7 +56,9 @@ async function BuscaDadosUsuario(idUser){
         DtNascimento: '',
         password: '',
         Nickname: '',
-        Endereco: ''
+        Endereco: '',
+        Dstoken1: '',
+        DsToken2: ''
         
 
         
