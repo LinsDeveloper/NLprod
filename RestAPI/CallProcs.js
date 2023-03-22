@@ -43,7 +43,7 @@ async function BuscaDadosUsuario(idUser){
     
 
     try{
-        const records = await config.query('EXEC ProcUsuarios @metodo=:Metodo, @IdUsuario=:IdUsuario, @Nome=:Nome, @Telefone=:Telefone, @Celular=:Celular, @DsCpf=:DsCpf, @DtNascimento=:DtNascimento, @password=:password, @Nickname=:Nickname,  @Endereco=:Endereco, @Dstoken1:Dstoken1, @Dstoken2: Dstoken2',
+        const records = await config.query('EXEC ProcUsuarios @metodo=:Metodo, @IdUsuario=:IdUsuario, @Nome=:Nome, @Telefone=:Telefone, @Celular=:Celular, @DsCpf=:DsCpf, @DtNascimento=:DtNascimento, @password=:password, @Nickname=:Nickname,  @Endereco=:Endereco',
     {
     replacements:
     {
@@ -57,8 +57,7 @@ async function BuscaDadosUsuario(idUser){
         password: '',
         Nickname: '',
         Endereco: '',
-        Dstoken1: '',
-        DsToken2: ''
+       
         
 
         
@@ -86,7 +85,7 @@ async function AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha
     
 
     try{
-        const records = await config.query('EXEC ProcUsuarios @metodo=:Metodo, @IdUsuario=:IdUsuario, @Nome=:Nome, @Telefone=:Telefone, @Celular=:Celular, @DsCpf=:DsCpf, @DtNascimento=:DtNascimento, @password=:password, @Nickname=:Nickname,  @Endereco=:Endereco, @Dstoken1:Dstoken1, @Dstoken2: Dstoken2',
+        const records = await config.query('EXEC ProcUsuarios @metodo=:Metodo, @IdUsuario=:IdUsuario, @Nome=:Nome, @Telefone=:Telefone, @Celular=:Celular, @DsCpf=:DsCpf, @DtNascimento=:DtNascimento, @password=:password, @Nickname=:Nickname,  @Endereco=:Endereco',
     {
     replacements:
     {
@@ -101,8 +100,7 @@ async function AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha
         password: senha,
         Nickname: nickname,
         Endereco: endereco,
-        Dstoken1: '',
-        DsToken2: ''
+       
         
         },
         type: config.QueryTypes.EXEC
@@ -127,7 +125,7 @@ async function AtualizaToken(idUser){
     
 
     try{
-        const records = await config.query('EXEC ProcUsuarios @metodo=:Metodo, @IdUsuario=:IdUsuario, @Nome=:Nome, @Telefone=:Telefone, @Celular=:Celular, @DsCpf=:DsCpf, @DtNascimento=:DtNascimento, @password=:password, @Nickname=:Nickname,  @Endereco=:Endereco, @Dstoken1:Dstoken1, @Dstoken2: Dstoken2',
+        const records = await config.query('EXEC ProcUsuarios @metodo=:Metodo, @IdUsuario=:IdUsuario, @Nome=:Nome, @Telefone=:Telefone, @Celular=:Celular, @DsCpf=:DsCpf, @DtNascimento=:DtNascimento, @password=:password, @Nickname=:Nickname,  @Endereco=:Endereco',
     {
     replacements:
     {
@@ -142,8 +140,7 @@ async function AtualizaToken(idUser){
         password: '',
         Nickname: '',
         Endereco: '',
-        Dstoken1: '',
-        DsToken2: ''
+       
 
         
         },
