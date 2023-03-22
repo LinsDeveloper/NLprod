@@ -30,14 +30,14 @@
 
 
             const urlParams = new URLSearchParams(queryString);
-            const token1 = urlParams.get('token1');
-            const token2 = urlParams.get('token2');
+            const DsTokenOne = urlParams.get('token1');
+            const DsTokenTwo = urlParams.get('token2');
 
 
             
                 
                 
-        ajaxDados('/AtualizaToken','{"token1": '+ token1 + ', "token2": '+ token2 + '}', '', 'resultToken')
+        ajaxDados('/AtualizaToken','{token1: '+ DsTokenOne + ', token2: '+ DsTokenTwo + '}', '', 'resultToken')
 
             
     
