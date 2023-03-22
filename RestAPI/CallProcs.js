@@ -123,7 +123,7 @@ async function AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha
 
 
 
-async function AtualizaToken(idUser){
+async function AtualizaToken(idUser, DsTokenOne, DsTokenTwo){
 
     
 
@@ -143,8 +143,8 @@ async function AtualizaToken(idUser){
         password: '',
         Nickname: '',
         Endereco: '',
-        DsTokenOne:'',
-        DsTokenTwo:''
+        DsTokenOne:DsTokenOne,
+        DsTokenTwo:DsTokenTwo
 
         
         },
