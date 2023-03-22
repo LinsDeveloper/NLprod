@@ -138,6 +138,11 @@ router.get("/NLBot", authenticationMiddleware, (req, res) => {
 })
 
 
+router.get("/validacao", authenticationMiddleware, (req, res) => {
+    res.render('validation');
+})
+
+
 
 
 
