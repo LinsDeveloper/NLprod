@@ -84,7 +84,7 @@ async function AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha
     
 
     try{
-        const records = await config.query('EXEC ProcUsuarios @metodo=:Metodo, @IdUsuario=:IdUsuario, @Nome=:Nome, @Telefone=:Telefone, @Celular=:Celular, @DsCpf=:DsCpf, @DtNascimento=:DtNascimento, @password=:password, @Nickname=:Nickname,  @Endereco=:Endereco',
+        const records = await config.query('EXEC ProcUsuarios @metodo=:Metodo, @IdUsuario=:IdUsuario, @Nome=:Nome, @Telefone=:Telefone, @Celular=:Celular, @DsCpf=:DsCpf, @DtNascimento=:DtNascimento, @password=:password, @Nickname=:Nickname,  @Endereco=:Endereco, @Dstoken1:Dstoken1, @Dstoken2: Dstoken2',
     {
     replacements:
     {
@@ -99,6 +99,49 @@ async function AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha
         password: senha,
         Nickname: nickname,
         Endereco: endereco,
+        Dstoken1: '',
+        DsToken2: ''
+        
+        },
+        type: config.QueryTypes.EXEC
+    })
+
+
+    retornoJson = records[0]
+    return retornoJson;
+
+    
+    } catch(err){
+        console.log(err);
+    }
+
+
+}
+
+
+
+async function AtualizaToken(idUser){
+
+    
+
+    try{
+        const records = await config.query('EXEC ProcUsuarios @metodo=:Metodo, @IdUsuario=:IdUsuario, @Nome=:Nome, @Telefone=:Telefone, @Celular=:Celular, @DsCpf=:DsCpf, @DtNascimento=:DtNascimento, @password=:password, @Nickname=:Nickname,  @Endereco=:Endereco, @Dstoken1:Dstoken1, @Dstoken2: Dstoken2',
+    {
+    replacements:
+    {
+        
+        Metodo: 'AtualizaToken',
+        IdUsuario: idUser,
+        Nome: '',
+        Telefone: '',
+        Celular: '',
+        DsCpf: '',
+        DtNascimento: '',
+        password: '',
+        Nickname: '',
+        Endereco: '',
+        Dstoken1: '',
+        DsToken2: ''
 
         
         },
@@ -156,5 +199,6 @@ module.exports = {
     ConsultaLogin : ConsultaLogin,
     BuscaDadosUsuario : BuscaDadosUsuario,
     AtualizaUsuario : AtualizaUsuario,
-    BuscaBots : BuscaBots
+    BuscaBots : BuscaBots,
+    AtualizaToken: AtualizaToken
 }

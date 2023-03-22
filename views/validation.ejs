@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/styles/validation.css">
     
+    <script type="text/javascript" src="/styles/ProdJs/NLForms.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
 
@@ -27,13 +28,28 @@
         $( document ).ready(function() {
             const queryString = window.location.search;
 
+
             const urlParams = new URLSearchParams(queryString);
-            const parametro = urlParams.get('token2');
+            const token1 = urlParams.get('token1');
+            const token2 = urlParams.get('token2');
+
 
             
-            const parametrotwo = urlParams.get('token1');
+                
+                
+        ajaxDados('/AtualizaToken','{"token1": '+ token1 + ', "token2": '+ token2 + '}', '', 'resultToken')
+
+            
+    
 
         });
+
+
+        function resultToken(data){
+
+            window.location.href("/NLBot");
+
+        }
 
 
     </script>

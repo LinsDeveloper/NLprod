@@ -191,6 +191,19 @@ router.post("/TrocaBots", authenticationMiddleware, (req, res) => {
 
 
 
+router.post("/AtualizaToken", authenticationMiddleware, (req, res) => {
+    var idUser = req.user.idUsuario;
+    
+    
+    WS.AtualizaToken(idUser, req.body.token1, req.body.token2).then(data => {
+        
+        res.json(data);
+    })
+
+})
+
+
+
 
 
 router.post("/AtualizaUsuario", authenticationMiddleware, upload.single("file"), (req, res) => {
