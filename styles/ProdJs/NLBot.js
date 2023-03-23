@@ -60,20 +60,19 @@ var aux = [];
 
 
 
-function mostraAlerta(elemento){
+function changeFunc(number){
 
-    
     
     if(tokenReal == 0){
         escolhaToken = tokenVirtual;
     }
     
-    if(tokenReal != 0 && elemento.value == 1){
+    if(tokenReal != 0 && number == 1){
         escolhaToken = tokenReal;
 
     }
 
-    if(tokenReal != 0 && elemento.value == 2){
+    if(tokenReal != 0 && number == 2){
         escolhaToken = tokenVirtual;
         
     }
@@ -105,7 +104,7 @@ function mostraAlerta(elemento){
                 const account = data.authorize.account_list
                 $.each(account, function (k, v){
 
-                    $('#botSelecione').append(`<option onchange="javascript:mostraAlerta(elemento`+ k +`);" value=`+ k +`>`+ v.landing_company_name +`: `+ v.loginid +`</option>`);
+                    $('#botSelecione').append(`<option id="#`+ k +`" onclick="changeFunc(`+ k +`);" value=`+ k +`>`+ v.landing_company_name +`: `+ v.loginid +`</option>`);
 
                 })
 
@@ -163,7 +162,7 @@ function ResultBot(data){
                 const account = data.authorize.account_list
                 $.each(account, function (k, v){
 
-                    $('#botSelecione').append(`<option onchange="javascript:mostraAlerta(elemento`+ k +`); value=`+ k +`>`+ v.landing_company_name +`: `+ v.loginid +`</option>`);
+                    $('#botSelecione').append(`<option id="#`+ k +`" onchange="onclick(`+ k +`);" value=`+ k +`>`+ v.landing_company_name +`: `+ v.loginid +`</option>`);
 
                 })
 
