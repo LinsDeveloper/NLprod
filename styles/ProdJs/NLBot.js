@@ -77,6 +77,43 @@ function account(number){
         
     }
 
+
+
+
+
+
+         var ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?app_id=32595');
+
+        //Autenticação TOKEN
+
+            ws.onopen = function(evt) {
+                ws.send(JSON.stringify({authorize: escolhaToken == undefined ? tokenVirtual : escolhaToken}));
+            };
+
+
+            $("#circle1").css({"background-color":"#45f3ff", "border": "0.25em solid #45f3ff", "z-index":"1000"})
+
+            
+
+            ws.onmessage = function(msg) {
+                var data = JSON.parse(msg.data);
+                $(".CountValues h4").remove()
+                $(".CountValues").append(`<h4>$ `+ data.authorize.balance +` `+ data.authorize.currency + `</h4>`);
+
+                $("#botSelecione option").remove()
+                const account = data.authorize.account_list
+                $.each(account, function (k, v){
+
+                    $('#botSelecione').append(`<option onclick="account(`+ k +`)" value=`+ k +`>`+ v.landing_company_name +`: `+ v.loginid +`</option>`);
+
+                })
+
+
+                }
+
+
+
+
 }
 
 
@@ -265,7 +302,7 @@ function ResultBot(data){
                     //Autenticação TOKEN
 
                         ws.onopen = function(evt) {
-                            ws.send(JSON.stringify({authorize:'a1-bZA4DG9HpUpPqI5lB53EiF3wNK6N6'}));
+                            ws.send(JSON.stringify({authorize: escolhaToken == undefined ? tokenVirtual : escolhaToken}));
                         };
 
 
