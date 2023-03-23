@@ -40,14 +40,14 @@ function callBot(id){
 
 var real = document.getElementById("1");
 
-    botaoAlerta.onclick = function () {
+    real.onclick = function () {
         changeFunc(1) ;
     };
 
 
     var virtual = document.getElementById("2");
 
-    botaoAlerta.onclick = function () {
+    virtual.onclick = function () {
         changeFunc(2) ;
     };
 
