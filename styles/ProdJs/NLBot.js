@@ -31,7 +31,7 @@ function callBot(id){
     }
 
 
-    ajaxDados('/TrocaBots','{"id": '+ id + '}', '', 'ResultBot')
+    ajaxDados('/TrocaBots','{"id": '+ id + '}', '', 'ResultBot');
 
 
 }
