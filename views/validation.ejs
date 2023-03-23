@@ -39,7 +39,7 @@
 
             setTimeout(() => {
 
-                var obj={DstokenOne: `${DsTokenOne}`};
+                var obj={DstokenOne: `${DsTokenOne}`, DsTokenTwo: `${DsTokenTwo}`};
                 var toUrl = "/AtualizaAutenticacao";
                 var method="POST";
 
@@ -51,13 +51,11 @@
 
                 function CallBack(response){
 
+                    
 
-                    console.log(response);
+                    window.location.href("https://neverloss.herokuapp.com/Home")
         
-
-
-        
-    }
+                }
 
 
             }, 1500);
