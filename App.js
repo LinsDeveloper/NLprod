@@ -209,7 +209,7 @@ router.post("/AtualizaToken", authenticationMiddleware, (req, res) => {
     
     WS.AtualizaToken(idUser, req.body.DsTokenOne, req.body.DsTokenTwo).then(data => {
         
-        
+       
         res.json(data);
     })
 
