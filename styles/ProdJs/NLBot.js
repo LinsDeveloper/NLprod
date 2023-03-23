@@ -176,16 +176,12 @@ function ResultBot(data){
 
 
 
-                var real = document.getElementById("1");
-
-                real.addEventListener('click', function(){
+                $("#1").on('click', function(){
                     changeFunc(1);
                 });
             
             
-                var virtual = document.getElementById("2");
-            
-                virtual.addEventListener('click', function(){
+                $("#2").on('click', function(){
                     changeFunc(2);
                 });
 
