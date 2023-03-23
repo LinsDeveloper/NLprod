@@ -62,6 +62,7 @@ var aux = [];
 
 function changeFunc(number){
 
+    console.log('ok');
     
     if(tokenReal == 0){
         escolhaToken = tokenVirtual;
