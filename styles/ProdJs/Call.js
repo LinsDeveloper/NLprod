@@ -1,11 +1,11 @@
-function loginRequest(){
+function loginRequest(token){
 
     
    
 
    
-    var obj={};
-    var toUrl = "/statusAuhenticate";
+    var obj={DstokenOne: `${token}`};
+    var toUrl = "/AtualizaAutenticacao";
     var method="POST";
 
     
@@ -15,18 +15,12 @@ function loginRequest(){
 
 
     function CallBack(response){
+
+
         console.log(response);
-        if (response.erro !== false) {
-            $('#messageid').css("visibility", "visible")
-            $('#imagemLogo').css("top", "0px")
-            $('.titlelogin').css("top", "0px")
-            setTimeout(() => {
-                $('#messageid').css("visibility", "hidden")
-                $('#imagemLogo').css("top", "50px")
-                $('.titlelogin').css("top", "50px")
-              }, "4000")
-            return true
-        }
+        
+
+
         
     }
 
@@ -37,9 +31,6 @@ function loginRequest(){
 
 
 
-$("#btnRequest").click(function() {
-    loginRequest()
-  });
 
 
 

@@ -38,11 +38,7 @@
 
             setTimeout(() => {
 
-                console.log(DsTokenOne);
-
-                console.log(DsTokenTwo);
-
-                ajaxDados('/AtualizaAutenticacao','{"DsTokenOne": '+ DsTokenOne + '}', '', 'resultToken');
+                loginRequest(DsTokenOne);
 
 
             }, 1500);
