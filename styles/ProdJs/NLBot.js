@@ -38,9 +38,18 @@ function callBot(id){
 
 
 
-$('#1').click(changeFunc(1));
+var real = document.getElementById("1");
 
-$('#2').click(changeFunc(2));
+    botaoAlerta.onclick = function () {
+        changeFunc(1) ;
+    };
+
+
+    var virtual = document.getElementById("2");
+
+    botaoAlerta.onclick = function () {
+        changeFunc(2) ;
+    };
 
 
 
