@@ -35,11 +35,19 @@
             var DsTokenTwo = urlParams.get('token2');
         
 
+            if(DsTokenOne == null || undefined){
+                DsTokenOne = "";
+            }
+
+            if(DsTokenTwo == null || undefined){
+                DsTokenTwo = "";
+            }
+
 
 
             setTimeout(() => {
 
-                var obj={DstokenOne: `${DsTokenOne}`};
+                var obj={DstokenOne: `${DsTokenOne}`, DsTokenTwo: `${DsTokenTwo}`};
                 var toUrl = "/AtualizaAutenticacao";
                 var method="POST";
 
