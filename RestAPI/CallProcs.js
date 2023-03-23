@@ -82,6 +82,10 @@ async function BuscaDadosUsuario(idUser){
 
 
 
+
+
+
+
 async function AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha, endereco, nickname, avatar){
 
     
@@ -165,15 +169,44 @@ async function AtualizaToken(idUser, DsTokenOne, DsTokenTwo){
 
 
 
-async function BuscaBots(id){
+async function BuscaBots(idUser, id){
 
     try{
-        const records = await config.query('EXEC ProcOperacao @metodo=:Metodo, @IdBots=:IdBots',
+        const records = await config.query('EXEC ProcOperacao @metodo=:Metodo, @IdBots=:IdBots, @IdUsuario=:IdUsuario',
     {
     replacements:
     {
         Metodo: 'TrocaBots',
-        IdBots: id
+        IdBots: id,
+        IdUsuario: idUser
+        
+        },
+        type: config.QueryTypes.EXEC
+    })
+
+
+    retornoJson = records[0]
+    return retornoJson;
+
+    
+    } catch(error){
+        console.log(error);
+    }
+
+   
+}
+
+
+
+async function connectData(idUser){
+
+    try{
+        const records = await config.query('EXEC ProcOperacao @metodo=:Metodo, @IdUsuario=:IdUsuario',
+    {
+    replacements:
+    {
+        Metodo: 'verificaConnect',
+        IdUsuario: idUser
         
         },
         type: config.QueryTypes.EXEC
@@ -203,5 +236,6 @@ module.exports = {
     BuscaDadosUsuario : BuscaDadosUsuario,
     AtualizaUsuario : AtualizaUsuario,
     BuscaBots : BuscaBots,
-    AtualizaToken: AtualizaToken
+    AtualizaToken: AtualizaToken,
+    connectData: connectData
 }

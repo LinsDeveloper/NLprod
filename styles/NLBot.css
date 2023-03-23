@@ -551,6 +551,29 @@ iframe{
 }
 
 
+.btn-connect-desc{
+    position: relative;
+    background-color: #161616ad;
+    border-radius: 10px;
+    color: #fd2929;
+    height: 67px;
+    width: 150px;
+    cursor: pointer;
+    transition: 0.5s;
+    box-shadow: 0px 0px 5px 1px #fd2929;
+    
+   
+}
+
+
+.btn-connect-desc:hover{
+   
+    background-color: #fd2929;
+    color: #FFF;
+   
+}
+
+
 .rowtwoContent{
     display: flex;
     justify-content: space-between;

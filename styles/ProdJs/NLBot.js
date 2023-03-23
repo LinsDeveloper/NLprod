@@ -6,6 +6,15 @@ var sum = 0;
 
 function callBot(id){
 
+
+    var isHidden = $(".btn-connect-desc").is(":hidden");
+    if(isHidden === true){
+        alert('Para operar é necessário conectar-se na corretora!');
+        return
+    }
+
+
+
     var isHidden = $("#summaryStopButton").is(":hidden");
     if(isHidden === false){
         
@@ -29,17 +38,48 @@ function callBot(id){
 
 
 
-var barrier = [];
-var basis = [];
-var contract_type = [];
-var duration = [];
-var duration_unit = [];
-var selected_tick = [];
-var symbol = [];
-var martingale = [];
+
+
+
+
+
+
+
+var barrier;
+var basis;
+var contract_type;
+var duration;
+var duration_unit;
+var selected_tick;
+var symbol;
+var martingale;
+var tokenReal;
+var tokenVirtual;
+var escolhaToken;
 
 
 var aux = [];
+
+
+
+function account(number){
+
+    
+    if(tokenReal == 0){
+        escolhaToken = tokenVirtual;
+    }
+    
+    if(tokenReal != 0 && number == 1){
+        escolhaToken = tokenReal;
+
+    }
+
+    if(tokenReal != 0 && number == 2){
+        escolhaToken = tokenVirtual;
+        
+    }
+
+}
 
 
 
@@ -48,32 +88,55 @@ var aux = [];
 function ResultBot(data){
 
 
-
-    barrier.pop()
-    basis.pop()
-    contract_type.pop()
-    duration.pop()
-    duration_unit.pop()
-    selected_tick.pop()
-    symbol.pop()
-    martingale.pop()
-    martingale.pop()
-    martingale.pop()
-
-
-
-    barrier.push(data[0].barrier);
-    basis.push(data[0].basis);
-    contract_type.push(data[0].contract_type);
-    duration.push(data[0].duration);
-    duration_unit.push(data[0].duration_unit);
-    selected_tick.push(data[0].selected_tick);
-    symbol.push(data[0].symbol);
-    martingale.push(data[0].martingale);
+    barrier = data[0].barrier;
+    basis = data[0].basis; 
+    contract_type = data[0].contract_type; 
+    duration = data[0].duration; 
+    duration_unit = data[0].duration_unit; 
+    symbol = data[0].symbol; 
+    martingale = data[0].martingale; 
+    tokenVirtual = data[0].tokenVirtual;
+    tokenReal = data[0].tokenReal;
+    
+    
 
 
     $('.botEscolha h4').remove();
     $('.botEscolha').append(`<h4>`+ data[0].robo+ `</h4>`);
+
+
+         var ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?app_id=32595');
+
+        //Autenticação TOKEN
+
+            ws.onopen = function(evt) {
+                ws.send(JSON.stringify({authorize: escolhaToken}));
+            };
+
+
+            $("#circle1").css({"background-color":"#45f3ff", "border": "0.25em solid #45f3ff", "z-index":"1000"})
+
+            
+
+            ws.onmessage = function(msg) {
+                var data = JSON.parse(msg.data);
+                $(".CountValues h4").remove()
+                $(".CountValues").append(`<h4>$ `+ data.authorize.balance +` `+ data.authorize.currency + `</h4>`);
+
+                $("#botSelecione option").remove()
+                const account = data.authorize.account_list
+                $.each(account, function (k, v){
+
+                    $('#botSelecione').append(`<option onclick="account(`+ k +`)" value=`+ k +`>`+ v.landing_company_name +`: `+ v.loginid +`</option>`);
+
+                })
+
+
+                }
+
+
+
+    
     
 
 
@@ -87,6 +150,21 @@ function ResultBot(data){
     function entrada(){
 
 
+
+        var isHidden = $(".btn-connect-desc").is(":hidden");
+        if(isHidden === true){
+            alert('Para operar é necessário conectar-se na corretora!');
+            $('#summaryStopButton').hide()
+            $('#summaryRunButton').show()
+            $(".rocket").removeClass('animar');
+            $('.box::before').removeClass('ativar');
+            $(".scene i").remove();
+            $(".tableBot").removeClass('sombrafixa');
+            $(".box").css("opacity", 0.7);
+            return
+        }
+
+
         var resultNone = $('.titleResultado h6').first().text()
         if(resultNone != ''){
             aux.length = 1;
@@ -94,7 +172,7 @@ function ResultBot(data){
 
 
 
-        if(barrier[barrier.length - 1] == undefined){
+        if(barrier == undefined){
             alert("Escolha um robô para operar.");
             $('#summaryStopButton').hide()
             $('#summaryRunButton').show()
@@ -115,9 +193,16 @@ function ResultBot(data){
         var entrada = prompt("✅ CONTRATO INICIAL MÍNIMO ✅");
 
 
+        setTimeout(() => {
+
+
+             ExecBot()
+
+
+          }, 3000);
        
 
-        ExecBot()
+        
 
 
 
@@ -127,15 +212,25 @@ function ResultBot(data){
             function ExecBot(){
 
 
-
-                  
-
-
-
                     var isHidden = $("#summaryStopButton").is(":hidden");
                     if(isHidden === true){
                         return
                     }
+
+               
+
+
+
+
+                    $(".line").css({"background-color":"#45f3ff", "width": "0%" })
+                    
+                    $("#circle2").css({"background-color":"#27282b", "border": "0.25em solid #27282b", "z-index":"1"})
+                    $("#circle3").css({"background-color":"#27282b", "border": "0.25em solid #27282b", "z-index":"1"})
+                  
+
+
+
+                    
                 
                     
                     
@@ -164,10 +259,7 @@ function ResultBot(data){
                     
 
                     
-                        $(".line").css({"background-color":"#45f3ff", "width": "0%" })
-                        $("#circle1").css({"background-color":"#27282b", "border": "0.25em solid #27282b", "z-index":"1000"})
-                        $("#circle2").css({"background-color":"#27282b", "border": "0.25em solid #27282b", "z-index":"1"})
-                        $("#circle3").css({"background-color":"#27282b", "border": "0.25em solid #27282b", "z-index":"1"})
+                        
 
                     
                     var ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?app_id=32595');
@@ -217,14 +309,14 @@ function ResultBot(data){
 
                                 ws.send(JSON.stringify({proposal: 1,
                                     amount: (entradanova == undefined ? entrada : entradanova.toFixed(2)),
-                                    barrier: barrier[barrier.length - 1],
-                                    basis: basis[basis.length - 1],
-                                    contract_type: contract_type[contract_type.length - 1],
+                                    barrier: barrier,
+                                    basis: basis,
+                                    contract_type: contract_type,
                                     currency: data.authorize.currency,
-                                    duration: duration[duration.length - 1],
-                                    duration_unit: duration_unit[duration_unit.length - 1],
-                                    selected_tick: selected_tick[selected_tick.length - 1],
-                                    symbol: symbol[symbol.length - 1]}));
+                                    duration: duration,
+                                    duration_unit: duration_unit,
+                                    selected_tick: selected_tick,
+                                    symbol: symbol}));
 
 
 
@@ -469,6 +561,18 @@ function ResultBot(data){
 
 
             };
+
+
+
+
+
+
+
+
+
+
+
+
 
     
                     

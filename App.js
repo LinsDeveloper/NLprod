@@ -179,10 +179,22 @@ router.post("/DadosCadastro", authenticationMiddleware, (req, res) => {
 })
 
 
+router.post("/connectData", authenticationMiddleware, (req, res) => {
+    var idUser = req.user.idUsuario;
+    
+    WS.connectData(idUser, 1).then(data => {
+        
+        
+        res.json(data);
+    })
+
+})
+
+
 router.post("/TrocaBots", authenticationMiddleware, (req, res) => {
     var idUser = req.user.idUsuario;
     
-    WS.BuscaBots(req.body.id).then(data => {
+    WS.BuscaBots(idUser, req.body.id).then(data => {
         
         res.json(data);
     })
@@ -196,6 +208,7 @@ router.post("/AtualizaToken", authenticationMiddleware, (req, res) => {
     
     
     WS.AtualizaToken(idUser, req.body.DsTokenOne, req.body.DsTokenTwo).then(data => {
+        
         
         res.json(data);
     })

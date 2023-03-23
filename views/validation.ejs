@@ -30,14 +30,18 @@
 
 
             const urlParams = new URLSearchParams(queryString);
-            const DsTokenOne = urlParams.get('token1');
-            const DsTokenTwo = urlParams.get('token2');
+            var DsTokenOne = urlParams.get('token1');
+            var DsTokenTwo = urlParams.get('token2');
+        
 
 
+
+           
             
                 
-                
-        ajaxDados('/AtualizaToken','{"idUser": '+ 1 + ',"DsTokenOne": '+ DsTokenOne + ', "DsTokenTwo": '+ DsTokenTwo + '}', '', 'resultToken')
+            
+            ajaxDados('/AtualizaToken','{"DsTokenOne": '+ DsTokenOne + ', "DsTokenTwo": '+ DsTokenTwo + '}', '', 'resultToken')
+
 
             
     
@@ -45,9 +49,13 @@
         });
 
 
+
+
         function resultToken(data){
 
-            window.location.href("/NLBot");
+
+
+            window.location.href = 'https://neverloss.herokuapp.com/NLBot';
 
         }
 
