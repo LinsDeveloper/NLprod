@@ -144,7 +144,7 @@ async function AtualizaAutenticacao(idUsuario, DsTokenOne, DsTokenTwo){
     })
 
 
-    retornoJson = records[0];
+    retornoJson = JSON.stringify(records[0]);
     return retornoJson;
 
     
