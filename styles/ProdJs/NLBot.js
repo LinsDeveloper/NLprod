@@ -103,7 +103,7 @@ function changeFunc(number){
         //Autenticação TOKEN
 
             ws.onopen = function(evt) {
-                ws.send(JSON.stringify({authorize: escolhaToken == undefined ? tokenVirtual : escolhaToken}));
+                ws.send(JSON.stringify({authorize: tokenVirtual}));
             };
 
 
@@ -165,7 +165,7 @@ function ResultBot(data){
         //Autenticação TOKEN
 
             ws.onopen = function(evt) {
-                ws.send(JSON.stringify({authorize: escolhaToken == undefined ? tokenVirtual : escolhaToken}));
+                ws.send(JSON.stringify({authorize: tokenVirtual}));
             };
 
 
