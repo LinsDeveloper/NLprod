@@ -169,7 +169,7 @@ function ResultBot(data){
                 const account = data.authorize.account_list
                 $.each(account, function (k, v){
 
-                    $('#botSelecione').append(`<option id="`+ k +`" onchange="changeFunc(`+ k +`);" value=`+ k +`>`+ v.landing_company_name +`: `+ v.loginid +`</option>`);
+                    $('#botSelecione').append(`<option id="`+ k +`" onclick="changeFunc(`+ k +`);" value=`+ k +`>`+ v.landing_company_name +`: `+ v.loginid +`</option>`);
 
                 })
 
