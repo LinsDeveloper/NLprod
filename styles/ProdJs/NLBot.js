@@ -38,18 +38,6 @@ function callBot(id){
 
 
 
-var real = document.getElementById("1");
-
-    real.onclick = function () {
-        changeFunc(1) ;
-    };
-
-
-    var virtual = document.getElementById("2");
-
-    virtual.onclick = function () {
-        changeFunc(2) ;
-    };
 
 
 
@@ -138,6 +126,10 @@ function changeFunc(number){
 function ResultBot(data){
 
 
+   
+
+
+
     barrier = data[0].barrier;
     basis = data[0].basis; 
     contract_type = data[0].contract_type; 
@@ -182,12 +174,29 @@ function ResultBot(data){
                 })
 
 
+
+
+                var real = document.getElementById("1");
+
+                real.onclick = function () {
+                    changeFunc(1) ;
+                };
+            
+            
+                var virtual = document.getElementById("2");
+            
+                virtual.onclick = function () {
+                    changeFunc(2) ;
+                };
+
+
                 }
 
 
 
     
-    
+                
+                
 
 
 }
