@@ -127,18 +127,17 @@ async function AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha
 
 
 
-async function AtualizaToken(idUser, DsTokenOne){
+async function AtualizaToken(DsTokenOne){
 
     
 
     try{
-        const records = await config.query('EXEC ProcUsuarios @metodo=:Metodo, @IdUsuario=:IdUsuario, @DsTokenOne=:DsTokenOne',
+        const records = await config.query('EXEC ProcUsuarios @metodo=:Metodo, @DsTokenOne=:DsTokenOne',
     {
     replacements:
     {
         
         Metodo: 'AtualizaToken',
-        IdUsuario: idUser,
         DsTokenOne: DsTokenOne
 
         
