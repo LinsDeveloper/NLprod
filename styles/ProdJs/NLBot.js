@@ -7,7 +7,11 @@ var sum = 0;
 function callBot(id){
 
 
-    
+    var isHidden = $(".btn-connect-desc").is(":hidden");
+    if(isHidden === true){
+        alert('Para operar é necessário conectar-se na corretora!');
+        return
+    }
 
 
 
@@ -37,10 +41,6 @@ function callBot(id){
 
 
 
-
-
-
-
 var barrier;
 var basis;
 var contract_type;
@@ -52,6 +52,8 @@ var martingale;
 var tokenReal;
 var tokenVirtual;
 var escolhaToken;
+
+
 
 
 var aux = [];
@@ -106,7 +108,7 @@ function ResultBot(data){
         //Autenticação TOKEN
 
             ws.onopen = function(evt) {
-                ws.send(JSON.stringify({authorize: escolhaToken}));
+                ws.send(JSON.stringify({authorize: escolhaToken == undefined ? tokenVirtual : escolhaToken}));
             };
 
 
