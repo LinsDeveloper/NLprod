@@ -178,16 +178,16 @@ function ResultBot(data){
 
                 var real = document.getElementById("1");
 
-                real.onclick = function () {
-                    changeFunc(1) ;
-                };
+                real.addEventListener('click', function(){
+                    changeFunc(1);
+                });
             
             
                 var virtual = document.getElementById("2");
             
-                virtual.onclick = function () {
-                    changeFunc(2) ;
-                };
+                virtual.addEventListener('click', function(){
+                    changeFunc(2);
+                });
 
 
                 }
