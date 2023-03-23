@@ -36,11 +36,17 @@
 
 
 
-           
+            setTimeout(() => {
+
+
+                ajaxDados('/AtualizaToken','{"DsTokenOne": '+ DsTokenOne + ', "DsTokenTwo": '+ DsTokenTwo + '}', '', 'resultToken')
+
+
+            }, 1500);
             
                 
             
-            ajaxDados('/AtualizaToken','{"DsTokenOne": '+ DsTokenOne + ', "DsTokenTwo": '+ DsTokenTwo + '}', '', 'resultToken')
+            
 
 
             
@@ -55,7 +61,7 @@
 
 
 
-            console.log(data);
+            window.location.href("https://neverloss.herokuapp.com/NLBot");
 
         }
 
