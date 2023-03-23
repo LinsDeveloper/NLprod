@@ -196,6 +196,7 @@ router.post("/TrocaBots", authenticationMiddleware, (req, res) => {
     
     WS.BuscaBots(idUser, req.body.id).then(data => {
         
+
         res.json(data);
     })
 
@@ -207,10 +208,10 @@ router.post("/AtualizaToken", authenticationMiddleware, (req, res) => {
     var idUser = req.user.idUsuario;
     
     
-    WS.AtualizaToken(idUser).then(data => {
+    WS.AtualizaToken(idUser, req.body.DsTokenOne).then(data => {
         
        
-        res.json(data);
+        res.send(data);
     })
 
 })
