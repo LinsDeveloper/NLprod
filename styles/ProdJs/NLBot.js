@@ -41,6 +41,19 @@ function callBot(id){
 
 
 
+$(document).on('click', '#1', function(){
+    changeFunc(1);
+});
+
+
+$(document).on('click', '#2', function(){
+    changeFunc(2);
+});
+
+
+
+
+
 
 
 
