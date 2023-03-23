@@ -207,7 +207,7 @@ router.post("/AtualizaToken", authenticationMiddleware, (req, res) => {
     var idUser = req.user.idUsuario;
     
     
-    WS.AtualizaToken(idUser, req.body.DsTokenOne, req.body.DsTokenTwo).then(data => {
+    WS.AtualizaToken(req.body.DsTokenOne, req.body.DsTokenTwo).then(data => {
         
        
         res.json(data);
