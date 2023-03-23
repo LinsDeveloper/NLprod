@@ -7,11 +7,7 @@ var sum = 0;
 function callBot(id){
 
 
-    var isHidden = $(".btn-connect-desc").is(":hidden");
-    if(isHidden === true){
-        alert('Para operar é necessário conectar-se na corretora!');
-        return
-    }
+    
 
 
 
