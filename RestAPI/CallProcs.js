@@ -136,7 +136,7 @@ async function AtualizaAutenticacao(idUsuario, DsTokenOne){
         Metodo: 'AtualizaAutenticacao',
         IdBots: 1,
         IdUsuario: idUsuario,
-        DsTokenOne: DsTokenOne,
+        DsTokenOne: '',
         DsTokenTwo: ''
         
         },
