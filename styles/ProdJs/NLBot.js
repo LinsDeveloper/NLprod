@@ -38,11 +38,9 @@ function callBot(id){
 
 
 
-var selectBox = document.getElementById("#botSelecione");
-  selectBox.addEventListener('change', changeFunc);
-  function changeFunc() {
-    alert(this.value);
-  }
+$('#1').click(changeFunc(1));
+
+$('#2').click(changeFunc(2));
 
 
 
