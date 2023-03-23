@@ -60,7 +60,7 @@ var aux = [];
 
 
 
-function account(number){
+function changeFunc(number){
 
     
     if(tokenReal == 0){
@@ -91,7 +91,7 @@ function account(number){
             };
 
 
-            $("#circle1").css({"background-color":"#45f3ff", "border": "0.25em solid #45f3ff", "z-index":"1000"})
+            
 
             
 
@@ -104,7 +104,7 @@ function account(number){
                 const account = data.authorize.account_list
                 $.each(account, function (k, v){
 
-                    $('#botSelecione').append(`<option onclick="account(`+ k +`)" value=`+ k +`>`+ v.landing_company_name +`: `+ v.loginid +`</option>`);
+                    $('#botSelecione').append(`<option onchange="changeFunc(`+ k +`);" value=`+ k +`>`+ v.landing_company_name +`: `+ v.loginid +`</option>`);
 
                 })
 
@@ -149,7 +149,7 @@ function ResultBot(data){
             };
 
 
-            $("#circle1").css({"background-color":"#45f3ff", "border": "0.25em solid #45f3ff", "z-index":"1000"})
+           
 
             
 
@@ -162,7 +162,7 @@ function ResultBot(data){
                 const account = data.authorize.account_list
                 $.each(account, function (k, v){
 
-                    $('#botSelecione').append(`<option onclick="account(`+ k +`)" value=`+ k +`>`+ v.landing_company_name +`: `+ v.loginid +`</option>`);
+                    $('#botSelecione').append(`<option onchange="changeFunc(`+ k +`);" value=`+ k +`>`+ v.landing_company_name +`: `+ v.loginid +`</option>`);
 
                 })
 
