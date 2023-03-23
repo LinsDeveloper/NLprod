@@ -204,13 +204,13 @@ router.post("/TrocaBots", authenticationMiddleware, (req, res) => {
 
 
 
-router.post("/AtualizaToken", authenticationMiddleware, (req, res) => {
+router.post("/AtualizaAutenticacao", authenticationMiddleware, (req, res) => {
     var idUser = req.user.idUsuario;
     
     
-    WS.AtualizaToken(idUser, req.body.DsTokenOne, req.body.DsTokenTwo).then(data => {
+    WS.AtualizaAutenticacao(idUser, req.body.id).then(data => {
         
-       
+       console.log(data);
         res.json(data);
     })
 

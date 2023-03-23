@@ -126,22 +126,16 @@ async function AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha
 }
 
 
-
-async function AtualizaToken(idUser, tokenOne, tokenTwo){
-
-    
+async function AtualizaAutenticacao(idUser, id){
 
     try{
-        const records = await config.query('EXEC ProcUsuarios @metodo=:Metodo, @IdUsuario=:IdUsuario, @DsTokenOne: DsTokenOne, @DsTokenTwo: DsTokenTwo',
+        const records = await config.query('EXEC ProcOperacao @metodo=:Metodo, @IdUsuario=:IdUsuario, @id=:id',
     {
     replacements:
     {
-        
-        Metodo: 'AtualizaToken',
+        Metodo: 'AtualizaAutenticacao',
         IdUsuario: idUser,
-        DsTokenOne: tokenOne,
-        DsTokenTwo: tokenTwo
-
+        id: id
         
         },
         type: config.QueryTypes.EXEC
@@ -152,12 +146,16 @@ async function AtualizaToken(idUser, tokenOne, tokenTwo){
     return retornoJson;
 
     
-    } catch(err){
-        console.log(err);
+    } catch(error){
+        console.log(error);
     }
 
-
+   
 }
+
+
+
+
 
 
 
@@ -228,6 +226,6 @@ module.exports = {
     BuscaDadosUsuario : BuscaDadosUsuario,
     AtualizaUsuario : AtualizaUsuario,
     BuscaBots : BuscaBots,
-    AtualizaToken: AtualizaToken,
+    AtualizaAutenticacao: AtualizaAutenticacao,
     connectData: connectData
 }

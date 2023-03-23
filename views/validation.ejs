@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/styles/validation.css">
     
     <script type="text/javascript" src="/styles/ProdJs/NLForms.js"></script>
-    <script type="text/javascript" src="/styles/ProdJs/WS.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
 
@@ -37,23 +36,16 @@
 
 
 
-            var obj={DsTokenOne: DsTokenTwo, DsTokenTwo: DsTokenTwo};
-            var toUrl = "/AtualizaToken";
-            var method="POST";
+            setTimeout(() => {
 
-    
-            WebService.Init(obj, toUrl, CallBack, method);
+                console.log(DsTokenOne);
 
+                console.log(DsTokenTwo);
 
-
-
-            function CallBack(response){
+                ajaxDados('/AtualizaAutenticacao','{"id": '+ DsTokenOne + '}', '', 'ResultBot');
 
 
-                console.log(response);
-                
-                
-            }
+            }, 1500);
             
                 
             
