@@ -86,12 +86,12 @@ async function BuscaDadosUsuario(idUser){
 
 
 
-async function AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha, endereco, nickname, avatar){
+async function AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha, endereco, nickname, imagem){
 
     
 
     try{
-        const records = await config.query('EXEC ProcUsuarios @metodo=:Metodo, @IdUsuario=:IdUsuario, @Nome=:Nome, @Telefone=:Telefone, @Celular=:Celular, @DsCpf=:DsCpf, @DtNascimento=:DtNascimento, @password=:password, @Nickname=:Nickname,  @Endereco=:Endereco, @DsTokenOne=:DsTokenOne,  @DsTokenTwo=:DsTokenTwo',
+        const records = await config.query('EXEC ProcUsuarios @metodo=:Metodo, @IdUsuario=:IdUsuario, @Nome=:Nome, @Telefone=:Telefone, @Celular=:Celular, @DsCpf=:DsCpf, @DtNascimento=:DtNascimento, @password=:password, @Nickname=:Nickname,  @Endereco=:Endereco, @Img=:Img',
     {
     replacements:
     {
@@ -106,8 +106,7 @@ async function AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha
         password: senha,
         Nickname: nickname,
         Endereco: endereco,
-        DsTokenOne:'',
-        DsTokenTwo:''
+        Img: imagem
         
         },
         type: config.QueryTypes.EXEC

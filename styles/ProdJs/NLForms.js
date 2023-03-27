@@ -41,3 +41,9 @@ function ajaxDados(metodo, dados, elementostatus,funcao){
     })
 
 }
+
+
+
+
+
+

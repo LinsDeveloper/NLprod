@@ -35,7 +35,7 @@
         <div class="sub-menu-wrap" id="subMenu">
             <div class="sub-menu">
                 <div class="user-info">
-                    <img src="/styles/imagensnever/usuariopadrao.png">
+                    <img src="<%= NameUsuario.logo %>">
                     <% if(NameUsuario) { %>
                         <h2><%= NameUsuario.DsUsuario %></h2>
                     <%}%>
@@ -43,25 +43,25 @@
                 <hr>
 
                 <a href="/Cadastro" class="sub-menu-link">
-                    <img src="/styles/imagensnever/usuariopadrao.png">
+                    <img src="<%= NameUsuario.logo %>">
                     <p>Editar Perfil</p>
                     
                 </a>
 
                 <a href="#" class="sub-menu-link">
-                    <img src="/styles/imagensnever/usuariopadrao.png">
+                    <img src="<%= NameUsuario.logo %>">
                     <p>Config.</p>
                     
                 </a>
 
                 <a href="#" class="sub-menu-link">
-                    <img src="/styles/imagensnever/usuariopadrao.png">
+                    <img src="<%= NameUsuario.logo %>">
                     <p>Suporte</p>
                     
                 </a>
 
                 <a href="/logout" class="sub-menu-link">
-                    <img src="/styles/imagensnever/usuariopadrao.png">
+                    <img src="<%= NameUsuario.logo %>">
                     <p>Logout</p>
                     
                 </a>
@@ -69,7 +69,7 @@
         </div>
 
         
-        <img src="/styles/imagensnever/usuariopadrao.png" class="user-pic" onclick="abrirMenuPerfil()">
+        <img src="<%= NameUsuario.logo %>" class="user-pic" onclick="abrirMenuPerfil()">
 
         
 

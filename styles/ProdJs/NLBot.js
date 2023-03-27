@@ -39,24 +39,6 @@ function callBot(id){
 
 
 
-
-
-$(document).on('click', '#1', function(){
-    changeFunc(1);
-});
-
-
-$(document).on('click', '#2', function(){
-    changeFunc(2);
-});
-
-
-
-
-
-
-
-
 var barrier;
 var basis;
 var contract_type;
@@ -68,6 +50,8 @@ var martingale;
 var tokenReal;
 var tokenVirtual;
 var escolhaToken;
+var nameBot;
+var call;
 
 
 
@@ -83,12 +67,12 @@ function changeFunc(number){
         escolhaToken = tokenVirtual;
     }
     
-    if(tokenReal != 0 && number == 1){
+    if(tokenReal != 0 && number == 0){
         escolhaToken = tokenReal;
 
     }
 
-    if(tokenReal != 0 && number == 2){
+    if(tokenReal != 0 && number == 1){
         escolhaToken = tokenVirtual;
         
     }
@@ -103,7 +87,7 @@ function changeFunc(number){
         //Autenticação TOKEN
 
             ws.onopen = function(evt) {
-                ws.send(JSON.stringify({authorize: tokenVirtual}));
+                ws.send(JSON.stringify({authorize: escolhaToken}));
             };
 
 
@@ -116,14 +100,7 @@ function changeFunc(number){
                 $(".CountValues h4").remove()
                 $(".CountValues").append(`<h4>$ `+ data.authorize.balance +` `+ data.authorize.currency + `</h4>`);
 
-                $("#botSelecione option").remove()
-                const account = data.authorize.account_list
-                $.each(account, function (k, v){
-
-                    $('#botSelecione').append(`<option id="`+ k +`" onclick="changeFunc(`+ k +`);" value=`+ k +`>`+ v.landing_company_name +`: `+ v.loginid +`</option>`);
-
-                })
-
+                
 
                 }
 
@@ -131,6 +108,9 @@ function changeFunc(number){
 
 
 }
+
+
+
 
 
 
@@ -152,7 +132,20 @@ function ResultBot(data){
     martingale = data[0].martingale; 
     tokenVirtual = data[0].tokenVirtual;
     tokenReal = data[0].tokenReal;
+    nameBot = data[0].robo;
     
+
+    if(tokenVirtual == 0 && tokenReal == 0){
+        alert('Para operar é necessário conectar-se na corretora!');
+        return
+    }
+    
+
+    if(tokenReal == 0){
+        escolhaToken = tokenVirtual;
+    }
+    
+
     
 
 
@@ -160,12 +153,14 @@ function ResultBot(data){
     $('.botEscolha').append(`<h4>`+ data[0].robo+ `</h4>`);
 
 
+    if(call == undefined){
+
          var ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?app_id=32595');
 
         //Autenticação TOKEN
 
             ws.onopen = function(evt) {
-                ws.send(JSON.stringify({authorize: tokenVirtual}));
+                ws.send(JSON.stringify({authorize: tokenReal == 0 ? tokenVirtual : tokenReal}));
             };
 
 
@@ -175,31 +170,94 @@ function ResultBot(data){
 
             ws.onmessage = function(msg) {
                 var data = JSON.parse(msg.data);
+
+                
+
                 $(".CountValues h4").remove()
                 $(".CountValues").append(`<h4>$ `+ data.authorize.balance +` `+ data.authorize.currency + `</h4>`);
 
-                $("#botSelecione option").remove()
-                const account = data.authorize.account_list
-                $.each(account, function (k, v){
 
-                    $('#botSelecione').append(`<option id="`+ k +`" onclick="changeFunc(`+ k +`);" value=`+ k +`>`+ v.landing_company_name +`: `+ v.loginid +`</option>`);
+                
 
-                })
+                        
+                        const account = data.authorize.account_list
+                        call = 1;
+                        $.each(account, function (k, v){
+
+                            $('#botSelecione').append(`<option class="solution-`+k+`" id="option-`+ k +`"  value=`+ k +`>`+ v.landing_company_name +`: `+ v.loginid +`</option>`);
 
 
 
+                        })
+                    
+                
+                    }
+                
 
-                $("#1").on('click', function(){
-                    changeFunc(1);
-                });
-            
-            
-                $("#2").on('click', function(){
-                    changeFunc(2);
-                });
+
+                
+
 
 
                 }
+
+
+
+
+
+                document.querySelector('#botSelecione').addEventListener('change', (event) => {
+
+
+
+                    var select = document.getElementById("botSelecione");
+                    opcaoValor = select.options[select.selectedIndex].value;
+
+                    if(document.body.contains(event.currentTarget[0]) == true && opcaoValor == 0){
+
+                        var HiddenIs = $("#summaryStopButton").is(":hidden");
+                        if(HiddenIs === false){
+
+                        alert('É preciso parar a automatização na última operação para fazer a troca de conta. Após escolher a conta, volte a operar.');
+                        $('#summaryStopButton').hide()
+                        $('#summaryRunButton').show()
+                        $(".rocket").removeClass('animar');
+                        $('.box::before').removeClass('ativar');
+                        $(".scene i").remove();
+                        $(".tableBot").removeClass('sombrafixa');
+                        $(".box").css("opacity", 0.7);
+
+                        }
+                       
+                        return changeFunc(0);
+                        
+                    
+                    
+                    }
+
+
+                    if(document.body.contains(event.currentTarget[1]) == true && opcaoValor == 1){
+
+
+
+                        var HiddenIs = $("#summaryStopButton").is(":hidden");
+                        if(HiddenIs === false){
+                            
+                        alert('É preciso parar a automatização na última operação para fazer a troca de conta. Após escolher a conta, volte a operar.');
+                        $('#summaryStopButton').hide()
+                        $('#summaryRunButton').show()
+                        $(".rocket").removeClass('animar');
+                        $('.box::before').removeClass('ativar');
+                        $(".scene i").remove();
+                        $(".tableBot").removeClass('sombrafixa');
+                        $(".box").css("opacity", 0.7);
+
+                        }
+                       
+                           return changeFunc(1);
+                        
+                    }
+
+                })
 
 
 
@@ -222,6 +280,7 @@ function ResultBot(data){
         var isHidden = $(".btn-connect-desc").is(":hidden");
         if(isHidden === true){
             alert('Para operar é necessário conectar-se na corretora!');
+            $("#circle1").css({"background-color":"#27282b", "border": "0.25em solid #27282b", "z-index":"1"})
             $('#summaryStopButton').hide()
             $('#summaryRunButton').show()
             $(".rocket").removeClass('animar');
@@ -259,7 +318,33 @@ function ResultBot(data){
                 
 
         var entrada = prompt("✅ CONTRATO INICIAL MÍNIMO ✅");
+        
 
+        if(entrada == null){
+            alert("Insira um valor de pelo menos 0,35");
+            $('#summaryStopButton').hide()
+            $('#summaryRunButton').show()
+            $(".rocket").removeClass('animar');
+            $('.box::before').removeClass('ativar');
+            $(".scene i").remove();
+            $(".tableBot").removeClass('sombrafixa');
+            $(".box").css("opacity", 0.7);
+            return
+        }
+
+        entrada = parseFloat(entrada.replace(',','.'));
+
+        if(entrada < 0.35){
+            alert("Insira um valor de pelo menos 0,35.")
+            $('#summaryStopButton').hide()
+            $('#summaryRunButton').show()
+            $(".rocket").removeClass('animar');
+            $('.box::before').removeClass('ativar');
+            $(".scene i").remove();
+            $(".tableBot").removeClass('sombrafixa');
+            $(".box").css("opacity", 0.7);
+            return
+        }
 
         setTimeout(() => {
 
@@ -280,15 +365,16 @@ function ResultBot(data){
             function ExecBot(){
 
 
+
+
+
+
                     var isHidden = $("#summaryStopButton").is(":hidden");
                     if(isHidden === true){
                         return
                     }
 
                
-
-
-
 
                     $(".line").css({"background-color":"#45f3ff", "width": "0%" })
                     
@@ -348,13 +434,7 @@ function ResultBot(data){
                             $(".CountValues h4").remove()
                             $(".CountValues").append(`<h4>$ `+ data.authorize.balance +` `+ data.authorize.currency + `</h4>`);
 
-                            $("#botSelecione option").remove()
-                            const account = data.authorize.account_list
-                            $.each(account, function (k, v){
-
-                                $('#botSelecione').append(`<option value=`+ k +`>`+ v.landing_company_name +`: `+ v.loginid +`</option>`);
-
-                            })
+                           
 
                             //active symbols
 
@@ -372,7 +452,19 @@ function ResultBot(data){
                                 $(".CountValues h4").remove()
                                 $(".CountValues").append(`<h4>$ `+ balanceAccount.balance.balance +` `+ balanceAccount.balance.currency + `</h4>`);
                                 
-
+                                if(balanceAccount.balance.balance < 0.1){
+                                    alert("Saldo insuficiente na conta para operar.");
+                                    
+                                    $("#circle1").css({"background-color":"#27282b", "border": "0.25em solid #27282b", "z-index":"1"})
+                                    $('#summaryStopButton').hide()
+                                    $('#summaryRunButton').show()
+                                    $(".rocket").removeClass('animar');
+                                    $('.box::before').removeClass('ativar');
+                                    $(".scene i").remove();
+                                    $(".tableBot").removeClass('sombrafixa');
+                                    $(".box").css("opacity", 0.7);
+                                    return
+                                }
 
 
                                 ws.send(JSON.stringify({proposal: 1,

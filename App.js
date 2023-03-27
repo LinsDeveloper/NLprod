@@ -66,8 +66,8 @@ app.use('/scriptsApp',express.static('scriptsApp'));
 
 
 //Inicia o middleware BodyParser
-app.use(bodyParser.urlencoded({extended: true})); 
-app.use(express.json());
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true})); 
+app.use(express.json({ limit: '50mb'}));
 app.use(cors());  
 
 //Outras rotas serão a partir desta.
@@ -128,7 +128,7 @@ router.get("/Gerenciamento", authenticationMiddleware, (req, res) => {
 router.get("/Cadastro", authenticationMiddleware, (req, res) => {
     
     var DsName = req.user; 
-    res.render('user', {NameUsuario: DsName, messageSucesso: req.flash('successMessage')});
+    res.render('user', {NameUsuario: DsName, messageSucesso: req.flash('successMessage'), messageError: req.flash('errorMessage')});
 
 })
 
@@ -210,7 +210,6 @@ router.post("/AtualizaAutenticacao", authenticationMiddleware, (req, res) => {
     
     WS.AtualizaAutenticacao(idUser, req.body.DstokenOne, req.body.DsTokenTwo).then(data => {
         
-       console.log(data);
         res.json(data);
     })
 
@@ -220,11 +219,11 @@ router.post("/AtualizaAutenticacao", authenticationMiddleware, (req, res) => {
 
 
 
-router.post("/AtualizaUsuario", authenticationMiddleware, upload.single("file"), (req, res) => {
+router.post("/AtualizaUsuario", authenticationMiddleware, (req, res) => {
     var idUser = req.user.idUsuario;
 
     
-    
+    var imagem = req.body.logo;
     var nome = req.body.nome;
     var telefone = req.body.telefone;
     var celular = req.body.celular;
@@ -238,11 +237,13 @@ router.post("/AtualizaUsuario", authenticationMiddleware, upload.single("file"),
 
     if(confirmaSenha == senha){
 
+        
 
-        WS.AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha, endereco, nickname).then(dados => {
+        WS.AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha, endereco, nickname, imagem).then(dados => {
             
-            console.log(dados[0].success);
+            
             req.flash('successMessage', `${dados[0].success}`);
+            console.log(senha);
             res.redirect('/Cadastro');
             return;
         })
@@ -252,7 +253,7 @@ router.post("/AtualizaUsuario", authenticationMiddleware, upload.single("file"),
 
         
         req.flash('errorMessage', 'Por favor, verifique a confirmação da senha.');
-
+        res.redirect('/Cadastro');
     }
 
 

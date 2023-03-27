@@ -35,7 +35,7 @@
 
    
 
-    <form action="/AtualizaUsuario"  method="post" enctype="multipart/form-data">
+    <form action="/AtualizaUsuario"  method="post">
             <div class="cardUser">
                 <div class="card">
 
@@ -58,6 +58,26 @@
                                 </div>
 
                             <%}%>
+
+                            <% if(messageError.length > 0) { %>
+
+                                <script>
+                                    $('#messageid').css("visibility", "visible")
+                                    $('#imagemLogo').css("top", "0px")
+                                    $('.titlelogin').css("top", "0px")
+                                    setTimeout(() => {
+
+                                        $('.updateError').remove()
+                                        
+                                    }, "3000")
+                                </script>
+                                <div class="updateError">
+                                    <div class="messageinvalidError" id="messageid">
+                                        <span><h4 >Confirmação de senha inválida!</h4></span>
+                                    </div>
+                                </div>
+
+                            <%}%>
                     
                             <div class="card-body-first">
 
@@ -65,8 +85,9 @@
 
                             
                                     <div class="row">
+                                        <input type="hidden" name='logo' id='foto'/>
                                         <div class="imgUser">
-                                            <input  type="file" id="filename" name="file" class="dropify" data-height="250" data-default-file="/styles/imagensnever/usuariopadrao.png" data-allowed-file-extensions="png jpeg jpg gif enc"/>
+                                            <input  type="file" id="filename" onchange="fotochange()" name="file" class="dropify" data-height="250"  data-allowed-file-extensions="png jpeg jpg gif enc"/>
                                             <h2>Foto</h2>
                                         </div>
                                         
@@ -138,7 +159,7 @@
                                         
                                         <div class="namesUser">
                                             <label class="formUser" for="nameUser">Validade da Conta</label>
-                                            <input type="text" id="dataValidade" placeholder="17-11-2023" style="cursor: not-allowed;" disabled>
+                                            <input type="text" id="dataValidade" placeholder="" style="cursor: not-allowed;" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -228,12 +249,40 @@
               $('#endereco').val(data[0].endereco)
               $('#dataValidade').val(data[0].dataValidade)
 
+              $('.dropify-render').append(`<img src="`+ data[0].DsAvatar +`" style="max-height: 250px;">`)
+              $('.dropify-preview').css('display', 'block');
+              $('#foto').val(data[0].DsAvatar);
+              $('#filename').attr('data-default-file', data[0].DsAvatar);
+              $('#dataValidade').attr('placeholder', data[0].validade)
+
+
+              
+              
+
+
+             
+
+
 
 
 
         }
 
 
+
+        function fotochange(){
+
+
+           
+            setTimeout(() => {
+
+                var img = $('.dropify-render img').attr('src')
+
+                     $('#foto').val(img)
+
+                }, 1500);
+
+        }
 
 
        
