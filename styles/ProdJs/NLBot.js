@@ -4,6 +4,11 @@ var sum = 0;
 
 
 
+
+
+
+
+
 function callBot(id){
 
 
@@ -453,7 +458,7 @@ function ResultBot(data){
                                 $(".CountValues").append(`<h4>$ `+ balanceAccount.balance.balance +` `+ balanceAccount.balance.currency + `</h4>`);
                                 
                                 if(balanceAccount.balance.balance < 0.1){
-                                    alert("Saldo insuficiente na conta para operar.");
+                                    alert("Saldo na conta insuficiente para operar.");
                                     
                                     $("#circle1").css({"background-color":"#27282b", "border": "0.25em solid #27282b", "z-index":"1"})
                                     $('#summaryStopButton').hide()

@@ -189,6 +189,34 @@ async function BuscaBots(idUser, id){
 
 
 
+async function disconnect(idUser){
+
+    try{
+        const records = await config.query('EXEC ProcOperacao @metodo=:Metodo, @IdUsuario=:IdUsuario',
+    {
+    replacements:
+    {
+        Metodo: 'disconnect',
+        IdUsuario: idUser
+        
+        },
+        type: config.QueryTypes.EXEC
+    })
+
+
+    retornoJson = records[0]
+    return retornoJson;
+
+    
+    } catch(error){
+        console.log(error);
+    }
+
+   
+}
+
+
+
 async function connectData(idUser){
 
     try{
@@ -228,5 +256,6 @@ module.exports = {
     AtualizaUsuario : AtualizaUsuario,
     BuscaBots : BuscaBots,
     AtualizaAutenticacao: AtualizaAutenticacao,
-    connectData: connectData
+    connectData: connectData,
+    disconnect: disconnect
 }

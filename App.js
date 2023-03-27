@@ -203,6 +203,18 @@ router.post("/TrocaBots", authenticationMiddleware, (req, res) => {
 })
 
 
+router.post("/disconnect", authenticationMiddleware, (req, res) => {
+    var idUser = req.user.idUsuario;
+    
+    WS.disconnect(idUser).then(data => {
+        
+
+        res.json(data);
+    })
+
+})
+
+
 
 router.post("/AtualizaAutenticacao", authenticationMiddleware, (req, res) => {
     var idUser = req.user.idUsuario;

@@ -162,7 +162,7 @@
                                 <a href="https://oauth.binary.com/oauth2/authorize?app_id=32595"> <Button class="btn-connect">
                                     Conectar-se na Corretora
                                 </Button></a>
-                               <Button class="btn-connect-desc" >
+                               <Button class="btn-connect-desc" onclick="">
                                     Desconectar
                                 </Button>
                             </span>
@@ -473,6 +473,21 @@
 
 
 
+
+
+            function Desconectar(){
+
+                
+                ajaxDados('/disconnect', '', '', 'retornoDisconnect');
+
+            }
+
+
+            function retornoDisconnect(){
+
+                window.location.href= "https://neverloss.herokuapp.com/NLBot";
+
+            }
 
           
 
