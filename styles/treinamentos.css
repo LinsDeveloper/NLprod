@@ -644,7 +644,7 @@ body.dark .home .text{
 
 
 
-iframe{
+.imagemBreve{
     width: 100%;
     height: 100%;
     position: relative;
@@ -693,7 +693,7 @@ iframe{
 
 .row-progressbar div{
     height: 100%;
-    width: 69%;
+    width: 0%;
     padding: 4px;
     background-color: #051b81;
     border-radius: 10px;
