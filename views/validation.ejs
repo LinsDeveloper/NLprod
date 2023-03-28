@@ -33,6 +33,9 @@
             const urlParams = new URLSearchParams(queryString);
             var DsTokenOne = urlParams.get('token1');
             var DsTokenTwo = urlParams.get('token2');
+            var DsTokenThree = urlParams.get('token3');
+            var DsTokenFour = urlParams.get('token4');
+            var DsTokenFive = urlParams.get('token5');
         
 
             if(DsTokenOne == null || undefined){
@@ -43,11 +46,26 @@
                 DsTokenTwo = "";
             }
 
+            if(DsTokenThree == null || undefined){
+                DsTokenThree = "";
+            }
+
+
+            if(DsTokenFour == null || undefined){
+                DsTokenFour = "";
+            }
+
+
+            if(DsTokenFive == null || undefined){
+                DsTokenFive = "";
+            }
+
+
 
 
             setTimeout(() => {
 
-                var obj={DstokenOne: `${DsTokenOne}`, DsTokenTwo: `${DsTokenTwo}`};
+                var obj={DstokenOne: `${DsTokenOne}`, DsTokenTwo: `${DsTokenTwo}`, DsTokenThree: `${DsTokenThree}`, DsTokenFour: `${DsTokenFour}`, DsTokenFive: `${DsTokenFive}`};
                 var toUrl = "/AtualizaAutenticacao";
                 var method="POST";
 

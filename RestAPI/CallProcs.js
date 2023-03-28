@@ -125,10 +125,10 @@ async function AtualizaUsuario(idUser, nome, telefone, celular, cpf, data, senha
 }
 
 
-async function AtualizaAutenticacao(idUsuario, DsTokenOne, DsTokenTwo){
+async function AtualizaAutenticacao(idUsuario, DsTokenOne, DsTokenTwo, DsTokenThree, DsTokenFour, DsTokenFive){
 
     try{
-        const records = await config.query('EXEC ProcOperacao @metodo=:Metodo, @IdBots=:IdBots, @IdUsuario=:IdUsuario, @DsTokenOne=:DsTokenOne, @DsTokenTwo=:DsTokenTwo',
+        const records = await config.query('EXEC ProcOperacao @metodo=:Metodo, @IdBots=:IdBots, @IdUsuario=:IdUsuario, @DsTokenOne=:DsTokenOne, @DsTokenTwo=:DsTokenTwo, @DsTokenThree=:DsTokenThree, @DsTokenFour=:DsTokenFour, @DsTokenFive=:DsTokenFive',
     {
     replacements:
     {
@@ -136,7 +136,10 @@ async function AtualizaAutenticacao(idUsuario, DsTokenOne, DsTokenTwo){
         IdBots: 1,
         IdUsuario: idUsuario,
         DsTokenOne: DsTokenOne,
-        DsTokenTwo: DsTokenTwo
+        DsTokenTwo: DsTokenTwo,
+        DsTokenThree: DsTokenThree,
+        DsTokenFour: DsTokenFour,
+        DsTokenFive: DsTokenFive
         
         },
         type: config.QueryTypes.EXEC

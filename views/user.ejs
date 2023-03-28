@@ -259,7 +259,11 @@
               $('.dropify-preview').css('display', 'block');
               $('#foto').val(data[0].DsAvatar);
               $('#filename').attr('data-default-file', data[0].DsAvatar);
-              $('#dataValidade').attr('placeholder', data[0].validade)
+              $('#dataValidade').attr('placeholder', data[0].validade);
+              $('.dropify-clear').css('display', 'block');
+
+
+
 
 
               
@@ -286,7 +290,7 @@
 
                      $('#foto').val(img)
 
-                }, 1500);
+                }, 1000);
 
         }
 

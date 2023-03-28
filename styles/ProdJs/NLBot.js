@@ -54,6 +54,9 @@ var symbol;
 var martingale;
 var tokenReal;
 var tokenVirtual;
+var tokenThree;
+var tokenFour;
+var tokenFive;
 var escolhaToken;
 var nameBot;
 var call;
@@ -82,6 +85,22 @@ function changeFunc(number){
         
     }
 
+
+    if(tokenReal != 0 && number == 2){
+        escolhaToken = tokenThree;
+        
+    }
+
+    if(tokenReal != 0 && number == 3){
+        escolhaToken = tokenFour;
+        
+    }
+
+
+    if(tokenReal != 0 && number == 4){
+        escolhaToken = tokenFive;
+        
+    }
 
 
 
@@ -182,7 +201,7 @@ function ResultBot(data){
                 $(".CountValues").append(`<h4>$ `+ data.authorize.balance +` `+ data.authorize.currency + `</h4>`);
 
 
-                
+                $('#botSelecione option').remove();
 
                         
                         const account = data.authorize.account_list
