@@ -157,6 +157,8 @@ function ResultBot(data){
     tokenVirtual = data[0].tokenVirtual;
     tokenReal = data[0].tokenReal;
     tokenThree = data[0].tokenThree;
+    tokenFour = data[0].tokenFour;
+    tokenFive = data[0].tokenFive;
     nameBot = data[0].robo;
     
 
@@ -500,7 +502,7 @@ function ResultBot(data){
                                 $(".CountValues h4").remove()
                                 $(".CountValues").append(`<h4>$ `+ balanceAccount.balance.balance +` `+ balanceAccount.balance.currency + `</h4>`);
                                 
-                                if(balanceAccount.balance.balance < 0.1){
+                                if(balanceAccount.balance.balance < 0.35){
                                     alert("Saldo na conta insuficiente para operar.");
                                     
                                     $("#circle1").css({"background-color":"#27282b", "border": "0.25em solid #27282b", "z-index":"1"})

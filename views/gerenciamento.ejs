@@ -343,9 +343,27 @@
 
 
 
-        $(".table-value tbody tr").each(function() {
-        var nome = $(this).find("th:last").text();
-        console.log(nome);
+      
+
+
+
+                window.addEventListener("load", () => {
+
+
+                setTimeout(() => {
+
+
+                const loader = document.querySelector(".fadeSpinner")
+
+                loader.classList.add("fadeSpinner-hidden");
+
+                loader.addEventListener("transitionend", () => {
+                    document.body.removeChild("fadeSpinner");
+                })
+
+
+                }, 1000);
+
         });
 
 

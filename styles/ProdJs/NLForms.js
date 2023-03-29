@@ -10,6 +10,8 @@ function ajaxDados(metodo, dados, elementostatus,funcao){
         dataType: 'json',
         beforeSend: function () {
 
+            
+
             $('.remove').remove()
             elementostatus === '' ? false : $('#' + elementostatus).append('<span class="spinner-border spinner-border-sm mr-1 remove" role="status" aria-hidden="true" style="margin-left:.5rem!important"></span>');
 

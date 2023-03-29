@@ -150,5 +150,35 @@
    
 </div>
 
+
+
+
+<script>
+
+
+
+            window.addEventListener("load", () => {
+
+
+            setTimeout(() => {
+
+
+                const loader = document.querySelector(".fadeSpinner")
+
+                    loader.classList.add("fadeSpinner-hidden");
+
+                    loader.addEventListener("transitionend", () => {
+                        document.body.removeChild("fadeSpinner");
+                    })
+
+
+                 }, 1000);
+
+            });
+
+
+
+</script>
+
 </body>
 </html>
