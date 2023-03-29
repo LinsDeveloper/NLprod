@@ -156,6 +156,7 @@ function ResultBot(data){
     martingale = data[0].martingale; 
     tokenVirtual = data[0].tokenVirtual;
     tokenReal = data[0].tokenReal;
+    tokenThree = data[0].tokenThree;
     nameBot = data[0].robo;
     
 
@@ -278,6 +279,29 @@ function ResultBot(data){
                         }
                        
                            return changeFunc(1);
+                        
+                    }
+
+
+                    if(document.body.contains(event.currentTarget[2]) == true && opcaoValor == 2){
+
+
+
+                        var HiddenIs = $("#summaryStopButton").is(":hidden");
+                        if(HiddenIs === false){
+                            
+                        alert('É preciso parar a automatização na última operação para fazer a troca de conta. Após escolher a conta, volte a operar.');
+                        $('#summaryStopButton').hide()
+                        $('#summaryRunButton').show()
+                        $(".rocket").removeClass('animar');
+                        $('.box::before').removeClass('ativar');
+                        $(".scene i").remove();
+                        $(".tableBot").removeClass('sombrafixa');
+                        $(".box").css("opacity", 0.7);
+
+                        }
+                       
+                           return changeFunc(2);
                         
                     }
 
