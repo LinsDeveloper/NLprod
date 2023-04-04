@@ -144,7 +144,10 @@ function ResultBot(data){
 
 
    
-
+    var resultNoneLoss = $('.titleResultado h6').first().text()
+        if(resultNoneLoss != ''){
+            aux.length = 1;
+       }
 
 
     barrier = data[0].barrier;
@@ -187,7 +190,7 @@ function ResultBot(data){
         //Autenticação TOKEN
 
             ws.onopen = function(evt) {
-                ws.send(JSON.stringify({authorize: tokenReal == 0 ? tokenVirtual : tokenReal}));
+                ws.send(JSON.stringify({authorize: escolhaToken == undefined ? tokenVirtual : escolhaToken}));
             };
 
 
@@ -304,6 +307,52 @@ function ResultBot(data){
                         }
                        
                            return changeFunc(2);
+                        
+                    }
+
+
+                    if(document.body.contains(event.currentTarget[3]) == true && opcaoValor == 3){
+
+
+
+                        var HiddenIs = $("#summaryStopButton").is(":hidden");
+                        if(HiddenIs === false){
+                            
+                        alert('É preciso parar a automatização na última operação para fazer a troca de conta. Após escolher a conta, volte a operar.');
+                        $('#summaryStopButton').hide()
+                        $('#summaryRunButton').show()
+                        $(".rocket").removeClass('animar');
+                        $('.box::before').removeClass('ativar');
+                        $(".scene i").remove();
+                        $(".tableBot").removeClass('sombrafixa');
+                        $(".box").css("opacity", 0.7);
+
+                        }
+                       
+                           return changeFunc(3);
+                        
+                    }
+
+
+                    if(document.body.contains(event.currentTarget[4]) == true && opcaoValor == 4){
+
+
+
+                        var HiddenIs = $("#summaryStopButton").is(":hidden");
+                        if(HiddenIs === false){
+                            
+                        alert('É preciso parar a automatização na última operação para fazer a troca de conta. Após escolher a conta, volte a operar.');
+                        $('#summaryStopButton').hide()
+                        $('#summaryRunButton').show()
+                        $(".rocket").removeClass('animar');
+                        $('.box::before').removeClass('ativar');
+                        $(".scene i").remove();
+                        $(".tableBot").removeClass('sombrafixa');
+                        $(".box").css("opacity", 0.7);
+
+                        }
+                       
+                           return changeFunc(4);
                         
                     }
 
