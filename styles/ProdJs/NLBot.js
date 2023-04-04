@@ -656,7 +656,8 @@ function ResultBot(data){
                                                     $(".CountUp").append(`<h4>$ `+ sum.toFixed(2) + `</h4>`);
                                                     $(".CountUp h4").css('color', '#ff0000')
                                                 }
-
+                                                
+                                                aux.length = 0;
 
                                                 $("#won").html(ganho)
                                                 $("#circle3").css({"background-color":"#45f3ff", "border": "0.25em solid #45f3ff", "z-index":"1000"})
@@ -702,7 +703,7 @@ function ResultBot(data){
                                                 }
                                                 
 
-                                                
+                                                aux.length = 0;
 
                                                 $("#lost").html(perdas)
                                                 $("#circle3").css({"background-color":"#45f3ff", "border": "0.25em solid #45f3ff", "z-index":"1000"})
