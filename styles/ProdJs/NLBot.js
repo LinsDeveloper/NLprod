@@ -387,10 +387,6 @@ function ResultBot(data){
         }
 
 
-        var resultNone = $('.titleResultado h6').first().text()
-        if(resultNone != ''){
-            aux.length = 1;
-       }
 
 
 
