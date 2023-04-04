@@ -190,7 +190,7 @@ function ResultBot(data){
         //Autenticação TOKEN
 
             ws.onopen = function(evt) {
-                ws.send(JSON.stringify({authorize: escolhaToken == undefined ? tokenVirtual : escolhaToken}));
+                ws.send(JSON.stringify({authorize: escolhaToken == undefined ? tokenReal : escolhaToken}));
             };
 
 
