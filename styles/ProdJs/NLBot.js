@@ -141,7 +141,7 @@ function changeFunc(number){
 function ResultBot(data){
 
 
-   
+    aux.length = 0;
    
 
 
