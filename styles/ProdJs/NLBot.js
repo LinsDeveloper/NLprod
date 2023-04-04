@@ -117,8 +117,6 @@ function changeFunc(number){
 
             
 
-            
-
             ws.onmessage = function(msg) {
                 var data = JSON.parse(msg.data);
                 $(".CountValues h4").remove()
@@ -144,10 +142,7 @@ function ResultBot(data){
 
 
    
-    var resultNoneLoss = $('.titleResultado h6').first().text()
-        if(resultNoneLoss != ''){
-            aux.length = 1;
-       }
+   
 
 
     barrier = data[0].barrier;
@@ -375,6 +370,7 @@ function ResultBot(data){
     function entrada(){
 
 
+        aux.length = 0;
 
         var isHidden = $(".btn-connect-desc").is(":hidden");
         if(isHidden === true){
