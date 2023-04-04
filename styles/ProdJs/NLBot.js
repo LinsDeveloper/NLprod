@@ -141,7 +141,7 @@ function changeFunc(number){
 function ResultBot(data){
 
 
-    aux.length = 0;
+    
    
 
 
@@ -370,7 +370,14 @@ function ResultBot(data){
     function entrada(){
 
 
-        aux.length = 0;
+
+        var resultNone = $('.titleResultado h6').first().text()
+        if(resultNone != ''){
+            aux.length = 1;
+       }
+
+
+        
 
         var isHidden = $(".btn-connect-desc").is(":hidden");
         if(isHidden === true){
@@ -387,6 +394,7 @@ function ResultBot(data){
         }
 
 
+        
 
 
 
@@ -512,7 +520,7 @@ function ResultBot(data){
                     //Autenticação TOKEN
 
                         ws.onopen = function(evt) {
-                            ws.send(JSON.stringify({authorize: escolhaToken == undefined ? tokenVirtual : escolhaToken}));
+                            ws.send(JSON.stringify({authorize: escolhaToken == undefined ? tokenReal : escolhaToken}));
                         };
 
 
