@@ -65,6 +65,7 @@ var call;
 
 
 var aux = [];
+var auxPlay = [];
 
 
 
@@ -366,6 +367,15 @@ function ResultBot(data){
 
 
 
+function parar(){
+
+    auxPlay.length = 0;
+}
+
+
+
+
+
 
     function entrada(){
 
@@ -447,7 +457,7 @@ function ResultBot(data){
 
         setTimeout(() => {
 
-
+            auxPlay.length = 1;
              ExecBot()
 
 
@@ -465,7 +475,9 @@ function ResultBot(data){
 
 
 
-
+                    if(auxPlay.length == 0){
+                        return
+                    }
 
 
                     var isHidden = $("#summaryStopButton").is(":hidden");

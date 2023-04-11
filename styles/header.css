@@ -12,10 +12,11 @@
     --body-color: #E4E9F7;
     --sidebar-color: #FFF;
     --primary-color: #041666;
-    --primary-color-light: #b5b4b8;
+    --primary-color-light: #b4b2b2;
     --toggle-color: #DDD;
     --text-color: #707070;
     --clr: #222327;
+    --color-font: #041666;
 
     /* ====== Transition ====== */
     --tran-03: all 0.2s ease;
@@ -48,6 +49,7 @@ body, html{
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    
     
 }
 
@@ -370,12 +372,16 @@ body::-webkit-scrollbar {
 }
 
 body.dark{
-    --body-color: #18191a;
-    --sidebar-color: #242526;
-    --primary-color: #3a3b3c;
-    --primary-color-light: #3a3b3c;
+    --body-color: #020220dc;
+    --sidebar-color: #020220;
+    --primary-color: #000000;
+    --primary-color-light: #000000;
     --toggle-color: #fff;
-    --text-color: #ccc;
+    --text-color: #fff;
+    --color-font: #FFF;
+    
+    
+    
 }
 
 

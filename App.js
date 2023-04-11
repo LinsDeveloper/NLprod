@@ -255,7 +255,6 @@ router.post("/AtualizaUsuario", authenticationMiddleware, (req, res) => {
             
             
             req.flash('successMessage', `${dados[0].success}`);
-            console.log(senha);
             res.redirect('/Cadastro');
             return;
         })

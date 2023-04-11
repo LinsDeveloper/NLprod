@@ -268,6 +268,12 @@ body.dark{
     --primary-color-light: #3a3b3c;
     --toggle-color: #fff;
     --text-color: #ccc;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(/styles/imagensnever/nevermain.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
 }
 
 /* ===== Sidebar ===== */
