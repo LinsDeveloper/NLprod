@@ -627,150 +627,462 @@ function parar(){
                                     
                                         ws.onmessage = function(msg) {
                                             var open = JSON.parse(msg.data);
+
+
+
                                             
-                                            setTimeout(() => {
-                                            
-                                            if(open.proposal_open_contract.bid_price != 0){
-
-                                                $(".titleRefer h6").first().remove();
-                                                $(".titleProhibited h6").first().remove();
-                                                $(".titleExit h6").first().remove();
-                                                $(".titleResultado h6").first().remove();
-                                                $(".titleRefer").prepend(`<h6>`+ open.proposal_open_contract.transaction_ids.buy +`</h6>`);
-                                                $(".titleResultado").prepend(`<h6>`+ open.proposal_open_contract.profit.toFixed(2) +`</h6>`);
-                                                $(".titleProhibited").prepend(`<h6>`+ open.proposal_open_contract.current_spot +`</h6>`);
-                                                $(".titleExit").prepend(`<h6>`+ open.proposal_open_contract.current_spot +`</h6>`);
-                                                $(".titleResultado h6").first().css('color', '#20b813')
-                                                
-                                                lucro.push(open.proposal_open_contract.profit)
-                                                var sum = 0;
-                                                for(var i = 0; i < lucro.length; i++){
-                                                    sum += lucro[i];
-                                                }
+                                            if(open.proposal_open_contract.status == 'open'){
 
 
-                                                var ganho = 0;
-                                                for (var i = 0; i < lucro.length; i++) {
-                                                    if (lucro[i] > 0){
-                                                        ganho++;
+                                                executaOpen();
+
+
+                                                function executaOpen(){
+
+
+                                                    ws.send(JSON.stringify({proposal_open_contract: 1,
+                                                        contract_id: idContractOpen}));
+                            
+                            
+                            
+                                                    ws.onmessage = function(msg) {
+                                                        var openTwo = JSON.parse(msg.data);
+
+                                                        if(openTwo.proposal_open_contract.status == 'open'){
+
+                                                            
+
+                                                                ws.send(JSON.stringify({sell_expired: 1}));
+
+
+                                                                ws.onmessage = function(msg) {
+                                                                   var datatwo = JSON.parse(msg.data);
+                                                                   executaOpen();
+                                                                   return
+                                                                }
+
+                                                                
+                                                                
+                                                            
+
+                                                           
+                                                        }
+
+                                                        if(openTwo.proposal_open_contract.status == 'won'){
+
+
+                                                          
+
+                                                            $(".titleRefer h6").first().remove();
+                                                            $(".titleProhibited h6").first().remove();
+                                                            $(".titleExit h6").first().remove();
+                                                            $(".titleResultado h6").first().remove();
+                                                            $(".titleRefer").prepend(`<h6>`+ openTwo.proposal_open_contract.transaction_ids.buy +`</h6>`);
+                                                            $(".titleResultado").prepend(`<h6>`+ openTwo.proposal_open_contract.profit.toFixed(2) +`</h6>`);
+                                                            $(".titleProhibited").prepend(`<h6>`+ openTwo.proposal_open_contract.current_spot +`</h6>`);
+                                                            $(".titleExit").prepend(`<h6>`+ openTwo.proposal_open_contract.current_spot +`</h6>`);
+                                                            $(".titleResultado h6").first().css('color', '#20b813')
+                                                            
+                                                            lucro.push(openTwo.proposal_open_contract.profit)
+                                                            var sum = 0;
+                                                            for(var i = 0; i < lucro.length; i++){
+                                                                sum += lucro[i];
+                                                            }
+            
+            
+                                                            var ganho = 0;
+                                                            for (var i = 0; i < lucro.length; i++) {
+                                                                if (lucro[i] > 0){
+                                                                    ganho++;
+                                                                }
+                                                                    
+                                                            }
+                                                            
+            
+                                                            if(sum >= 0){
+                                                                $(".CountUp h4").remove()
+                                                                $(".CountUp").append(`<h4>$ `+ sum.toFixed(2) + `</h4>`);
+                                                                $(".CountUp h4").css('color', '#20b813')
+                                                            }
+                                                            else{
+                                                                $(".CountUp h4").remove()
+                                                                $(".CountUp").append(`<h4>$ `+ sum.toFixed(2) + `</h4>`);
+                                                                $(".CountUp h4").css('color', '#ff0000')
+                                                            }
+                                                            
+                                                            aux.length = 0;
+            
+                                                            $("#won").html(ganho)
+                                                            $("#circle3").css({"background-color":"#45f3ff", "border": "0.25em solid #45f3ff", "z-index":"1000"})
+                                                            $(".line").css({"background-color":"#45f3ff", "width": "100%"})
+
+
+                                                            setTimeout(() => {
+
+                                                                ws.send(JSON.stringify({balance: 1}));
+                
+                
+                                                                ws.onmessage = function(msg) {
+                                                                    var balanceFinish = JSON.parse(msg.data);
+                                                                    $(".CountValues h4").remove()
+                                                                    $(".CountValues").append(`<h4>$ `+ balanceFinish.balance.balance +` `+ balanceFinish.balance.currency + `</h4>`);
+                                                                    
+                                                                    };
+                
+                
+                
+                                                                    setTimeout(() => {
+                
+                                                                        ws.send(JSON.stringify({balance: 1}));
+                                    
+                                    
+                                                                        ws.onmessage = function(msg) {
+                                                                            var balanceFinish = JSON.parse(msg.data);
+                                                                            $(".CountValues h4").remove()
+                                                                            $(".CountValues").append(`<h4>$ `+ balanceFinish.balance.balance +` `+ balanceFinish.balance.currency + `</h4>`);
+                
+                
+                
+                                                                            ExecBot()
+                                                                            return
+                                                                            
+                                                                            };
+                                    
+                                    
+                                    
+                                                                        
+                                        
+                                                                    }, 1500)
+                
+                
+                
+                                                                
+                                
+                                                            }, 1000)
+
+
+                                                     
+
+
                                                     }
+
+
+
+                                                        if(openTwo.proposal_open_contract.status == 'lost'){
+
+                                                            
+
+                                                            $(".titleRefer h6").first().remove();
+                                                            $(".titleProhibited h6").first().remove();
+                                                            $(".titleExit h6").first().remove();
+                                                            $(".titleResultado h6").first().remove();
+                                                            $(".titleRefer").prepend(`<h6>`+ openTwo.proposal_open_contract.transaction_ids.buy +`</h6>`);
+                                                            $(".titleResultado").prepend(`<h6>-`+ openTwo.proposal_open_contract.buy_price.toFixed(2) +`</h6>`);
+                                                            $(".titleProhibited").prepend(`<h6>`+ openTwo.proposal_open_contract.entry_spot_display_value +`</h6>`);
+                                                            $(".titleExit").prepend(`<h6>`+ openTwo.proposal_open_contract.entry_spot_display_value +`</h6>`);
+                                                            $(".titleResultado h6").first().css('color', '#ff0000')
+            
+                                                            lucro.push(openTwo.proposal_open_contract.profit)
+                                                            var sum = 0;
+                                                            for(var i = 0; i < lucro.length; i++){
+                                                                sum += lucro[i];
+                                                            }
+            
+            
+                                                            var perdas = 0;
+                                                            for (var i = 0; i < lucro.length; i++) {
+                                                                if (lucro[i] < 0){
+                                                                    perdas++;
+                                                                }
+                                                                    
+                                                            }
+            
+            
+            
+                                                            if(sum < 0){
+                                                                $(".CountUp h4").remove()
+                                                                $(".CountUp").append(`<h4>$ `+ sum.toFixed(2) + `</h4>`);
+                                                                $(".CountUp h4").css('color', '#ff0000')
+                                                            }
+                                                            else{
+                                                                $(".CountUp h4").remove()
+                                                                $(".CountUp").append(`<h4>$ `+ sum.toFixed(2) + `</h4>`);
+                                                                $(".CountUp h4").css('color', '#20b813')
+                                                            }
+                                                            
+            
+                                                            aux.length = 0;
+            
+                                                            $("#lost").html(perdas)
+                                                            $("#circle3").css({"background-color":"#45f3ff", "border": "0.25em solid #45f3ff", "z-index":"1000"})
+                                                            $(".line").css({"background-color":"#45f3ff", "width": "100%"})
+
+
+
+
+                                                            setTimeout(() => {
+
+                                                                ws.send(JSON.stringify({balance: 1}));
+                
+                
+                                                                ws.onmessage = function(msg) {
+                                                                    var balanceFinish = JSON.parse(msg.data);
+                                                                    $(".CountValues h4").remove()
+                                                                    $(".CountValues").append(`<h4>$ `+ balanceFinish.balance.balance +` `+ balanceFinish.balance.currency + `</h4>`);
+                                                                    
+                                                                    };
+                
+                
+                
+                                                                    setTimeout(() => {
+                
+                                                                        ws.send(JSON.stringify({balance: 1}));
+                                    
+                                    
+                                                                        ws.onmessage = function(msg) {
+                                                                            var balanceFinish = JSON.parse(msg.data);
+                                                                            $(".CountValues h4").remove()
+                                                                            $(".CountValues").append(`<h4>$ `+ balanceFinish.balance.balance +` `+ balanceFinish.balance.currency + `</h4>`);
+                
+                
+                
+                                                                            ExecBot()
+                                                                            return
+                                                                            
+                                                                            };
+                                    
+                                    
+                                    
+                                                                        
+                                        
+                                                                    }, 1500)
+                
+                
+                
+                                                                
+                                
+                                                            }, 1000)
+
                                                         
-                                                }
-                                                
 
-                                                if(sum >= 0){
-                                                    $(".CountUp h4").remove()
-                                                    $(".CountUp").append(`<h4>$ `+ sum.toFixed(2) + `</h4>`);
-                                                    $(".CountUp h4").css('color', '#20b813')
-                                                }
-                                                else{
-                                                    $(".CountUp h4").remove()
-                                                    $(".CountUp").append(`<h4>$ `+ sum.toFixed(2) + `</h4>`);
-                                                    $(".CountUp h4").css('color', '#ff0000')
-                                                }
-                                                
-                                                aux.length = 0;
+                                                    }
 
-                                                $("#won").html(ganho)
-                                                $("#circle3").css({"background-color":"#45f3ff", "border": "0.25em solid #45f3ff", "z-index":"1000"})
-                                                $(".line").css({"background-color":"#45f3ff", "width": "100%"})
+                                                }
+
+
+                                                
+                                                    
+                                            }
+
+
+                                        }
+
+
+
+                                        if(open.proposal_open_contract.status == 'won'){
+
+
+                                            setTimeout(() => {
+
+                                            $(".titleRefer h6").first().remove();
+                                            $(".titleProhibited h6").first().remove();
+                                            $(".titleExit h6").first().remove();
+                                            $(".titleResultado h6").first().remove();
+                                            $(".titleRefer").prepend(`<h6>`+ open.proposal_open_contract.transaction_ids.buy +`</h6>`);
+                                            $(".titleResultado").prepend(`<h6>`+ open.proposal_open_contract.profit.toFixed(2) +`</h6>`);
+                                            $(".titleProhibited").prepend(`<h6>`+ open.proposal_open_contract.current_spot +`</h6>`);
+                                            $(".titleExit").prepend(`<h6>`+ open.proposal_open_contract.current_spot +`</h6>`);
+                                            $(".titleResultado h6").first().css('color', '#20b813')
+                                            
+                                            lucro.push(open.proposal_open_contract.profit)
+                                            var sum = 0;
+                                            for(var i = 0; i < lucro.length; i++){
+                                                sum += lucro[i];
+                                            }
+
+
+                                            var ganho = 0;
+                                            for (var i = 0; i < lucro.length; i++) {
+                                                if (lucro[i] > 0){
+                                                    ganho++;
+                                                }
+                                                    
+                                            }
+                                            
+
+                                            if(sum >= 0){
+                                                $(".CountUp h4").remove()
+                                                $(".CountUp").append(`<h4>$ `+ sum.toFixed(2) + `</h4>`);
+                                                $(".CountUp h4").css('color', '#20b813')
                                             }
                                             else{
-                                                $(".titleRefer h6").first().remove();
-                                                $(".titleProhibited h6").first().remove();
-                                                $(".titleExit h6").first().remove();
-                                                $(".titleResultado h6").first().remove();
-                                                $(".titleRefer").prepend(`<h6>`+ open.proposal_open_contract.transaction_ids.buy +`</h6>`);
-                                                $(".titleResultado").prepend(`<h6>-`+ open.proposal_open_contract.buy_price.toFixed(2) +`</h6>`);
-                                                $(".titleProhibited").prepend(`<h6>`+ open.proposal_open_contract.current_spot +`</h6>`);
-                                                $(".titleExit").prepend(`<h6>`+ open.proposal_open_contract.current_spot +`</h6>`);
-                                                $(".titleResultado h6").first().css('color', '#ff0000')
-
-                                                lucro.push(open.proposal_open_contract.profit)
-                                                var sum = 0;
-                                                for(var i = 0; i < lucro.length; i++){
-                                                    sum += lucro[i];
-                                                }
-
-
-                                                var perdas = 0;
-                                                for (var i = 0; i < lucro.length; i++) {
-                                                    if (lucro[i] < 0){
-                                                        perdas++;
-                                                    }
-                                                        
-                                                }
-
-
-
-                                                if(sum < 0){
-                                                    $(".CountUp h4").remove()
-                                                    $(".CountUp").append(`<h4>$ `+ sum.toFixed(2) + `</h4>`);
-                                                    $(".CountUp h4").css('color', '#ff0000')
-                                                }
-                                                else{
-                                                    $(".CountUp h4").remove()
-                                                    $(".CountUp").append(`<h4>$ `+ sum.toFixed(2) + `</h4>`);
-                                                    $(".CountUp h4").css('color', '#20b813')
-                                                }
-                                                
-
-                                                aux.length = 0;
-
-                                                $("#lost").html(perdas)
-                                                $("#circle3").css({"background-color":"#45f3ff", "border": "0.25em solid #45f3ff", "z-index":"1000"})
-                                                $(".line").css({"background-color":"#45f3ff", "width": "100%"})
-
+                                                $(".CountUp h4").remove()
+                                                $(".CountUp").append(`<h4>$ `+ sum.toFixed(2) + `</h4>`);
+                                                $(".CountUp h4").css('color', '#ff0000')
                                             }
+                                            
+                                            aux.length = 0;
+
+                                            $("#won").html(ganho)
+                                            $("#circle3").css({"background-color":"#45f3ff", "border": "0.25em solid #45f3ff", "z-index":"1000"})
+                                            $(".line").css({"background-color":"#45f3ff", "width": "100%"})
+
+
+                                        }, 400)
+
+
+
+                                        setTimeout(() => {
+
+                                            ws.send(JSON.stringify({balance: 1}));
+
+
+                                            ws.onmessage = function(msg) {
+                                                var balanceFinish = JSON.parse(msg.data);
+                                                $(".CountValues h4").remove()
+                                                $(".CountValues").append(`<h4>$ `+ balanceFinish.balance.balance +` `+ balanceFinish.balance.currency + `</h4>`);
+                                                
+                                                };
+
+
+
+                                                setTimeout(() => {
+
+                                                    ws.send(JSON.stringify({balance: 1}));
+                
+                
+                                                    ws.onmessage = function(msg) {
+                                                        var balanceFinish = JSON.parse(msg.data);
+                                                        $(".CountValues h4").remove()
+                                                        $(".CountValues").append(`<h4>$ `+ balanceFinish.balance.balance +` `+ balanceFinish.balance.currency + `</h4>`);
+
+
+
+                                                        ExecBot()
+                                                        return
+                                                        
+                                                        };
+                
+                
+                
+                                                    
+                    
+                                                }, 1500)
+
 
 
                                             
+            
+                                        }, 1000)
 
 
-                                            }, 400)
+                                    }
+
+
+
+                                    
+                                    if(open.proposal_open_contract.status == 'lost'){
+
+                                        setTimeout(() => {
+
+                                        $(".titleRefer h6").first().remove();
+                                        $(".titleProhibited h6").first().remove();
+                                        $(".titleExit h6").first().remove();
+                                        $(".titleResultado h6").first().remove();
+                                        $(".titleRefer").prepend(`<h6>`+ open.proposal_open_contract.transaction_ids.buy +`</h6>`);
+                                        $(".titleResultado").prepend(`<h6>-`+ open.proposal_open_contract.buy_price.toFixed(2) +`</h6>`);
+                                        $(".titleProhibited").prepend(`<h6>`+ open.proposal_open_contract.current_spot +`</h6>`);
+                                        $(".titleExit").prepend(`<h6>`+ open.proposal_open_contract.current_spot +`</h6>`);
+                                        $(".titleResultado h6").first().css('color', '#ff0000')
+
+                                        lucro.push(open.proposal_open_contract.profit)
+                                        var sum = 0;
+                                        for(var i = 0; i < lucro.length; i++){
+                                            sum += lucro[i];
+                                        }
+
+
+                                        var perdas = 0;
+                                        for (var i = 0; i < lucro.length; i++) {
+                                            if (lucro[i] < 0){
+                                                perdas++;
+                                            }
+                                                
+                                        }
+
+
+
+                                        if(sum < 0){
+                                            $(".CountUp h4").remove()
+                                            $(".CountUp").append(`<h4>$ `+ sum.toFixed(2) + `</h4>`);
+                                            $(".CountUp h4").css('color', '#ff0000')
+                                        }
+                                        else{
+                                            $(".CountUp h4").remove()
+                                            $(".CountUp").append(`<h4>$ `+ sum.toFixed(2) + `</h4>`);
+                                            $(".CountUp h4").css('color', '#20b813')
+                                        }
+                                        
+
+                                        aux.length = 0;
+
+                                        $("#lost").html(perdas)
+                                        $("#circle3").css({"background-color":"#45f3ff", "border": "0.25em solid #45f3ff", "z-index":"1000"})
+                                        $(".line").css({"background-color":"#45f3ff", "width": "100%"})
+
+                                    }, 400)
+
+
+
+                                    setTimeout(() => {
+
+                                        ws.send(JSON.stringify({balance: 1}));
+
+
+                                        ws.onmessage = function(msg) {
+                                            var balanceFinish = JSON.parse(msg.data);
+                                            $(".CountValues h4").remove()
+                                            $(".CountValues").append(`<h4>$ `+ balanceFinish.balance.balance +` `+ balanceFinish.balance.currency + `</h4>`);
+                                            
+                                            };
+
 
 
                                             setTimeout(() => {
 
                                                 ws.send(JSON.stringify({balance: 1}));
-
-
+            
+            
                                                 ws.onmessage = function(msg) {
                                                     var balanceFinish = JSON.parse(msg.data);
                                                     $(".CountValues h4").remove()
                                                     $(".CountValues").append(`<h4>$ `+ balanceFinish.balance.balance +` `+ balanceFinish.balance.currency + `</h4>`);
+
+
+
+                                                    ExecBot()
+                                                    return
                                                     
                                                     };
-
-
-
-                                                    setTimeout(() => {
-
-                                                        ws.send(JSON.stringify({balance: 1}));
-                    
-                    
-                                                        ws.onmessage = function(msg) {
-                                                            var balanceFinish = JSON.parse(msg.data);
-                                                            $(".CountValues h4").remove()
-                                                            $(".CountValues").append(`<h4>$ `+ balanceFinish.balance.balance +` `+ balanceFinish.balance.currency + `</h4>`);
-
-
-
-                                                            ExecBot()
-                                                            
-                                                            };
-                    
-                    
-                    
-                                                        
-                        
-                                                    }, 1500)
-
-
-
+            
+            
+            
                                                 
                 
-                                            }, 1000)
+                                            }, 1500)
+
+
+
+                                        
+        
+                                    }, 1000)
+
+                                }
+
+                                            
+
+
+                                            
 
 
 
