@@ -679,8 +679,8 @@ function parar(){
                                                             $(".titleResultado h6").first().remove();
                                                             $(".titleRefer").prepend(`<h6>`+ openTwo.proposal_open_contract.transaction_ids.buy +`</h6>`);
                                                             $(".titleResultado").prepend(`<h6>`+ openTwo.proposal_open_contract.profit.toFixed(2) +`</h6>`);
-                                                            $(".titleProhibited").prepend(`<h6>`+ openTwo.proposal_open_contract.current_spot +`</h6>`);
-                                                            $(".titleExit").prepend(`<h6>`+ openTwo.proposal_open_contract.current_spot +`</h6>`);
+                                                            $(".titleProhibited").prepend(`<h6>`+ openTwo.proposal_open_contract.entry_spot_display_value +`</h6>`);
+                                                            $(".titleExit").prepend(`<h6>`+ openTwo.proposal_open_contract.exit_tick_display_value +`</h6>`);
                                                             $(".titleResultado h6").first().css('color', '#20b813')
                                                             
                                                             lucro.push(openTwo.proposal_open_contract.profit)
@@ -779,7 +779,7 @@ function parar(){
                                                             $(".titleRefer").prepend(`<h6>`+ openTwo.proposal_open_contract.transaction_ids.buy +`</h6>`);
                                                             $(".titleResultado").prepend(`<h6>-`+ openTwo.proposal_open_contract.buy_price.toFixed(2) +`</h6>`);
                                                             $(".titleProhibited").prepend(`<h6>`+ openTwo.proposal_open_contract.entry_spot_display_value +`</h6>`);
-                                                            $(".titleExit").prepend(`<h6>`+ openTwo.proposal_open_contract.entry_spot_display_value +`</h6>`);
+                                                            $(".titleExit").prepend(`<h6>`+ openTwo.proposal_open_contract.exit_tick_display_value +`</h6>`);
                                                             $(".titleResultado h6").first().css('color', '#ff0000')
             
                                                             lucro.push(openTwo.proposal_open_contract.profit)
@@ -890,8 +890,8 @@ function parar(){
                                             $(".titleResultado h6").first().remove();
                                             $(".titleRefer").prepend(`<h6>`+ open.proposal_open_contract.transaction_ids.buy +`</h6>`);
                                             $(".titleResultado").prepend(`<h6>`+ open.proposal_open_contract.profit.toFixed(2) +`</h6>`);
-                                            $(".titleProhibited").prepend(`<h6>`+ open.proposal_open_contract.current_spot +`</h6>`);
-                                            $(".titleExit").prepend(`<h6>`+ open.proposal_open_contract.current_spot +`</h6>`);
+                                            $(".titleProhibited").prepend(`<h6>`+ open.proposal_open_contract.entry_spot_display_value +`</h6>`);
+                                            $(".titleExit").prepend(`<h6>`+ open.proposal_open_contract.exit_tick_display_value +`</h6>`);
                                             $(".titleResultado h6").first().css('color', '#20b813')
                                             
                                             lucro.push(open.proposal_open_contract.profit)
@@ -991,8 +991,8 @@ function parar(){
                                         $(".titleResultado h6").first().remove();
                                         $(".titleRefer").prepend(`<h6>`+ open.proposal_open_contract.transaction_ids.buy +`</h6>`);
                                         $(".titleResultado").prepend(`<h6>-`+ open.proposal_open_contract.buy_price.toFixed(2) +`</h6>`);
-                                        $(".titleProhibited").prepend(`<h6>`+ open.proposal_open_contract.current_spot +`</h6>`);
-                                        $(".titleExit").prepend(`<h6>`+ open.proposal_open_contract.current_spot +`</h6>`);
+                                        $(".titleProhibited").prepend(`<h6>`+ open.proposal_open_contract.entry_spot_display_value +`</h6>`);
+                                        $(".titleExit").prepend(`<h6>`+ open.proposal_open_contract.exit_tick_display_value +`</h6>`);
                                         $(".titleResultado h6").first().css('color', '#ff0000')
 
                                         lucro.push(open.proposal_open_contract.profit)
