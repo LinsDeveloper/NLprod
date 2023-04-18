@@ -317,6 +317,13 @@
 .thInput{
     border-radius: 10px;
     width: 11%;
+    border: none;
+    background-color: #020220;
+    padding: 5px 8px 7px;
+    font-weight: bold;  
+    border-radius: 10px;
+    color: #041666;
+    text-align: center;
 }
 
 
