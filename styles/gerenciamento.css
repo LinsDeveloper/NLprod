@@ -120,6 +120,35 @@
 
 
 
+#titleTabelaCard{
+    display: flex;
+    justify-content: center;
+}
+
+#titleTabelaCard h3{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+
+
+#btn-valueAccount{
+    border: none;
+    background-color: #75757549;
+    padding: 8px 16px 8px;
+    font-weight: bold;  
+    width: 100%;
+    border-radius: 10px;
+    color: #041666;
+    text-align: center;
+}
+
+#btn-valueAccount::placeholder {
+    font-size: 13px;
+    color: #041666;
+    
+}
 
 
 
@@ -282,6 +311,12 @@
     
 
     
+}
+
+
+.thInput{
+    border-radius: 10px;
+    width: 11%;
 }
 
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Treinamentos | Never Loss</title>
+    <title>Gerenciamento | Never Loss</title>
     
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -28,88 +28,89 @@
 
         <main>
         
+            <form action="/Gerenciamento" method="GET">
 
-        <!--CONTEÚDO-->
+                    <!--CONTEÚDO-->
 
-        <div class="fluidcards">
+                    <div class="fluidcards">
 
 
-        <div class="rowcolumn1-cards">
-            
-            
-      
-            <div class="card-first">
-            
-                <div class="titlecd">
-                    <span class="titlecard">
-                        <h1>Saldo da Conta<ion-icon name="cash-outline"></ion-icon></h1>
-                    </span>
-                 </div>
-                 <div class="searchCard">
-                    <input id="btn-value" type="number" title="Saldo inicial" placeholder="Saldo">
-                 </div>
+                    <div class="rowcolumn1-cards">
+                        
+                        
                 
-        
-    
-            </div>
-
-           
-        
-
-            <div class="card-first" style="position: relative; left: 25px;">
-
+                        <div class="card-first">
+                        
+                            <div class="titlecd">
+                                <span class="titlecard">
+                                    <h1>Saldo da Conta<ion-icon name="cash-outline"></ion-icon></h1>
+                                </span>
+                            </div>
+                            <div class="searchCard">
+                                <input id="btn-valueAccount" type="number" title="Saldo inicial" placeholder="Saldo">
+                            </div>
+                            
+                    
                 
-                <div class="titlecd">
-                    <span class="titlecard">
-                        <h1>Meta de Lucro %</h1>
-                    </span>
-                 </div>
-                 <div class="searchCard">
-                    <input id="btn-value" type="number" title="Meta de Lucro" placeholder="Meta">
-                 </div>
+                        </div>
+
+                    
+                    
+
+                        <div class="card-first" style="position: relative; left: 25px;">
+
+                            
+                            <div class="titlecd">
+                                <span class="titlecard">
+                                    <h1>Meta de Lucro %</h1>
+                                </span>
+                            </div>
+                            <div class="searchCard">
+                                <input id="btn-value" type="number" title="Meta de Lucro" placeholder="Meta">
+                            </div>
+                            
                 
-    
-        
-    
-            </div>
-
-            
-
-            
-
-
-        </div>
-
-
-        <div class="rowcolumn2-cards">
-
-
-            <div class="cardconfig">
-
+                    
                 
-                <div class="titlecd">
-                    <span class="titlecard">
-                        <h1>Configurações<ion-icon name="construct-outline"></ion-icon></h1>
-                    </span>
-                 </div>
-                 <div class="bodycardbtn">
-                    <button class="btn-cal"><span></span>Calcular<ion-icon name="calculator-outline"></ion-icon></button>
-                    <button class="btn-save"><span></ion-icon></span>Salvar<ion-icon name="save-outline"></ion-icon></button>
-                    <button class="btn-clean"><span></ion-icon></span>Limpar<ion-icon name="close-outline"></ion-icon></button>
-                 </div>
+                        </div>
+
+                        
+
+                        
 
 
-        </div>
+                    </div>
 
 
-        
+                    <div class="rowcolumn2-cards">
+
+
+                        <div class="cardconfig">
+
+                            
+                            <div class="titlecd">
+                                <span class="titlecard">
+                                    <h1>Configurações<ion-icon name="construct-outline"></ion-icon></h1>
+                                </span>
+                            </div>
+                            <div class="bodycardbtn">
+                                <button type="button" onclick="calcula()" class="btn-cal"><span></span>Calcular<ion-icon name="calculator-outline"></ion-icon></button>
+                                <button type="submit" class="btn-save"><span></ion-icon></span>Salvar<ion-icon name="save-outline"></ion-icon></button>
+                                <button type="button" onclick="remove()" class="btn-clean"><span></ion-icon></span>Limpar<ion-icon name="close-outline"></ion-icon></button>
+                            </div>
+
+
+                    </div>
+
+
+                    
 
 
 
-    </div>
+                </div>
 
     
-
+    </form>
 
     </main>
 
@@ -117,215 +118,33 @@
     <div class="row">
 
         <div class="table">
-            <table class="table-main">
-                <thead>
+            <div class="table-main">
+                
                     <div class="text-center">
                         <div>Simulador de Entradas</div>
                     </div>
-                    <tr>
-                        <th style="position: relative; left: 1.5%;">Dia</th>
-                        <th style="position: relative; left: 5%;">Ganho Esperado</th>
-                        <th style="position: relative; left: 4%;">Lucro Esperado</th>
-                        <th style="position: relative; right: 1%;">Recomendado</th>
+                    <div id="titleTabelaCard">
+                        <h3 style="position: relative; right: 2.4%;">Dia</h3>
+                        <h3 style="position: relative; right: 3.3%;">Ganho Esperado</h3>
+                        <h3 style="position: relative; right: 1%;">Lucro Esperado</h3>
+                        <h3 style="position: relative; right: 2.1%;">Lucro Realizado</h3>
+                        <h3 style="position: relative; right: 1.5%;">Percentual Realizado </h3>
                     </tr>
-                </thead>
-            </table>
+                
+                </div>
         </div>
 
     </div>
+
+</div>
 
     <div class="row">
 
         <div class="table">
             <table  class="table-value">
-                <tbody>
-                    <tr>
-                        <th>1</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>3</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>4</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>5</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>6</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>7</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>8</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>9</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>10</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>11</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>12</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>13</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>14</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>15</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>16</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>17</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>18</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>19</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>20</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>21</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>21</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>22</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>23</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>24</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>25</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>26</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>27</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>28</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>29</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-                    <tr>
-                        <th>30</th>
-                        <th>$53.50</th>
-                        <th>$3.50</th>
-                        <th>$0.11</th>
-                    </tr>
-
+                <tbody class="tbodyT">
+                    
+                    
                     
                 <tbody>
             </table>
@@ -340,6 +159,7 @@
 
 
     <script>
+
 
 
 
@@ -365,6 +185,148 @@
                 }, 1000);
 
         });
+
+
+
+
+
+
+
+        $(document).ready(function(){
+
+               
+                for (var i = 1; i <= 31; i++) {
+                
+                    
+
+
+                    $('.tbodyT').append(`<tr>
+
+                        <th>`+i+`</th>
+                        <th>0.00</th>
+                        <th>0.00</th>
+                        <th class="thInput"><input type="number"></th>
+                        <th>0.00</th>
+
+                        </tr>`);
+                    
+                }
+
+        });
+
+
+
+
+
+        function remove(){
+
+            $('.tbodyT tr').remove();
+
+            for (var i = 1; i <= 31; i++) {
+                
+                    
+
+
+                $('.tbodyT').append(`<tr>
+
+                    <th>`+i+`</th>
+                        <th>0.00</th>
+                        <th>0.00</th>
+                        <th class="thInput"><input type="number"></th>
+                        <th>0.00</th>
+
+
+                    </tr>`);
+                
+            }
+
+
+
+
+        }
+
+
+
+
+
+
+
+        function calcula(){
+
+
+
+            if($('#btn-value').val() === '' || $('#btn-valueAccount').val() === ''){
+                alert('Por favor, preencha o saldo e a meta desejada!');
+                return
+            }
+
+
+
+            
+
+
+            
+            $('.tbodyT tr').remove();
+
+            var meta = parseFloat($('#btn-value').val())/100;
+            var lucro = parseFloat($('#btn-valueAccount').val()) * (parseFloat($('#btn-value').val())/100);
+            var ganho = parseFloat($('#btn-valueAccount').val()) + lucro;
+
+
+            for (var i = 1; i <= 31; i++) {
+
+
+               
+
+                $('.tbodyT').append(`<tr>
+
+                    <th style="position: relative; left: 1.4%; border-radius: 0px">`+i+`</th>
+                    <th style="border-radius: 0px">`+ganho.toFixed(2).toString().replace('.', ',')+`</th>
+                    <th style="position: relative; right: 5.4%; border-radius: 0px">`+lucro.toFixed(2).toString().replace('.',',')+`</th>
+                    <th style="position: relative; right: 5.8%;" class="thInput"><input id="realizado-`+ i +`" onkeyup="calculaPercentual(`+i+`)" type="number"></th>
+                    <th style="border-radius: 0px; position: relative; right: 3%;" id="percent-`+ i +`">0.00</th>
+
+                    </tr>`);
+
+
+                    lucro = ganho * meta
+
+                     ganho = ganho + lucro
+
+                }
+
+
+                
+            
+
+        }
+
+
+
+
+        function calculaPercentual(v){
+
+
+            if($(`#realizado-`+v+``).val() === ''){
+                $(`#percent-`+v+``).html('0.00');
+                return
+            }
+            
+           var cal = parseFloat($(`#realizado-`+v+``).val())/parseFloat($('#btn-valueAccount').val()) * 100;
+
+
+           $(`#percent-`+v+``).html(cal.toFixed(2));
+
+        }
+
+
+
+
+
+
+
+
+        
 
 
 
