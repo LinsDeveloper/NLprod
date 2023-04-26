@@ -247,14 +247,14 @@
                         <div class="content-row">
 
                             <div class="spacediv">
-                                <select name="bot" id="botSelecioneResponsive" style="width: 130px;">
-                                    <option value="" onclick="callBot(3)">CORAL</option>
-                                    <option value="" onclick="callBot(1)">DIAMANTE</option>
-                                    <option value="" onclick="callBot(7)">SAFIRA</option>
-                                    <option value="" onclick="callBot(2)">ESMERALDA</option>
-                                    <option value="" onclick="callBot(5)">OURO</option>
-                                    <option value="" onclick="callBot(4)">PRATA</option>
-                                    <option value="" onclick="callBot(6)">JADE</option>
+                                <select name="bot" id="botSelecioneResponsive" onchange="buscaBot()" style="width: 130px;">
+                                    <option value="3" >CORAL</option>
+                                    <option value="1" >DIAMANTE</option>
+                                    <option value="7" >SAFIRA</option>
+                                    <option value="2" >ESMERALDA</option>
+                                    <option value="5" >OURO</option>
+                                    <option value="4" >PRATA</option>
+                                    <option value="6">JADE</option>
                                 </select>
                             </div>                     
                             <div class="summary-toolbox">
@@ -524,6 +524,15 @@
 
 
                 });
+
+
+
+
+                function buscaBot(){
+
+                    callBot(parseInt($('#botSelecioneResponsive').val()))
+
+                }
 
           
 
