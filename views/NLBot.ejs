@@ -153,13 +153,7 @@
         
 
             
-            <!--
-            
-            <div id="logo" class="logo">
-                <img id="imagemLogo" src="/imagensnever/logoneverloss.png" alt="">
-            </div>
-
-            -->
+       
 
                 
                 <div class="box">
@@ -252,7 +246,17 @@
                          
                         <div class="content-row">
 
-                            <div class="spacediv"></div>                     
+                            <div class="spacediv">
+                                <select name="bot" id="botSelecioneResponsive" style="width: 130px;">
+                                    <option value="" onclick="callBot(3)">CORAL</option>
+                                    <option value="" onclick="callBot(1)">DIAMANTE</option>
+                                    <option value="" onclick="callBot(7)">SAFIRA</option>
+                                    <option value="" onclick="callBot(2)">ESMERALDA</option>
+                                    <option value="" onclick="callBot(5)">OURO</option>
+                                    <option value="" onclick="callBot(4)">PRATA</option>
+                                    <option value="" onclick="callBot(6)">JADE</option>
+                                </select>
+                            </div>                     
                             <div class="summary-toolbox">
                               <button onclick="esconderplay(), entrada()" title="Iniciar o robô" id="summaryRunButton" class="toolbox-button icon-run"><img id="iconplay" src="/styles/imagensnever/playBotPlay.svg"></button>
                               <button onclick="showplay(), parar()" hidden title="Parar o robô" id="summaryStopButton" class="toolbox-button icon-stop"><img id="iconstop" src="/styles/imagensnever/stopBotSvg.svg"></button>
