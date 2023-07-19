@@ -37,7 +37,7 @@ Login:
 Home:
 <img src="./imgs/imgHome.png"/>
 
-Gerenciamento:
+Operações:
 <img src="./imgs/imgOperacoes.jpeg"/>
 
 Gerenciamento:
