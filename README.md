@@ -27,13 +27,23 @@ Este projeto foi desenvolvido para os usuários operarem no mercado financeiro c
 
 ## Imagens
 
-Este projeto serviu como base para efetuar o deploy na plataforma de Cloud [HEROKU](https://www.heroku.com/pricing) e entregar a melhor experiência aos usuários. 
+Este projeto serviu como base para efetuar o deploy na plataforma de Cloud [HEROKU](https://www.heroku.com/pricing) e entregar a melhor experiência aos usuários com uma aplicação Full Stack. 
 
 Algumas imagens da plataforma:
 
 Login:
 <img src="./imgs/imgLogin.png"/>
 
+Home:
+<img src="./imgs/imgHome.png"/>
+
+Gerenciamento:
+<img src="./imgs/imgOperacoes.jpeg"/>
+
 Gerenciamento:
 <img src="./imgs/imgGerenciamento.png"/>
 
+
+## License
+
+Esse projeto está licenciado pelo [MIT License](https://github.com/LinsDeveloper/NLprod/blob/main/LICENSE).
