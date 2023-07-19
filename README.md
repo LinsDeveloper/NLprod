@@ -3,7 +3,7 @@
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![ExpressJs](https://img.shields.io/badge/express.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 
-Este projeto foi desenvolvido para os usuários operarem no mercado financeiro com uma experiência melhor e com conexão à corretora DERIV, utilizando nossos bots de operações. Este projeto consome um socket da [deriv.com](https://deriv.com) para efetuar as operações e controlar ganhos e perdas via gerenciamento dentro da plataforma.
+Este projeto foi desenvolvido para os usuários operarem no mercado financeiro com uma melhor experiência e com conexão à corretora DERIV, utilizando nossos bots de operações. Este projeto consome um socket da [deriv.com](https://deriv.com) para efetuar as operações e controlar ganhos e perdas via gerenciamento dentro da plataforma.
 
 ## Tecnologias Utilizadas
 
