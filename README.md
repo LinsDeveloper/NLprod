@@ -44,6 +44,6 @@ Gerenciamento:
 <img src="./imgs/imgGerenciamento.png"/>
 
 
-## License
+## Licença
 
 Esse projeto está licenciado pelo [MIT License](https://github.com/LinsDeveloper/NLprod/blob/main/LICENSE).
